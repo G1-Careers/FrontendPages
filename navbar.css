@@ -59,8 +59,8 @@ html {
     }
 
     .hyno-logo-url {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         margin-top: 13px;
         border-radius: 36px;
     }
@@ -230,8 +230,8 @@ html {
     }
 
     .hyno-logo-url {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         border-radius: 36px;
     }
 
@@ -325,9 +325,9 @@ html {
     }
 
     .hyno-logo-url {
-        width: 80px;
-        height: 80px;
-        border-radius: 36px;
+        width: 150px;
+        height: 50px;
+        /* border-radius: 36px; */
     }
 
     .navbar.fixed-top {
@@ -401,7 +401,7 @@ html {
         display: flex;
         align-items: center;
         gap: 50px;
-        padding-top: 5px;
+        padding-top: 18px;
     }
 
     .navbar-toggler {
