@@ -94,7 +94,7 @@ html {
     }
 
     .list-items-li:hover {
-        color: #FF004C;
+        color: #ed7600;
     }
 
     .links-naviagate-container {
@@ -215,7 +215,7 @@ html {
         text-align: left;
         font: normal normal normal 14px/24px Raleway;
         letter-spacing: 0px;
-        color: #FF004C;
+        color: #ed7600;
     }
 }
 
@@ -259,7 +259,7 @@ html {
     }
 
     .hire-now-button-navbar {
-        background: #FF004C 0% 0% no-repeat padding-box;
+        background: #ed7600 0% 0% no-repeat padding-box;
         border-radius: 10px;
         font: normal normal medium 14px/43px Gilroy ☞;
         letter-spacing: -0.35px;
@@ -298,7 +298,7 @@ html {
     }
 
     .list-items-li:hover {
-        color: #FF004C;
+        color: #ed7600;
     }
 
     .links-naviagate-container {
@@ -354,7 +354,7 @@ html {
     }
 
     .hire-now-button-navbar {
-        background: #FF004C 0% 0% no-repeat padding-box;
+        background: #ed7600 0% 0% no-repeat padding-box;
         border-radius: 10px;
         font: normal normal medium 14px/43px Gilroy ☞;
         letter-spacing: -0.35px;
@@ -389,11 +389,10 @@ html {
         font-family: 'Gilroy-Medium', sans-serif;
         list-style-type: none;
         text-decoration: none;
-
     }
 
     .list-items-li:hover {
-        color: #FF004C;
+        color: #ed7600;
         text-decoration: none;
     }
 

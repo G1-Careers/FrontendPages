@@ -21,21 +21,17 @@ html {
     color: black;
 }
 
-/* a {
-    text-decoration: none !important;
-} */
-
 .faqs-page-container {
     width: 100%;
     background: #EDF1F4 0% 0% no-repeat padding-box;
 }
 
-.hyno-logo-faq-container {
+.g1careers-logo-faq-container {
     width: 70%;
     margin-left: 15%;
 }
 
-.hyno-logo-faq {
+.g1careers-logo-faq {
     margin-top: 70px;
 }
 
@@ -263,6 +259,11 @@ html {
         opacity: 1;
     }
 
+    .flow-top-2-container-2 {
+        background: white 0% 0% no-repeat padding-box;
+        opacity: 1;
+    }
+
     .remote-slider-container {
         overflow-x: hidden;
         overflow-y: hidden;
@@ -387,6 +388,18 @@ html {
         margin-bottom: 20px;
         font-family: 'Gilroy-Regular', sans-serif;
     }
+
+    .top-2-access-container>h4 {
+        text-align: left;
+        /* font: normal normal normal 22px/28px Gilroy-Regular; */
+        letter-spacing: 0px;
+        width: 30vw;
+        color: #222222;
+        opacity: 1;
+        margin-bottom: 20px;
+        font-family: 'Gilroy-Regular', sans-serif;
+    }
+
     .read-more-about-remote-work {
         text-align: left;
         font: normal normal normal 16px/32px Gilroy-Medium;
@@ -633,159 +646,7 @@ html {
         margin-bottom: 15px;
     }
 
-    .flow-4-galaxy-container {
-        width: 1160px;
-        height: 585px;
-        margin: auto;
-        background-image: url("/images/Web 1920 – 1(1)/Image 6@2x.png");
-        background-size: cover;
-        border-radius: 10px;
-        position: relative;
-        display: none;
-    }
-
-    .flow-4-galaxy-container>h1 {
-        text-align: center;
-        font: normal normal normal 48px/56px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #EFEFEF;
-        opacity: 1;
-        padding-top: 91px;
-        font-family: 'Gilroy-Bold', sans-serif;
-    }
-
-    .galaxy-box-img {
-        width: 32px;
-        height: 32px;
-    }
-
-    .galaxy-box-1 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 183px;
-        left: 125px;
-    }
-
-    .galaxy-box-2 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 266px;
-        left: 338px;
-    }
-
-    .galaxy-box-3 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 203px;
-        left: 514px;
-    }
-
-    .galaxy-box-4 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 160px;
-        left: 879px;
-    }
-
-    .galaxy-box-5 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 268px;
-        left: 694px;
-    }
-
-    .galaxy-box-6 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 371px;
-        left: 152px;
-    }
-
-    .galaxy-box-7 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 407px;
-        left: 363px;
-    }
-
-    .galaxy-box-8 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 425px;
-        left: 586px;
-
-    }
-
-    .galaxy-box-9 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 381px;
-        left: 852px;
-
-    }
+    
 
     .flow-top-5-main-container {
         width: 100%;
@@ -1289,171 +1150,6 @@ html {
         font-family: 'Gilroy-Medium', sans-serif;
     }
 
-    .galaxy-stars-container {
-        width: 100%;
-        display: none;
-    }
-
-    .galaxy-stars-container-1 {
-        width: 76%;
-        margin-left: 12%;
-        height: 585px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-
-    }
-
-    .galaxy-stars-container-2 {
-
-        width: 110%;
-        height: 110%;
-        position: absolute;
-        background: url('../images/Image 6-Image\ 6@2x.png') no-repeat left center / cover;
-
-
-    }
-
-    .galaxy-stars-container-h1 {
-
-        position: absolute;
-        top: 91px;
-        text-align: center;
-        font: normal normal normal 48px/56px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #EFEFEF;
-        opacity: 1;
-        font-family: 'Gilroy-Bold', sans-serif;
-        left: 14%;
-
-
-    }
-
-    .galaxy-skill-1 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 183px;
-        left: 11%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-2 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 246px;
-        left: 27%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-3 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 203px;
-        left: 44%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-4 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 160px;
-        left: 76%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-5 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 268px;
-        left: 60%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-6 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 371px;
-        left: 13%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-7 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 407px;
-        left: 31%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-8 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 425px;
-        left: 51%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-9 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 381px;
-        left: 73%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 
     .what-people-say-container {
         margin-bottom: 50px;
@@ -1952,7 +1648,7 @@ html {
         justify-content: center;
     }
 
-    .hyno-bottom-img {
+    .g1careers-bottom-img {
         width: 200px;
         height: 48px;
 
@@ -2037,7 +1733,7 @@ html {
         margin-top: 15px;
     }
 
-    .bottom-hyno-logo-container {
+    .bottom-g1careers-logo-container {
         margin-top: 60px;
         /* margin-bottom: 47px; */
     }
@@ -2162,7 +1858,7 @@ html {
     }
 
     .flow-top-content-container-h1 {
-        margin-top: 36px;
+        margin-top: 70px;
         text-align: center;
         font: normal normal normal 42px/48px Impact;
         letter-spacing: 0px;
@@ -2211,7 +1907,7 @@ html {
         padding-left: 23px;
         padding-right: 23px;
         margin-top: 20px;
-        margin-bottom: 305px;
+        margin-bottom: 170px;
         font-family: 'Gilroy-Bold', sans-serif;
     }
 
@@ -2222,6 +1918,11 @@ html {
 
     .flow-top-2-container {
         background: #EDF1F4 0% 0% no-repeat padding-box;
+        opacity: 1;
+    }
+
+    .flow-top-2-container-2 {
+        background: white 0% 0% no-repeat padding-box;
         opacity: 1;
     }
 
@@ -2349,6 +2050,18 @@ html {
         font-family: 'Gilroy-Regular', sans-serif;
 
     }
+
+    .top-2-access-container>h4 {
+        text-align: left;
+        /* font: normal normal normal 22px/28px Gilroy-Regular; */
+        letter-spacing: 0px;
+        color: #222222;
+        width: 30vw;
+        opacity: 1;
+        margin-bottom: 20px;
+        font-family: 'Gilroy-Regular', sans-serif;
+    }
+
     .read-more-about-remote-work {
         text-align: left;
         font: normal normal normal 16px/32px Gilroy-Medium;
@@ -2682,160 +2395,7 @@ html {
         margin-bottom: 50px;
     }
 
-    .flow-4-galaxy-container {
-        width: 1160px;
-        height: 585px;
-        margin: auto;
-        background-image: url("/images/Web 1920 – 1(1)/Image 6@2x.png");
-        background-size: cover;
-        border-radius: 10px;
-        position: relative;
-        display: none;
-    }
-
-    .flow-4-galaxy-container>h1 {
-        text-align: center;
-        font: normal normal normal 48px/56px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #EFEFEF;
-        opacity: 1;
-        padding-top: 91px;
-        font-family: 'Gilroy-Bold', sans-serif;
-    }
-
-    .galaxy-box-img {
-        width: 32px;
-        height: 32px;
-    }
-
-    .galaxy-box-1 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 183px;
-        left: 125px;
-    }
-
-    .galaxy-box-2 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 266px;
-        left: 338px;
-    }
-
-    .galaxy-box-3 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 203px;
-        left: 514px;
-    }
-
-    .galaxy-box-4 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 160px;
-        left: 879px;
-    }
-
-    .galaxy-box-5 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 268px;
-        left: 694px;
-    }
-
-    .galaxy-box-6 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 371px;
-        left: 152px;
-    }
-
-    .galaxy-box-7 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 407px;
-        left: 363px;
-    }
-
-    .galaxy-box-8 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 425px;
-        left: 586px;
-
-    }
-
-    .galaxy-box-9 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 381px;
-        left: 852px;
-
-    }
-
+    
     .flow-top-5-main-container {
         width: 100%;
         padding-left: 10%;
@@ -3256,174 +2816,6 @@ html {
         margin-bottom: 160px;
         /* margin-top: -150px; */
     }
-
-
-    .galaxy-stars-container {
-        width: 100%;
-        display: none;
-    }
-
-    .galaxy-stars-container-1 {
-        width: 76%;
-        margin-left: 12%;
-        height: 585px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-
-    .galaxy-stars-container-2 {
-        /* background-image: url("../images/Image 6-Image\ 6@2x.png"); */
-        width: 110%;
-        height: 110%;
-        position: absolute;
-        background: url('../images/Image 6-Image\ 6@2x.png') no-repeat left center / cover;
-
-
-    }
-
-
-
-    .galaxy-stars-container-h1 {
-        position: absolute;
-        top: 91px;
-        text-align: center;
-        font: normal normal normal 48px/56px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #EFEFEF;
-        opacity: 1;
-        font-family: 'Gilroy-Bold', sans-serif;
-        left: 14%;
-
-
-    }
-
-    .galaxy-skill-1 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 183px;
-        left: 11%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-2 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 246px;
-        left: 27%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-3 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 203px;
-        left: 44%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-4 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 160px;
-        left: 76%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-5 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 268px;
-        left: 60%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-6 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 371px;
-        left: 13%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-7 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 407px;
-        left: 31%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-8 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 425px;
-        left: 51%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .galaxy-skill-9 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 381px;
-        left: 73%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
 
     .what-people-say-container {
         /* margin-bottom: 50px; */
@@ -3882,7 +3274,7 @@ html {
 
     }
 
-    .hyno-bottom-img {
+    .g1careers-bottom-img {
         width: 200px;
 
     }
@@ -3963,7 +3355,7 @@ html {
         margin-top: 15px;
     }
 
-    .bottom-hyno-logo-container {
+    .bottom-g1careers-logo-container {
         margin-top: 60px;
 
     }
@@ -4006,7 +3398,7 @@ html {
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 100vh;
+        min-height: 80vh;
     }
 
     .new-top-flex-button {
@@ -4121,7 +3513,7 @@ html {
     }
 
     .flow-top-content-container-h1 {
-        margin-top: 26px;
+        margin-top: 80px;
         text-align: center;
         font: normal normal normal 80px/97px Impact;
         letter-spacing: 0px;
@@ -4181,7 +3573,7 @@ html {
         padding-left: 43px;
         padding-right: 43px;
         margin-top: 17px;
-        /* margin-left: 130px; */
+        margin-bottom: 200px;
         font-family: 'Gilroy-Bold', sans-serif;
 
     }
@@ -4213,6 +3605,12 @@ html {
         background: #EDF1F4 0% 0% no-repeat padding-box;
         opacity: 1;
 
+    }
+
+    .flow-top-2-container-2 {
+        background: white 0% 0% no-repeat padding-box;
+        opacity: 1;
+        
     }
 
     .flow-top-2-container>img {
@@ -4280,7 +3678,7 @@ html {
 
     .top-2-content-container {
         width: 100%;
-        padding-left: 15%;
+        padding-left: 20%;
         display: flex;
         margin-top: 24px;
 
@@ -4307,6 +3705,23 @@ html {
     .top-2-access-container {
         display: flex;
         gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .flow-hexa-container-2 {
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .flow-hexa-container-2>img {
+        margin-left: 100px;
+        margin-right: 100px;
+        width: 200px;
+    }
+
+    .flow-hexa-container-2>p {
+        width: 40vw;
     }
 
     .top-2-access-container>img {
@@ -4316,17 +3731,14 @@ html {
         /* margin-top: -25px; */
     }
 
-    .top-2-access-container>p {
-        text-align: left;
-        font: normal normal normal 22px/28px Gilroy-Regular;
-        letter-spacing: 0px;
-        color: #222222;
-        opacity: 1;
-        margin-bottom: 30px;
-        width: 90%;
-        font-family: 'Gilroy-Regular', sans-serif;
+    
 
+    .top-2-access-container>h4 {
+        text-align: left;
+        /* font: normal normal normal 22px/28px Gilroy-Regular; */
+        width: 30vw;
     }
+
 
     .read-more-about-remote-work {
         text-align: left;
@@ -4600,170 +4012,6 @@ html {
 
     }
 
-    .main-galaxy {
-        width: 1160px;
-        margin: auto;
-        background-size: cover;
-        background-position: center;
-        transition: all 300ms ease;
-    }
-
-    .flow-4-galaxy-container {
-        width: 100%;
-        height: 585px;
-        position: relative;
-        background-image: url("../images/Image 6-Image\ 6@2x.png");
-        /* background-size: cover; */
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position: 50% 50%;
-        /* background-image: url("../images/images-50923.jpg"); */
-        border-radius: 20px;
-
-    }
-
-    .flow-4-galaxy-container>h1 {
-        text-align: center;
-        font: normal normal normal 48px/56px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #EFEFEF;
-        opacity: 1;
-        padding-top: 91px;
-        font-family: 'Gilroy-Bold', sans-serif;
-    }
-
-    .galaxy-box-img {
-        width: 32px;
-        height: 32px;
-    }
-
-    .galaxy-box-1 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 183px;
-        left: 125px;
-    }
-
-    .galaxy-box-2 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 266px;
-        left: 338px;
-    }
-
-    .galaxy-box-3 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 203px;
-        left: 514px;
-    }
-
-    .galaxy-box-4 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 160px;
-        left: 879px;
-    }
-
-    .galaxy-box-5 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 268px;
-        left: 694px;
-    }
-
-    .galaxy-box-6 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 371px;
-        left: 152px;
-    }
-
-    .galaxy-box-7 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 407px;
-        left: 363px;
-    }
-
-    .galaxy-box-8 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 425px;
-        left: 586px;
-
-    }
-
-    .galaxy-box-9 {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 381px;
-        left: 852px;
-
-    }
 
     .flow-top-5-main-container {
         width: 76%;
@@ -4863,64 +4111,10 @@ html {
         font-family: 'Gilroy-Regular', sans-serif;
     }
 
-    .faqs-main-container {
-        width: 100%;
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        display: flex;
-        margin-bottom: 100px;
+   
+   
 
-    }
-
-    .faqs-img-container-1 {
-        width: 20%;
-
-    }
-
-    .faqs-img-container-1-img {
-        width: 202px;
-        height: 183px;
-        margin-top: 650px;
-        margin-left: -70px;
-    }
-
-    .faqs-img-container-2 {
-        width: 20%;
-        display: flex;
-        justify-content: end;
-    }
-
-    .faqs-img-container-2-img {
-        width: 90px;
-        height: 199px;
-        margin-top: 600px;
-
-    }
-
-    .flow-faqs-container {
-        width: 80%;
-    }
-
-    .faqs-img-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .flow-faqs-container>h1 {
-        text-align: center;
-        font: normal normal normal 48px/56px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #000000;
-        opacity: 1;
-        margin-top: -100px;
-        font-family: 'Gilroy-Bold', sans-serif;
-    }
-
-    .faq-items-container {
-        width: 80%;
-        margin-left: 10%;
-        margin-top: 74px;
-        padding-bottom: 117px;
-    }
+   
 
     .faq-question-container {
         border-bottom: 2px solid #D5E0E5;
@@ -5280,95 +4474,6 @@ html {
         font-family: 'Gilroy-Medium', sans-serif;
     }
 
-
-    .galaxy-stars-container {
-        width: 100%;
-    }
-
-    .galaxy-stars-container-1 {
-        width: 76%;
-        margin-left: 12%;
-        height: 585px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        background: url('../images/Image 6-Image\ 6@2x.png') no-repeat left center / cover;
-
-    }
-
-    .galaxy-stars-container-2 {
-        /* background-image: url("../images/Image 6-Image\ 6@2x.png"); */
-        width: 110%;
-        height: 110%;
-        position: absolute;
-        background: url('../images/Image 6-Image\ 6@2x.png') no-repeat left center / cover;
-        /* background-color: white; */
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s ease-out;
-
-
-    }
-
-    .galaxy-stars-container-h1 {
-
-        position: absolute;
-        top: 91px;
-        text-align: center;
-        font: normal normal normal 48px/56px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #EFEFEF;
-        opacity: 1;
-        font-family: 'Gilroy-Bold', sans-serif;
-
-        left: 14%;
-
-
-    }
-
-    .galaxy-skill-1 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 183px;
-        left: 11%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-10 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 183px;
-        left: 11%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
-
-    }
-
-    .galaxy-skill-1:hover {
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-    }
-
-    .galaxy-stars-container-1:hover.galaxy-skill-1 {
-        offset-path: path("M40,50 C0,30 20,0,20,10");
-        animation: move 3000ms infinite alternate ease-in-out;
-        width: 40px;
-        height: 40px;
-        background: cyan;
-    }
-
     @keyframes move {
         0% {
             offset-distance: 0%;
@@ -5379,133 +4484,6 @@ html {
         }
     }
 
-    .galaxy-skill-2 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 246px;
-        left: 27%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-3 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 203px;
-        left: 44%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-4 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 160px;
-        left: 76%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-5 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 268px;
-        left: 60%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-6 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 371px;
-        left: 13%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-7 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 407px;
-        left: 31%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-8 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 425px;
-        left: 51%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
-
-    .galaxy-skill-9 {
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        opacity: 1;
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        position: absolute;
-        top: 381px;
-        left: 73%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-        transition: 1s linear;
-    }
 
     #skill-1 {
         offset-path: path("M40,50 C0,30 20,0,20,10");
@@ -6290,7 +5268,7 @@ html {
         gap: 100px;
     }
 
-    .hyno-bottom-img {
+    .g1careers-bottom-img {
         width: 200px;
         height: 48px;
 
@@ -6374,7 +5352,7 @@ html {
         margin-top: 15px;
     }
 
-    .bottom-hyno-logo-container {
+    .bottom-g1careers-logo-container {
         margin-top: 80px;
         /* margin-bottom: 72px; */
         margin-left: 30vw;
@@ -6404,7 +5382,7 @@ html {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
+        text-decoration: none;
     }
 
     .footer-menu {
@@ -6412,12 +5390,12 @@ html {
         font-size: 18px;
         margin: 35px;
         padding-left: 100px;
+        text-decoration: none;
     }
 
     .footer-menu:hover{
         color: #ED7600;
         text-decoration: none;
-
     }
 
     .follow-us-2-container {
