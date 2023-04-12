@@ -21,23 +21,6 @@ html {
     color: black;
 }
 
-.faqs-page-container {
-    width: 100%;
-    background: #EDF1F4 0% 0% no-repeat padding-box;
-}
-
-.g1careers-logo-faq-container {
-    width: 70%;
-    margin-left: 15%;
-}
-
-.g1careers-logo-faq {
-    margin-top: 70px;
-}
-
-
-
-
 .circle-in-rectangle-img-container {
     width: 60%;
     margin-left: 20%;
@@ -67,31 +50,6 @@ html {
     left: -72px;
 }
 
-.client-review-img-2 {
-    position: absolute;
-    top: -40px;
-    right: 65px;
-}
-
-.client-review-img-3 {
-    position: absolute;
-    top: 104px;
-    left: 143px;
-}
-
-.client-review-img-4 {
-    position: absolute;
-    top: 250px;
-    left: 227px;
-}
-
-.client-review-img-5 {
-    position: absolute;
-    top: 70px;
-    right: 0px;
-}
-
-
 
 @media (min-width:280px) and (max-width:480px) {
 
@@ -101,7 +59,6 @@ html {
     }
 
     .flow-top-container {
-        /* background-image: url("./images/bg.jpg"); */
         opacity: 1;
     }
 
@@ -115,7 +72,6 @@ html {
         flex-direction: column;
         align-items: center;
         min-height: 100vh;
-
     }
 
     .new-top-flex-button {
@@ -126,7 +82,6 @@ html {
         margin-top: 34px;
         width: 450px;
         display: none;
-
     }
 
     .new-btn-flow {
@@ -138,7 +93,6 @@ html {
         border: 0px;
         padding-right: 10px;
         font-family: 'Gilroy-Medium', sans-serif;
-
     }
 
     .new-btn-flow-span {
@@ -184,17 +138,6 @@ html {
         margin-left: 60px;
         margin-top: 25px;
         display: none;
-
-
-    }
-
-    .flow-ball-img {
-        width: 144px;
-        height: 110px;
-        margin-top: 100px;
-        margin-left: 20%;
-        opacity: 0.5;
-
     }
 
     .flow-top-content-container-h1 {
@@ -272,14 +215,9 @@ html {
         scrollbar-width: none; */
     }
 
-    /* .remote-slider-container::-webkit-scrollbar {
-        display: none;
-    } */
     .slider-name-reaveal {
         transition: transform 0.8s;
         display: flex;
-
-
     }
 
     .remote-slider-container-h1 {
@@ -294,7 +232,6 @@ html {
         font-size: 60px;
         line-height: 83px;
         font-family: 'Gilroy-Bold', sans-serif;
-
     }
 
     .circle-img-top {
@@ -306,7 +243,6 @@ html {
         margin-bottom: 20%;
         opacity: 1;
         display: none;
-
     }
 
     .clock-flow-img>img {
@@ -326,19 +262,6 @@ html {
         display: flex;
         justify-content: space-between;
         margin-top: -70px;
-
-    }
-
-    .top-2-ball-img {
-        width: 64px;
-        height: 64px;
-        margin-top: 50px;
-    }
-
-    .top-2-dots-img {
-        width: 75px;
-        height: 79px;
-        margin-top: 35px;
     }
 
     .top-2-content-container {
@@ -362,11 +285,7 @@ html {
         opacity: 1;
         margin-bottom: 62px;
         margin-top: 20px;
-
         font-family: 'Gilroy-Bold', sans-serif;
-
-
-
     }
 
     .top-2-access-container {
@@ -391,7 +310,6 @@ html {
 
     .top-2-access-container>h4 {
         text-align: left;
-        /* font: normal normal normal 22px/28px Gilroy-Regular; */
         letter-spacing: 0px;
         width: 30vw;
         color: #222222;
@@ -419,20 +337,6 @@ html {
         display: flex;
         flex-direction: column;
     }
-
-    .diamond-img-container {
-        width: 15%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        display: none;
-    }
-
-    .diamond-img-container>img {
-        width: 80%;
-        margin-left: -25%;
-    }
-
 
     .flow-item-container {
         background: #FFFFFFBF 0% 0% no-repeat padding-box;
@@ -556,9 +460,7 @@ html {
         list-style-type: none;
         font-family: 'Gilroy-Regular', sans-serif;
         display: flex;
-
         gap: 20px;
-
     }
 
     .top-3-content-container-li>div {
@@ -570,15 +472,12 @@ html {
         margin-top: 6px;
     }
 
-
-
     .top-3-items-main-container {
         width: 100%;
         display: flex;
         flex-direction: column;
         background-image: url("../images/Path12483-Path12483@2x.png");
         background-size: cover;
-
     }
 
     .top-3-item-container {
@@ -613,7 +512,6 @@ html {
         margin-top: 14px;
         margin-bottom: 20px;
         font-family: 'Gilroy-Regular', sans-serif;
-
     }
 
     .top-3-logo-container {
@@ -646,14 +544,11 @@ html {
         margin-bottom: 15px;
     }
 
-    
-
     .flow-top-5-main-container {
         width: 100%;
         padding-left: 15%;
         padding-right: 15%;
         background: #EDF1F4 0% 0% no-repeat padding-box;
-
     }
 
     .top-5-content-container {
@@ -676,7 +571,6 @@ html {
         color: #222222;
         opacity: 1;
         margin-top: 25px;
-
         font-family: 'Gilroy-Regular', sans-serif;
     }
 
@@ -695,10 +589,6 @@ html {
         margin-top: 30px;
     }
 
-     /* .flow-number-container>img {
-        width: 100px;
-        height: 100px;
-    }  */
     .flow-number-container-img1 {
         width: 55%;
     }
@@ -706,20 +596,16 @@ html {
     .flow-number-container-img2 {
         width: 60%;
         margin-left: -13%;
-
     }
 
     .flow-number-container-img3 {
         width: 60%;
         margin-left: -15%;
-
     }
 
     .flow-number-container-img4 {
         width: 60%;
-
     }
-
 
     .flow-number-container>h1 {
         font: normal normal 300 52px/63px Open Sans;
@@ -736,9 +622,7 @@ html {
         color: #495269;
         opacity: 1;
         margin-top: 20px;
-
         font-family: 'Gilroy-Bold', sans-serif;
-
     }
 
     .flow-number-container>p {
@@ -752,110 +636,12 @@ html {
         font-family: 'Gilroy-Regular', sans-serif;
     }
 
-    .flow-faqs-container {
-        width: 100%;
-        padding-left: 10%;
-        padding-right: 10%;
-        background: #EDF1F4 0% 0% no-repeat padding-box;
-        margin-bottom: 100px;
-    }
-
-    .faqs-img-container-2-img {
-        width: 90px;
-        height: 199px;
-        margin-top: 870px;
-        display: none;
-    }
-
-    .faqs-img-container-1-img {
-        width: 90px;
-        height: 199px;
-        margin-top: 870px;
-        display: none;
-
-    }
-
-    .faqs-img-container {
-        display: flex;
-        justify-content: space-between;
-        display: none;
-    }
-
-    .flow-faqs-container>h1 {
-        text-align: center;
-        font: normal normal normal 40px/44px Gilroy-Bold;
-        letter-spacing: 0px;
-        color: #000000;
-        opacity: 1;
-        margin-top: 50px;
-
-        font-family: 'Gilroy-Bold', sans-serif;
-    }
-
-    .faq-items-container {
-        width: 100%;
-        margin-top: 74px;
-        padding-bottom: 100px;
-    }
-
-    .faq-question-container {
-        border-bottom: 2px solid #D5E0E5;
-        margin-bottom: 30px;
-    }
-
-    .faq-logo-container {
-        display: flex;
-        justify-content: space-between;
-
-    }
-
-    .faq-logo-container:hover {
-        cursor: pointer;
-    }
-
-    .faq-logo-container>img {
-        height: 16px;
-        margin-top: 5px;
-    }
-
-
-    .arrows-in-faq {
-        background-image: url("../images/images-2.png");
-        width: 102px;
-        height: 102px;
-        margin-top: 20px;
-    }
-
-
-
-    .faq-answer-container>p {
-        text-align: left;
-        font: normal normal normal 14px/24px Gilroy-Regular;
-        letter-spacing: 0px;
-        color: #222222;
-        opacity: 1;
-        margin-bottom: 10px;
-
-        font-family: 'Gilroy-Regular', sans-serif;
-    }
-
-    .faq-answer-container {
-        width: 100%;
-        padding: auto;
-    }
-
-    .faq-answer-display-container {
-        display: none;
-    }
-
     .flow-follow-us-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
         display: none;
-
-
     }
 
     .follow-us-itmes {
@@ -868,7 +654,6 @@ html {
         box-shadow: 0px 45px 60px #00000029;
         border-bottom: 10px solid #5564F3;
         display: none;
-
     }
 
     .follow-us-itmes>h1 {
@@ -906,14 +691,10 @@ html {
         padding-left: 15%;
         padding-right: 15%;
         display: none;
-
-
-
     }
 
     .hire-best-team-container>h2>img {
         width: 25px;
-        /* height: 32px; */
     }
 
     .flex-hire-team-container {
@@ -930,13 +711,6 @@ html {
         transition: transform 0.8s;
         background-color: transparent;
         display: none;
-
-    }
-
-    .mobile-flex-hire-team-container {
-
-        width: 100%;
-
     }
 
     .tech-team-slider-container {
@@ -947,7 +721,6 @@ html {
         scrollbar-width: none;
         overflow-y: hidden;
         display: none;
-
     }
 
     .tech-team-slider-container::-webkit-scrollbar {
@@ -966,8 +739,6 @@ html {
         flex-shrink: 0;
         margin-left: 10%;
         margin-bottom: 20px;
-
-
     }
 
     .hiring-head-container>h2 {
@@ -976,7 +747,6 @@ html {
         letter-spacing: 0px;
         color: #495269;
         opacity: 1;
-        /* margin-top: 33px; */
         margin-left: 23px;
         font-family: 'Gilroy-Bold', sans-serif;
     }
@@ -988,7 +758,6 @@ html {
         opacity: 1;
         margin-top: 8px;
         margin-left: 23px;
-
         font-family: 'Gilroy-Regular', sans-serif;
     }
 
@@ -1005,7 +774,6 @@ html {
         margin-top: 15px;
         margin-left: 23px;
         margin-bottom: 32px;
-
         font-family: 'Gilroy-Bold', sans-serif;
     }
 
@@ -1018,9 +786,6 @@ html {
     .flow-hire-container {
         display: flex;
         width: 100%;
-        /* margin-left: 15%; */
-
-
     }
 
     .flow-hire-arrow-container {
@@ -1044,8 +809,6 @@ html {
         align-items: flex-end;
         width: 66%;
         margin: auto;
-
-
     }
 
     .flow-arrow-container>button {
@@ -1059,7 +822,6 @@ html {
         padding-right: 35px;
         border-radius: 10px;
         margin-bottom: 160px;
-        /* margin-top: -150px; */
         display: none;
     }
 
@@ -1080,8 +842,6 @@ html {
         width: 100%;
         display: flex;
         justify-content: center;
-
-
     }
 
     .flow-hexa-container>img {
@@ -1154,7 +914,6 @@ html {
     .what-people-say-container {
         margin-bottom: 50px;
         margin-top: 50px;
-
     }
 
     .what-people-say-container>h2 {
@@ -1167,7 +926,6 @@ html {
         margin-top: 0px;
         width: 90%;
         margin-left: 5%;
-
     }
 
     .what-people-say-container>p {
@@ -1184,8 +942,6 @@ html {
         margin-left: 10%;
         border-radius: 8px;
         margin-top: 20px;
-
-
     }
 
     .profile-container-details {
@@ -1196,8 +952,6 @@ html {
         gap: 5%;
         margin-bottom: 30px;
         margin-top: 30px;
-
-
     }
 
     .profile-address-container {
@@ -1298,7 +1052,6 @@ html {
         margin-left: 15%;
         margin-bottom: 100px;
         padding-top: 200px;
-
     }
 
     .jobs-heading-container>h1 {
@@ -1326,20 +1079,12 @@ html {
         margin-bottom: 100px;
     }
 
-    .jobs-mail-container {
-        display: none;
-    }
-
     .home-busi-tech-container {
         margin-top: 70px;
         width: 100%;
-
-
-
     }
 
     .home-busi-content-container {
-
         display: flex;
         justify-content: space-between;
     }
@@ -1357,8 +1102,6 @@ html {
         line-height: 42px;
         font-weight: bold;
     }
-
-
 
     .PrevHome {
         text-align: left;
@@ -1413,12 +1156,6 @@ html {
         display: none;
     }
 
-    /* .home-business-slider-container {
-        display: flex;
-        overflow-x: scroll;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    } */
     .hover-the-element {
         text-decoration: none;
     }
@@ -1432,8 +1169,6 @@ html {
         width: 80%;
         margin-left: 5%;
         flex-shrink: 0;
-
-
     }
 
     .home-blog-container-1-img {
@@ -1752,9 +1487,7 @@ html {
     .footer-menu:hover{
         color: #ED7600;
         text-decoration: none;
-
     }
-
 }
 
 @media (min-width:481px) and (max-width:1200px) {
@@ -2980,22 +2713,9 @@ html {
         padding-top: 10px;
     }
 
-    .jobs-view-container {
-        width: 80%;
-        margin-left: 10%;
-        margin-bottom: 100px;
-    }
-
-    .jobs-mail-container {
-        display: none;
-    }
-
     .home-busi-tech-container {
         margin-top: 70px;
         width: 100%;
-        /* margin-left: 12%; */
-
-
     }
 
     .home-busi-content-container {
@@ -3377,7 +3097,6 @@ html {
         text-decoration: none;
 
     }
-
 }
 
 @media (min-width:1201px) {
@@ -3398,7 +3117,8 @@ html {
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 80vh;
+        min-height: 50vh;
+        /* margin-bottom: 150px; */
     }
 
     .new-top-flex-button {
@@ -5389,7 +5109,7 @@ html {
         color: white;
         font-size: 18px;
         margin: 35px;
-        padding-left: 100px;
+        /* padding-right: 80px; */
         text-decoration: none;
     }
 
@@ -5401,6 +5121,14 @@ html {
     .follow-us-2-container {
         display: flex;
     }
+}
 
+@media (min-width:2501px) {
+    .flow-top-content-container {
+       min-height: 32vh;
+    }
 
+    .footer-menu {
+        padding-right: 100px;
+    }
 }
