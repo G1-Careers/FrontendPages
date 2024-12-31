@@ -25,17 +25,34 @@
         <link rel="stylesheet" href="assets/css/tailwind.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
-    
+    <style>
+        #status {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #status img {
+      width: 150px; /* Logo size */
+      animation: swing 1.5s ease-in-out infinite; /* Swinging animation */
+    }
+
+    @keyframes swing {
+      0%, 100% {
+        transform: translateY(0); /* Original position */
+      }
+      50% {
+        transform: translateY(-20px); /* Move up */
+      }
+    }
+        </style>
     <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900">
         <!-- Loader Start -->
         <div id="preloader">
             <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+                <img src="https://scaleorange.santhoshtech.in/load.png" alt="Loader">
             </div>
-        </div>
+        </div> 
         <!-- Loader End -->
 
         
