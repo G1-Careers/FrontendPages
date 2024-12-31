@@ -1,31 +1,3 @@
-/* Template Name: Techwind - Tailwind CSS Multipurpose Landing & Admin Dashboard Template
-   Author: Shreethemes
-   Email: support@shreethemes.in
-   Website: https://shreethemes.in
-   Version: 2.3.0
-   Created: May 2022
-   File Description: Main JS file of the template
-*/
-
-
-/*********************************/
-/*         INDEX                 */
-/*================================
- *     01.  Loader               *
- *     02.  Toggle Menus         *
- *     03.  Menu Active          *
- *     04.  Clickable Menu       *
- *     05.  Menu Sticky          *
- *     06.  Back to top          *
- *     07.  Active Sidebar       *
- *     08.  Feather icon         *
- *     09.  Small Menu           *
- *     10.  Wow Animation JS     *
- *     11.  Contact us           *
- *     12.  Dark & Light Mode    *
- *     13.  LTR & RTL Mode       *
- ================================*/
-
 
 window.addEventListener('load', fn, false)
 
@@ -322,23 +294,3 @@ try {
 }
 
 
-/*********************/
-/* LTR & RTL Mode */
-/*********************/
-try{
-    const htmlTag = document.getElementsByTagName("html")[0]
-    function changeLayout(e){
-        e.preventDefault()
-        const switcherRtl = document.getElementById("switchRtl")
-        if(switcherRtl.innerText === "LTR"){
-            htmlTag.dir = "ltr"
-        }
-        else{
-            htmlTag.dir = "rtl"
-        }
-        
-    }
-    const switcherRtl = document.getElementById("switchRtl")
-    switcherRtl?.addEventListener("click" ,changeLayout )
-}
-catch(err){}
