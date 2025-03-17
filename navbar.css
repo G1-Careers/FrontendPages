@@ -407,4 +407,32 @@ html {
         display: none;
     }
 
+    
+      
+      /* Add this to your existing CSS file or create a new style tag in your HTML head */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .flow-main-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-main-container {
+    margin-top: auto;
+    width: 100%;
+    background-color: #333; /* Or whatever color you prefer */
+    padding: 20px 0;
+  }
+      
+      footer {
+        background-color: #333; /* Your dark footer color */
+        color: white;
+        padding: 20px 0;
+        width: 100%;
+      }
+
 }

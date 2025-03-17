@@ -1405,11 +1405,7 @@ html {
         margin-bottom: 0px;
     }
 
-    .g1careers-bottom-img {
-        width: 200px;
-        height: 48px;
-
-    }
+    
 
     .footer-list-items-container {
         text-decoration: none;
@@ -1491,10 +1487,23 @@ html {
     }
 
     .bottom-g1careers-logo-container {
-        margin-top: 60px;
-        /* margin-bottom: 47px; */
+        text-align: center;
+        width: 100%;
     }
-
+    
+    .g1careers-bottom-img {
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .bottom-g1careers-logo-container p {
+        color: white;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
+        text-align: center;
+    }
     .follow-us-2-container {
         display: flex;
     }
@@ -3035,10 +3044,7 @@ html {
         margin-bottom: 0px;
     }
 
-    .g1careers-bottom-img {
-        width: 200px;
-
-    }
+    
 
     .footer-list-items-container {
         margin-top: 60px;
@@ -3116,11 +3122,7 @@ html {
         margin-top: 15px;
     }
 
-    .bottom-g1careers-logo-container {
-        margin-top: 60px;
-
-    }
-
+   
 
     .follow-us-2-container {
         display: flex;
@@ -5031,12 +5033,7 @@ html {
         gap: 100px;
     }
 
-    .g1careers-bottom-img {
-        width: 200px;
-        height: 48px;
-
-    }
-
+    
     .footer-list-items-container {
         margin-top: 74px;
         margin-bottom: 72px;
@@ -5114,17 +5111,6 @@ html {
         height: 28px;
         margin-top: 15px;
     }
-
-    .bottom-g1careers-logo-container {
-        margin-top: 80px;
-        /* margin-bottom: 72px; */
-        margin-left: 30vw;
-
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
-    }
-
     .footer-band {
         background-color: black;
     }
