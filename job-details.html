@@ -396,6 +396,75 @@
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
 
+    <script>
+        // Function to populate job details
+        function loadJobDetails() {
+            const job = JSON.parse(localStorage.getItem("selectedJob")); // Retrieve the selected job from localStorage
+
+            if (!job) {
+                document.querySelector(".job-details-content").innerHTML = "<p>Error: Job data not found. Please return to the main page and try again.</p>";
+                return;
+            }
+
+            const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
+
+            // Update page title
+            document.querySelector(".page-title h1").textContent = orderIdTitle || "Job Details";
+
+            // Update sidebar info
+            const infoWidget = document.querySelector(".info-widget ul");
+            infoWidget.innerHTML = `
+                <li><h5>Location</h5><p>${location || "N/A"}</p></li>
+                <li><h5>Website</h5><p><a href="https://g1careers.com">https://g1careers.com</a></p></li>
+                <li><h5>Type</h5><p>${engagement || "N/A"}</p></li>
+                <li><h5>Positions</h5><p>${numPositions || "N/A"}</p></li>
+                <li><h5>Time Zone</h5><p>${timeZone || "N/A"}</p></li>
+            `;
+
+            // Update requirements
+            const requirementsWidget = document.querySelector(".requirements-widget ul");
+            requirementsWidget.innerHTML = `
+                <li><span>Main Skills:</span> ${mainSkills || "N/A"}</li>
+                <li><span>Nature of Work:</span> ${natureOfWork || "N/A"}</li>
+            `;
+
+            // Update content section
+            const contentBox = document.querySelector(".job-details-content");
+            contentBox.innerHTML = `
+                <div class="text-box mb_60">
+                    <h3>Job Description</h3>
+                    <p>${detailedJD || "No detailed job description available."}</p>
+                </div>
+                <div class="text-box mb_55">
+                    <h3>Responsibilities</h3>
+                    <ul class="list-item">
+                        <li>Apply skills such as ${mainSkills || "relevant skills"} to meet job requirements.</li>
+                        <li>Work in ${location || "specified location"} as per ${timeZone || "relevant timezone"}.</li>
+                        <li>Engage in ${natureOfWork || "specified tasks"} for project success.</li>
+                    </ul>
+                </div>
+                <div class="text-box mb_65">
+                    <h3>Advantages</h3>
+                    <p>Join a dynamic team with opportunities in ${engagement || "flexible engagement types"}.</p>
+                    <p>Work on exciting projects with ${numPositions || "multiple"} openings available.</p>
+                </div>
+                <ul class="share-box">
+                    <li><h5>Share On:</h5></li>
+                    <li><a href="#"><i class="icon-22"></i></a></li>
+                    <li><a href="#"><i class="icon-23"></i></a></li>
+                    <li><a href="#"><i class="icon-24"></i></a></li>
+                    <li><a href="#"><i class="icon-25"></i></a></li>
+                </ul>
+            `;
+
+            // Optional: Clear localStorage after loading to prevent stale data
+            // localStorage.removeItem("selectedJob");
+        }
+
+        // Load job details when the page loads
+        window.onload = loadJobDetails;
+    </script>
+
 </body><!-- End of .page_wrapper -->
 
 <!-- Mirrored from azim.hostlin.com/Jobaway/job-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Mar 2025 14:57:23 GMT -->

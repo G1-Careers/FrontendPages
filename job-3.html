@@ -278,8 +278,9 @@
                     return;
                 }
 
-                displayJobs(data.values.slice(1)); // Skip header row
-                errorDiv.textContent = `Loaded ${data.values.length - 1} job openings.`;
+                const jobs = data.values.slice(1); // Skip header row
+                displayJobs(jobs);
+                errorDiv.textContent = `Loaded ${jobs.length} job openings.`;
             } catch (error) {
                 errorDiv.textContent = `Error: ${error.message}`;
             }
@@ -289,7 +290,7 @@
             const jobContainer = document.getElementById("jobContainer");
             jobContainer.innerHTML = ""; // Clear existing content
 
-            jobs.forEach(job => {
+            jobs.forEach((job) => {
                 const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
 
                 const jobBlock = document.createElement("div");
@@ -317,12 +318,18 @@
                             <span>${natureOfWork || "N/A"}</span>
                         </div>
                         <div class="btn-box">
-                            <a href="job-details.html?desc=${encodeURIComponent(detailedJD || "No description available")}" class="theme-btn btn-one">View Details</a>
+                            <a href="#" class="theme-btn btn-one" onclick='viewJobDetails(${JSON.stringify(job)})'>View Details</a>
                         </div>
                     </div>
                 `;
                 jobContainer.appendChild(jobBlock);
             });
+        }
+
+        function viewJobDetails(job) {
+            localStorage.removeItem("selectedJob"); // Clear old data
+            localStorage.setItem("selectedJob", JSON.stringify(job)); // Set new job data
+            window.location.href = "job-details.html"; // Navigate after setting data
         }
     </script>
 </body>
