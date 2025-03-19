@@ -29,6 +29,10 @@
     <link href="assets/css/module-css/subscribe.css" rel="stylesheet">
     <link href="assets/css/module-css/footer.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <!-- Google API Scripts -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
 </head>
 <body>
     <div class="boxed_wrapper ltr">
@@ -65,12 +69,7 @@
                             <li><img src="assets/images/icons/icon-6.png" alt="">Call: <a href="tel:8123700851">+91 8123700851</a></li>
                             <li><img src="assets/images/icons/icon-7.png" alt="">Mail: <a href="mailto:abhishek@g1careers.com">abhishek@g1careers.com</a></li>
                         </ul>
-                        <div class="right-column">
-                            <ul class="social-links">
-                                <li><span>Share:</span></li>
-                                <li><a href="index-3.html"><i class="icon-22"></i></a></li>
-                            </ul>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -90,12 +89,8 @@
                                     <ul class="navigation clearfix">
                                         <li><a href="index-6.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li class="dropdown"><a href="index-6.html">Open Positions</a>
-                                            <ul>
-                                                <li><a href="job-3.html">Job Openings</a></li>
-                                                <li><a href="job-4.html">Job Apply</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="job-3.html">Open Positions</a></li>                                        
+
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
@@ -207,8 +202,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <div class="upload-box">
                                             <div class="icon-box"><img src="assets/images/icons/icon-24.png" alt=""></div>
-                                            <input name="resume" id="resume_input" type="file" accept=".pdf,.doc,.docx" required>
-                                            <button type="button">Upload Latest Resume</button>
+                                            <input name="resume" id="resume_input" type="hidden" required>
+                                            <button type="button" id="uploadResumeBtn">Upload Latest Resume</button>
+                                            <span id="resumeFileName"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +224,6 @@
                                         <div class="select-box">
                                             <select class="wide" name="job_id" id="jobIdDropdown" required>
                                                 <option value="">Select Job ID</option>
-                                                <!-- Options will be populated dynamically -->
                                             </select>
                                         </div>
                                     </div>
@@ -360,197 +355,221 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="assets/js/script.js"></script>
 
+    <!-- Update these script tags in your HTML -->
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+
     <script>
-    // Google Sheet configuration
-    // Google Sheet configuration
-const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
-const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
-const sheetName = "Active Requirements: Published to Vendors";
-const range = `${sheetName}!A2:H1000`;
+// Replace this section in your existing JavaScript
 
-// Array to store job titles
-let jobTitlesArray = [];
+// Google Drive API Configuration
+const CLIENT_ID = '121156419537-b3tih76gnhournepf264vjbsjv6247mr.apps.googleusercontent.com';
+const API_KEY = 'AIzaSyCQJgZg2fsBkWFkQHnj6-sVsU-n5oYZ8dc';
+const SCOPES = 'https://www.googleapis.com/auth/drive.file';
+const FOLDER_ID = '1kC0y5SBhS2jYVaXUqnJe5m4rOdBqfW5b';
 
-// Fetch Job IDs from Google Sheet on page load
-document.addEventListener("DOMContentLoaded", function () {
-    fetchSheetData();
-    
-    // Add search functionality to the nice-select dropdown
-    addSearchToNiceSelect();
-});
+let tokenClient;
+let accessToken;
 
-async function fetchSheetData() {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${encodeURIComponent(range)}?key=${apiKey}`;
-    const jobIdDropdown = document.getElementById("jobIdDropdown");
-
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log("API Response:", data);
-
-        if (!data.values || data.values.length === 0) {
-            jobIdDropdown.innerHTML += '<option value="">No jobs found</option>';
-            return;
-        }
-
-        const jobs = data.values;
-        storeJobTitles(jobs); // Store titles in array
-        populateJobIdDropdown(); // Populate dropdown from array
-    } catch (error) {
-        console.error("Error fetching sheet data:", error);
-        jobIdDropdown.innerHTML += '<option value="">Error loading jobs</option>';
-    }
-}
-
-// Function to store job titles in an array
-function storeJobTitles(jobs) {
-    jobTitlesArray = []; // Reset array
-    for (let i = 1; i < jobs.length; i++) { // Start from index 0 to include all rows
-        const job = jobs[i];
-        if (job && job.length >= 2) {
-            const jobIdTitle = job[1]; // Job ID and title in second column
-            if (jobIdTitle) {
-                jobTitlesArray.push(jobIdTitle.trim()); // Store full job title in array
-            }
-        }
-    }
-    console.log("Job Titles Array:", jobTitlesArray);
-}
-
-// Function to populate dropdown from jobTitlesArray
-function populateJobIdDropdown() {
-    const jobIdDropdown = document.getElementById("jobIdDropdown");
-    jobIdDropdown.innerHTML = '<option value="">Select Job ID</option>';
-
-    jobTitlesArray.forEach((jobTitle) => {
-        if (jobTitle) {
-            const option = document.createElement("option");
-            
-            // Extract job ID if present (assume format is "ID: Title")
-            const jobIdMatch = jobTitle.match(/^(\d+)\s*:/);
-            if (jobIdMatch) {
-                option.value = jobIdMatch[1]; // Use the ID as the value
-            } else {
-                option.value = jobTitle; // Use full title as value if no ID format
-            }
-            
-            option.textContent = jobTitle; // Set full title as display text
-            jobIdDropdown.appendChild(option);
+// Load Google API Client and Picker
+function loadGapi() {
+    gapi.load('client:picker', {
+        callback: function() {
+            console.log('Google API Client and Picker loaded');
+            gapi.client.init({
+                apiKey: API_KEY,
+                discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+            }).then(() => {
+                console.log('GAPI Client initialized');
+                // Initialize Google Identity Services after GAPI is ready
+                if (google.accounts && google.accounts.oauth2) {
+                    initTokenClient();
+                } else {
+                    console.log('Waiting for Google Identity Services to load...');
+                    // Check again in a moment
+                    setTimeout(checkGisLoaded, 500);
+                }
+            }).catch(err => {
+                console.error('Error initializing GAPI client:', err);
+            });
+        },
+        onerror: function() {
+            console.error('Failed to load GAPI');
         }
     });
-    
-    // Initialize Nice Select plugin with custom options
-    if ($.fn.niceSelect) {
-        $(jobIdDropdown).niceSelect('destroy');
-        $(jobIdDropdown).niceSelect();
-        
-        // Apply the search functionality after Nice Select is initialized
-        addSearchToNiceSelect();
+}
+
+// Check if Google Identity Services has loaded
+function checkGisLoaded() {
+    if (google.accounts && google.accounts.oauth2) {
+        initTokenClient();
+    } else {
+        console.log('Google Identity Services still loading...');
+        setTimeout(checkGisLoaded, 500);
     }
 }
 
-// Function to add search functionality to Nice Select dropdown
-function addSearchToNiceSelect() {
-    // Add search box to all nice-select dropdowns
-    setTimeout(() => {
-        const niceSelectList = document.querySelector('.nice-select[name="job_id"] .list');
-        
-        if (niceSelectList) {
-            // Create search input if it doesn't exist
-            if (!niceSelectList.querySelector('.nice-select-search')) {
-                const searchBox = document.createElement('div');
-                searchBox.className = 'nice-select-search-box';
-                searchBox.style.padding = '10px';
-                searchBox.style.position = 'sticky';
-                searchBox.style.top = '0';
-                searchBox.style.background = '#fff';
-                searchBox.style.zIndex = '1';
-                
-                const searchInput = document.createElement('input');
-                searchInput.type = 'text';
-                searchInput.className = 'nice-select-search';
-                searchInput.placeholder = 'Search jobs...';
-                searchInput.style.width = '100%';
-                searchInput.style.padding = '8px';
-                searchInput.style.border = '1px solid #e8e8e8';
-                searchInput.style.borderRadius = '4px';
-                
-                searchBox.appendChild(searchInput);
-                niceSelectList.insertBefore(searchBox, niceSelectList.firstChild);
-                
-                // Fix the dropdown height and make it scrollable
-                niceSelectList.style.maxHeight = '250px';
-                niceSelectList.style.overflowY = 'auto';
-                niceSelectList.style.overflowX = 'hidden';
-                
-                // Add event listener for search
-                searchInput.addEventListener('keyup', function(e) {
-                    e.stopPropagation();
-                    const searchValue = e.target.value.toLowerCase();
-                    const options = niceSelectList.querySelectorAll('li');
-                    
-                    options.forEach(option => {
-                        if (option.textContent.toLowerCase().includes(searchValue)) {
-                            option.style.display = 'block';
-                        } else {
-                            option.style.display = 'none';
-                        }
-                    });
-                });
-                
-                // Prevent dropdown from closing when clicking in search
-                searchInput.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
+// Initialize Token Client for OAuth 2.0
+function initTokenClient() {
+    tokenClient = google.accounts.oauth2.initTokenClient({
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        prompt: 'consent',
+        callback: (response) => {
+            if (response.error) {
+                console.error('Error during authentication:', response.error);
+                return;
             }
-        }
-    }, 500); // Small delay to ensure Nice Select has initialized
+            
+            if (response.access_token) {
+                accessToken = response.access_token;
+                console.log('Access token acquired');
+                createPicker();
+            }
+        },
+    });
 }
 
-// Stop propagation for dropdown list to prevent page scroll when scrolling the dropdown
-$(document).on('mousewheel DOMMouseScroll', '.nice-select .list', function(e) {
-    e.stopPropagation();
+// Create Google Drive Picker
+function createPicker() {
+    if (!accessToken) {
+        console.log('No access token available, requesting one...');
+        tokenClient.requestAccessToken();
+        return;
+    }
+
+    if (!google.picker) {
+        console.log('Picker API not loaded, loading now...');
+        gapi.load('picker', {
+            callback: function() {
+                console.log('Picker API loaded');
+                buildPicker();
+            }
+        });
+    } else {
+        buildPicker();
+    }
+}
+
+// Build and display the Picker
+function buildPicker() {
+    const view = new google.picker.DocsView(google.picker.ViewId.DOCS)
+        .setIncludeFolders(true)
+        .setSelectFolderEnabled(false);
+
+    const picker = new google.picker.PickerBuilder()
+        .addView(view)
+        .setOAuthToken(accessToken)
+        .setDeveloperKey(API_KEY)
+        .setCallback(pickerCallback)
+        .build();
+    picker.setVisible(true);
+}
+
+// Handle Picker Callback
+function pickerCallback(data) {
+    if (data.action === google.picker.Action.PICKED) {
+        const file = data.docs[0];
+        const fileId = file.id;
+        const fileName = file.name;
+
+        // Display selected file name
+        document.getElementById('resumeFileName').textContent = fileName;
+        document.getElementById('resume_input').value = fileId;
+
+        // Upload the file to your Google Drive folder
+        uploadFileToDrive(fileId, fileName);
+    } else if (data.action === google.picker.Action.CANCEL) {
+        console.log('User canceled file picking');
+    }
+}
+
+// Upload File to Google Drive
+function uploadFileToDrive(fileId, fileName) {
+    console.log('Uploading file to Drive:', fileId, fileName);
+    
+    // First, check if we have a valid access token
+    if (!accessToken) {
+        console.error('No access token available for file upload');
+        alert('Authentication error. Please try again.');
+        return;
+    }
+
+    // Fetch the file content
+    fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`, {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to fetch file: ${response.status} ${response.statusText}`);
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        const metadata = {
+            name: `${fileName}_${new Date().getTime()}`,
+            parents: [FOLDER_ID],
+            mimeType: blob.type,
+        };
+        const form = new FormData();
+        form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+        form.append('file', blob);
+
+        return fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+            body: form,
+        });
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to upload file: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('File uploaded successfully:', data);
+        const driveLink = `https://drive.google.com/file/d/${data.id}/view`;
+        document.getElementById('resume_input').value = driveLink;
+        alert('Resume uploaded to Google Drive successfully!');
+    })
+    .catch(error => {
+        console.error('Error in file upload process:', error);
+        alert('Error uploading resume. Please try again.');
+    });
+}
+
+// Event Listener for Upload Button
+document.getElementById('uploadResumeBtn').addEventListener('click', function() {
+    console.log('Upload button clicked');
+    if (!google.accounts || !google.accounts.oauth2) {
+        console.error('Google Identity Services not loaded');
+        alert('Google authentication services not loaded. Please refresh the page and try again.');
+        return;
+    }
+    
+    if (!tokenClient) {
+        console.log('Initializing token client');
+        initTokenClient();
+    }
+    
+    // Request access token and create picker
+    console.log('Requesting access token');
+    tokenClient.requestAccessToken();
 });
 
-// Form submission handler (unchanged)
-document.getElementById('jobApplicationForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const data = {
-        "Timestamp": new Date().toLocaleString(),
-        "Job ID": formData.get('job_id'),
-        "How do you like to Engage with us": formData.get('engagement_preference'),
-        "Full Name": formData.get('full_name'),
-        "Email ID": formData.get('email'),
-        "Mobile Number": formData.get('mobile'),
-        "Whatsapp Number (if Different)": formData.get('whatsapp'),
-        "Referred Here by": formData.get('referred_by'),
-        "Last Designation or Role": formData.get('last_designation'),
-        "Highest Education Qualification & Year of Graduation": formData.get('highest_education'),
-        "Last Company Worked For": formData.get('last_company'),
-        "Tech Stacks Worked With": formData.get('tech_stacks'),
-        "Total Years of Experience": formData.get('experience'),
-        "Current CTC": formData.get('current_ctc'),
-        "Expected CTC": formData.get('expected_ctc'),
-        "Notice Period (in Days)": formData.get('notice_period'),
-        "Current Location": formData.get('current_location'),
-        "Preferred Location": formData.get('preferred_location'),
-        "Work Mode": formData.get('work_mode'),
-        "Additional Information": formData.get('message'),
-        "Linkedin URL": formData.get('linkedin_url')
-    };
-
-    const excelData = [Object.keys(data), Object.values(data)];
-    const ws = XLSX.utils.aoa_to_sheet(excelData);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Job Application");
-    XLSX.writeFile(wb, `Job_Application_${data["Full Name"]}_${new Date().getTime()}.xlsx`);
-    alert("Application submitted and saved as an Excel file!");
+// Initialize everything when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Document loaded, initializing Google APIs');
+    loadGapi();
+    fetchSheetData();
+    addSearchToNiceSelect();
 });
-
     </script>
 </body>
 </html>

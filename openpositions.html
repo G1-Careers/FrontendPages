@@ -66,12 +66,7 @@
                             <li><img src="assets/images/icons/icon-6.png" alt="">Call: <a href="tel:8123700851">+91 8123700851</a></li>
                             <li><img src="assets/images/icons/icon-7.png" alt="">Mail: <a href="mailto:jobinfo@example.com">abhishek@g1careers.com</a></li>
                         </ul>
-                        <div class="right-column">
-                            <ul class="social-links">
-                                <li><span>Share:</span></li>
-                                <li><a href="index-3.html"><i class="icon-22"></i></a></li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -91,13 +86,12 @@
                                     <ul class="navigation clearfix">
                                         <li><a href="index-6.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li class="dropdown"><a href="index-6.html">Open Positions</a>
-                                            <ul>
-                                                <li><a href="job-3.html">Job Openings</a></li>
-                                                <li><a href="job-4.html">Job Apply</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="job-3.html">Open Positions</a></li>                                        
+
                                         <li><a href="contact.html">Contact</a></li>
+
+                                        <li><a href="java+angular.html">Java+Angular</a></li> 
+
                                     </ul>
                                 </div>
                             </nav>
@@ -174,12 +168,12 @@
                                     <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #ffff;">G1Careers</span>
                                 </figure>
                                 <p>Since 2024, g1careers helps you to build your team stronger and better</p>
-                                <div class="download-btn">
+                                <!-- <div class="download-btn">
                                     <a href="about.html" class="play-store">
                                         <img src="assets/images/icons/icon-5.png" alt="">
                                         <span>Get it on</span> Google Play
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-4 col-sm-12 footer-column">
@@ -273,12 +267,12 @@
 
                 const data = JSON.parse(responseText);
 
-                if (!data.values || data.values.length <= 1) { // Assuming row 1 is header
+                if (!data.values || data.values.length <= 1) {
                     errorDiv.textContent = "No job listings found.";
                     return;
                 }
 
-                const jobs = data.values.slice(1); // Skip header row
+                const jobs = data.values.slice(1);
                 displayJobs(jobs);
                 errorDiv.textContent = `Loaded ${jobs.length} job openings.`;
             } catch (error) {
@@ -288,7 +282,7 @@
 
         function displayJobs(jobs) {
             const jobContainer = document.getElementById("jobContainer");
-            jobContainer.innerHTML = ""; // Clear existing content
+            jobContainer.innerHTML = "";
 
             jobs.forEach((job) => {
                 const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
@@ -319,6 +313,7 @@
                         </div>
                         <div class="btn-box">
                             <a href="#" class="theme-btn btn-one" onclick='viewJobDetails(${JSON.stringify(job)})'>View Details</a>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" target="_blank" class="theme-btn btn-one">Apply</a>
                         </div>
                     </div>
                 `;
@@ -327,9 +322,9 @@
         }
 
         function viewJobDetails(job) {
-            localStorage.removeItem("selectedJob"); // Clear old data
-            localStorage.setItem("selectedJob", JSON.stringify(job)); // Set new job data
-            window.location.href = "job-details.html"; // Navigate after setting data
+            localStorage.removeItem("selectedJob");
+            localStorage.setItem("selectedJob", JSON.stringify(job));
+            window.location.href = "job-details.html";
         }
     </script>
 </body>

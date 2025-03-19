@@ -1778,7 +1778,23 @@ button.ltr {
 
 
 
+.copy-url-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
 
+.copy-url-btn i {
+  margin-right: 5px;
+}
+
+.copy-url-btn:hover {
+  color: #007bff;
+}
 
 
 
