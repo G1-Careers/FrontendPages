@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Java Full Stack Training">
     <meta name="google-site-verification" content="PQ6WWrs0sO1qJwTu7W1xL25cddVGq9JvOxWxAfxMD0M">
 
-    <title>Java+Angular Hiring Program </title>
+    <title>Java+Angular Hiring Program</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="assets/images/logos.png" type="image/x-icon">
@@ -41,39 +41,132 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        /* Reset default margins and ensure box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         /* Enhanced UI Styling */
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
-        
+
+        /* Container adjustments */
+        .auto-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
         /* Header Enhancements */
         .header-lower {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-        
+
+        .header-lower .outer-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 8px 0; /* Further reduced padding */
+        }
+
         .logo-box span {
-            background: linear-gradient(135deg, #28A745, #4CAF50); /* Changed to green gradient */
+            background: linear-gradient(135deg, #28A745, #4CAF50);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-weight: 700;
+            line-height: 1; /* Added to reduce vertical space */
         }
-        
+
+        /* Menu Area */
+        .menu-area {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        /* Mobile Nav Toggler (Hamburger Icon) */
+        .mobile-nav-toggler {
+            display: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav-toggler .icon-bar {
+            display: block;
+            width: 20px; /* Reduced size to match index-2.html */
+            height: 2px;
+            background-color: #28A745; /* Changed color to match index-2.html */
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Main Menu */
+        .main-menu {
+            display: block;
+        }
+
+        .main-menu .navigation {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-menu .navigation li {
+            margin-left: 20px;
+        }
+
+        .main-menu .navigation li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Menu Right Content */
+        .menu-right-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-right-content .link-box {
+            margin-right: 20px;
+        }
+
+        .menu-right-content .link-box a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .menu-right-content .btn-box a {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #28A745, #4CAF50);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
         /* Main Content Styling */
         .info-box {
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             padding: 40px;
-            transition: all 0.4s ease;
             border: 1px solid #f0f0f0;
             margin-top: 30px;
         }
-        
+
         .info-box h3 {
-            color: #28A745; /* Changed to green */
+            color: #28A745;
             font-size: 36px;
             margin-bottom: 20px;
             font-weight: 700;
@@ -81,7 +174,7 @@
             padding-bottom: 15px;
             font-family: 'Outfit', sans-serif;
         }
-        
+
         .info-box h3:after {
             content: '';
             position: absolute;
@@ -89,15 +182,15 @@
             left: 0;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #28A745, #4CAF50); /* Changed to green gradient */
+            background: linear-gradient(90deg, #28A745, #4CAF50);
             border-radius: 4px;
         }
-        
+
         .info-box p {
             font-size: 1.1rem;
             line-height: 1.7;
         }
-        
+
         /* Enhanced Box Items */
         .single-item {
             background-color: #fff;
@@ -105,17 +198,16 @@
             padding: 25px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
-            transition: all 0.3s ease;
             border: 1px solid #f0f0f0;
             height: 100%;
         }
-        
+
         .single-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            border-color: rgba(40, 167, 69, 0.3); /* Changed to green */
+            border-color: rgba(40, 167, 69, 0.3);
         }
-        
+
         .single-item h4 {
             color: #111;
             font-size: 22px;
@@ -123,10 +215,10 @@
             font-weight: 600;
             font-family: 'Outfit', sans-serif;
         }
-        
+
         /* Icon Box Styling */
         .icon-box {
-            background: linear-gradient(135deg, #28A745, #4CAF50); /* Changed to green gradient */
+            background: linear-gradient(135deg, #28A745, #4CAF50);
             border-radius: 12px;
             padding: 15px;
             height: 60px;
@@ -136,48 +228,48 @@
             justify-content: center;
             margin-bottom: 20px;
             color: white;
-            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); /* Changed to green */
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
         }
-        
+
         .icon-box i {
             font-size: 24px;
         }
-        
+
         /* Highlight Box */
         .highlight-box {
-            background-color: #e6f4e6; /* Light green background */
-            border-left: 5px solid #28A745; /* Changed to green */
+            background-color: #e6f4e6;
+            border-left: 5px solid #28A745;
             padding: 20px 25px;
             margin: 25px 0;
             border-radius: 0 12px 12px 0;
-            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.1); /* Changed to green */
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.1);
         }
-        
+
         .highlight-box p {
             margin-bottom: 0;
         }
-        
+
         /* Requirements List */
         .requirements-list {
             list-style-type: none;
             padding-left: 0;
         }
-        
+
         .requirements-list li {
             margin-bottom: 16px;
             padding-left: 35px;
             position: relative;
             font-size: 16px;
         }
-        
+
         .requirements-list li:before {
             content: "✓";
             position: absolute;
             left: 0;
             top: 0;
-            color: #28A745; /* Changed to green */
+            color: #28A745;
             font-weight: bold;
-            background-color: rgba(40, 167, 69, 0.1); /* Changed to green */
+            background-color: rgba(40, 167, 69, 0.1);
             width: 24px;
             height: 24px;
             border-radius: 50%;
@@ -186,29 +278,28 @@
             justify-content: center;
             font-size: 14px;
         }
-        
+
         /* Process List */
         .process-list {
             counter-reset: process-counter;
             padding-left: 0;
         }
-        
+
         .process-list li {
             margin-bottom: 18px;
             padding: 15px 15px 15px 65px;
             position: relative;
             background-color: #f8f9fa;
             border-radius: 10px;
-            transition: all 0.3s ease;
             font-size: 15px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
-        
+
         .process-list li:hover {
             background-color: #fff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
-        
+
         .process-list li:before {
             content: counter(process-counter);
             counter-increment: process-counter;
@@ -218,112 +309,276 @@
             transform: translateY(-50%);
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, #28A745, #4CAF50); /* Changed to green gradient */
+            background: linear-gradient(135deg, #28A745, #4CAF50);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            box-shadow: 0 3px 8px rgba(40, 167, 69, 0.3); /* Changed to green */
+            box-shadow: 0 3px 8px rgba(40, 167, 69, 0.3);
         }
-        
+
         /* Date Box */
         .date-box {
-            display: inline-flex;
+            display: flex;
+            flex-wrap: wrap;
             align-items: center;
             background-color: #f8f9fa;
             padding: 8px 16px;
             border-radius: 30px;
-            margin-right: 12px;
-            margin-bottom: 12px;
+            margin: 10px 0;
             border: 1px solid #eee;
-            transition: all 0.3s ease;
+            width: 100%;
         }
-        
-        .date-box:hover {
-            background-color: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-color: rgba(40, 167, 69, 0.2); /* Changed to green */
-        }
-        
+
         .date-box i {
-            color: #28A745; /* Changed to green */
+            color: #28A745;
             margin-right: 8px;
         }
-        
+
+        .date-box:hover {
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-color: rgba(40, 167, 69, 0.2);
+        }
+
         /* Buttons */
         .apply-button {
             display: inline-block;
             padding: 16px 30px;
-            background: linear-gradient(135deg, #28A745, #4CAF50); /* Changed to green gradient */
+            background: linear-gradient(135deg, #28A745, #4CAF50);
             color: white;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3); /* Changed to green */
+            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
             margin-top: 15px;
         }
-        
+
         .apply-button:hover {
-            background: linear-gradient(135deg, #4CAF50, #28A745); /* Changed to green gradient (reversed) */
+            background: linear-gradient(135deg, #4CAF50, #28A745);
             color: white;
             text-decoration: none;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.4); /* Changed to green */
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.4);
         }
-        
+
         .syllabus-link {
-            color: #28A745; /* Changed to green */
+            color: #28A745;
             text-decoration: none;
             font-weight: 500;
             padding: 10px 20px;
-            border: 2px solid #28A745; /* Changed to green */
+            border: 2px solid #28A745;
             border-radius: 8px;
-            transition: all 0.3s ease;
             display: inline-block;
             margin-top: 10px;
         }
-        
+
         .syllabus-link:hover {
-            background-color: #28A745; /* Changed to green */
+            background-color: #28A745;
             color: white;
-            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2); /* Changed to green */
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
         }
-        
+
         /* Footer Enhancements */
         .main-footer {
             background-color: #2d2d2d;
         }
-        
+
         .main-footer p {
             color: #ccc;
         }
-        
+
         .scroll-to-top {
-            background: linear-gradient(135deg, #28A745, #4CAF50); /* Changed to green gradient */
+            background: linear-gradient(135deg, #28A745, #4CAF50);
         }
-        
+
         /* Row spacing */
         .row-spaced {
             margin-top: 30px;
         }
-        
+
         /* Equal height columns */
         .equal-height {
             display: flex;
             flex-wrap: wrap;
         }
-        
+
         .equal-height > [class*='col-'] {
             display: flex;
             flex-direction: column;
         }
-        
+
         .equal-height .single-item {
             flex-grow: 1;
+        }
+
+        /* Mobile Menu Adjustments */
+        .mobile-menu {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Container */
+            .auto-container {
+                padding: 0 10px;
+            }
+
+            /* Header */
+            .header-lower .outer-box {
+                flex-wrap: wrap;
+                position: relative;
+                padding: 15px 0;
+            }
+
+            /* Logo Box */
+            .logo-box {
+                display: flex;
+                align-items: center;
+                margin-right: 10px; /* Further reduced margin to minimize space */
+            }
+
+            .logo-box img {
+                width: 32px; /* Further reduced logo size to match index-2.html */
+                height: 32px;
+            }
+
+            .logo-box span {
+                font-size: 16px; /* Further reduced font size to match index-2.html */
+            }
+
+            /* Menu Area */
+            .menu-area {
+                width: auto;
+                justify-content: flex-end;
+            }
+
+            /* Mobile Nav Toggler */
+            .mobile-nav-toggler {
+  position: relative;
+  float: right;
+  font-size: 40px;
+  line-height: 50px;
+  cursor: pointer;
+  background: var(--theme-color);
+  display: none;
+}
+
+            /* Main Menu */
+            .main-menu {
+                display: none;
+            }
+
+            /* Menu Right Content */
+            .menu-right-content {
+                display: none;
+            }
+
+            /* Info Box */
+            .info-box {
+                padding: 20px;
+            }
+
+            .info-box h3 {
+                font-size: 28px;
+            }
+
+            .info-box p {
+                font-size: 1rem;
+            }
+
+            /* Date Box */
+            .date-box {
+                display: block;
+                text-align: left;
+                padding: 10px;
+                margin: 8px 0;
+            }
+
+            .date-box i {
+                margin-right: 5px;
+            }
+
+            .date-box strong {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            /* Highlight Box */
+            .highlight-box {
+                padding: 15px 20px;
+            }
+
+            /* Process List */
+            .process-list li {
+                font-size: 14px;
+                padding: 12px 12px 12px 50px;
+            }
+
+            .process-list li:before {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+                left: 10px;
+            }
+
+            /* Buttons */
+            .apply-button, .syllabus-link {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            /* Footer */
+            .footer-column {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Info Box */
+            .info-box h3 {
+                font-size: 24px;
+            }
+
+            .info-box p {
+                font-size: 0.9rem;
+            }
+
+            /* Date Box */
+            .date-box {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+
+            /* Process List */
+            .process-list li {
+                font-size: 13px;
+            }
+
+            /* Buttons */
+            .apply-button, .syllabus-link {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+
+            /* Footer */
+            .footer-widget p {
+                font-size: 0.9rem;
+            }
+
+            .mobile-nav-toggler .icon-bar {
+                width: 18px; /* Further reduced for smaller screens */
+                height: 2px;
+                margin: 3px 0;
+            }
+
+            .logo-box span {
+                font-size: 14px; /* Further reduced for smaller screens */
+            }
         }
     </style>
 </head>
@@ -372,7 +627,7 @@
                             <a href="index-6.html">
                                 <img src="assets/images/logos.png" alt="G1Careers Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #333;">
                             </a>
-                            <span style="margin-left: 10px; font-size: 20px; font-weight: bold; color: #333;">G1Careers</span>
+                            <span style="margin-left: 8px; font-size: 20px; font-weight: bold; color: #333;">G1Careers</span>
                         </figure>
                         <div class="menu-area">
                             <div class="mobile-nav-toggler">
@@ -386,9 +641,8 @@
                                         <li><a href="index-6.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="openpositions.html">Open Positions</a></li>
-                                        <li ><a href="contact.html">Contact</a></li>
-                                        <li class="current"><a href="java+angular.html">Java+Angular</a></li> 
-
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li class="current"><a href="java+angular.html">Java+Angular</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -407,7 +661,7 @@
                             <a href="index-6.html">
                                 <img src="assets/images/logos.png" alt="G1Careers Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #333;">
                             </a>
-                            <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #333;">G1Careers</span>
+                            <span style="margin-left: 8px; font-size: 18px; font-weight: bold; color: #333;">G1Careers</span>
                         </figure>
                         <div class="menu-area">
                             <nav class="main-menu clearfix"></nav>
@@ -429,7 +683,7 @@
                     <p>We are hiring 50 <strong>Java Full Stack </strong>Engineers with 3+ years of experience. If you already possess the required skills, you can proceed directly to the interview process—no training needed. However, if you require upskilling, training is available to help you bridge the gap. G1Careers is committed to helping you secure a position with our prestigious clients.</p>
                     
                     <div class="highlight-box">
-                        <p><strong>Requirements </strong></p>
+                        <p><strong>Requirements</strong></p>
                     </div>
                     <ul class="requirements-list">
                         <li>Minimum 3 years of experience (or)</li>
@@ -440,25 +694,20 @@
                     <div class="highlight-box">
                         <p><strong>Important Details:</strong></p>
                     </div>
-                    <div class="date-box"><i class="fa fa-calendar"></i> <strong>Interviews :</strong> 19th to 23rd March 2025</div><br>
-                        
-                    <div class="date-box"><i class="fa fa-check-circle"></i> <strong>Selections & Onboarding :</strong> Monday, 24th March 2025</div>
-                    <div class="date-box"><i class="fa fa-clock-o"></i> <strong>Working Hours :</strong>10:00 AM - 8:00 PM, 6 Days a Week</div>
-                    <div class="date-box"><i class="fa fa-map-marker"></i><strong>Location :</strong> Doctors Colony, behind DMart, Madhapur, Hyderabad</div>
+                    <div class="date-box"><i class="fa fa-calendar"></i> <strong>Interviews:</strong> 19th to 23rd March 2025</div>
+                    <div class="date-box"><i class="fa fa-check-circle"></i> <strong>Selections & Onboarding:</strong> Monday, 24th March 2025</div>
+                    <div class="date-box"><i class="fa fa-clock-o"></i> <strong>Working Hours:</strong> 10:00 AM - 8:00 PM, 6 Days a Week</div>
+                    <div class="date-box"><i class="fa fa-map-marker"></i><strong>Location:</strong> Doctors Colony, behind DMart, Madhapur, Hyderabad</div>
 
-
-                    
-
-                  
                     <div class="highlight-box">
-                        <p><strong>Application Process :</strong></p>
+                        <p><strong>Application Process:</strong></p>
                     </div>
                     <ul class="process-list">
                         <li>Submit your application</li>
                         <li>Complete the self-assessment</li>
                         <li>Take the interview at our office.</li>
                         <li>Receive selection notification and offer letter</li>
-                        <li>If needed (undergo 3-6 months of training )</li>
+                        <li>If needed (undergo 3-6 months of training)</li>
                         <li>Participate in 10 interviews with mid-level MNCs in Hyderabad/Bangalore</li>
                         <li>Receive interview selection results and appointment letter</li>
                         <li>Sign the service agreement</li>
@@ -468,25 +717,20 @@
                     <div class="highlight-box">
                         <p><strong>Contact Details:</strong></p>
                     </div>
-                    
-                    
                     <div class="date-box">
-                        <i class="fa fa-phone"></i> <strong>Phone :</strong> 
+                        <i class="fa fa-phone"></i> <strong>Phone:</strong> 
                         <a href="tel:+918123700851">+91 8123700851</a>
                     </div>
-        
                     <div class="date-box">
-                        <i class="fa fa-globe"></i> <strong>Website :</strong> 
+                        <i class="fa fa-globe"></i> <strong>Website:</strong> 
                         <a href="https://g1careers.com" target="_blank">g1careers.com</a>
                     </div>
-
 
                     <div class="highlight-box">
                         <p><strong>Training Curriculum</strong></p>
                     </div>
-                    <p>Our comprehensive training program covers all aspects of Java Full Stack development, including Core Java, Advanced Java, Spring Boot, Microservices and more.
-
-                        Download the detailed syllabus to explore the curriculum:</p>
+                    <p>Our comprehensive training program covers all aspects of Java Full Stack development, including Core Java, Advanced Java, Spring Boot, Microservices and more.</p>
+                    <p>Download the detailed syllabus to explore the curriculum:</p>
                     <a href="https://docs.google.com/spreadsheets/d/1qf4dERtF_nxYVWsMrXmqm3WRBpFGv6pdX4kO6BNK9Pg/export?format=xlsx" class="syllabus-link" target="_blank">Download Syllabus</a>
 
                     <div class="row row-spaced" style="justify-content: center;">
@@ -496,10 +740,8 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
-            
         </section>
 
         <!-- Mobile Menu -->
@@ -520,6 +762,7 @@
             </nav>
         </div>
 
+        <!-- Footer -->
         <footer class="main-footer light-footer">
             <div class="widget-section p_relative pt_80 pb_100">
                 <div class="auto-container">
@@ -530,7 +773,7 @@
                                     <a href="index-6.html">
                                         <img src="assets/images/logos.png" alt="G1Careers Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #333;">
                                     </a>
-                                    <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #ffff;">G1Careers</span>
+                                    <span style="margin-left: 8px; font-size: 18px; font-weight: bold; color: #ffff;">G1Careers</span>
                                 </figure>
                                 <p>Since 2024, g1careers helps you to build your team stronger and better</p>
                             </div>
