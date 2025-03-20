@@ -243,7 +243,6 @@
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
                                         <li><a href="about.html">About Us</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -365,13 +364,7 @@
         function copyJobUrl() {
             const url = window.location.href;
             navigator.clipboard.writeText(url)
-                .then(() => {
-                    alert("Job URL copied to clipboard!");
-                })
-                .catch(err => {
-                    console.error("Failed to copy URL: ", err);
-                    alert("Failed to copy URL. Please try again.");
-                });
+                
         }
 
         window.onload = loadJobDetails;
