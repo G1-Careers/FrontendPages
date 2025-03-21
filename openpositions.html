@@ -30,6 +30,53 @@
     <link href="assets/css/module-css/subscribe.css" rel="stylesheet">
     <link href="assets/css/module-css/footer.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles for Job Section Buttons */
+        .btn-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .btn-box a {
+            flex: 1;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn-box a:first-child {
+            background: #fff;
+            border: 1px solid #2c5234;
+            color: #2c5234;
+        }
+        .btn-box a:first-child:hover {
+            background: #2c5234;
+            color: #fff;
+        }
+        .btn-box a:last-child {
+            background: #2c5234;
+            color: #fff;
+            border: 1px solid #2c5234;
+        }
+        .btn-box a:last-child:hover {
+            background: #1d3b24;
+        }
+
+        /* Ensure buttons remain side by side on all screen sizes */
+        @media (max-width: 576px) {
+            .btn-box {
+                flex-direction: row; /* Keep buttons side by side */
+                gap: 8px;
+            }
+            .btn-box a {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="boxed_wrapper ltr">
