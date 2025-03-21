@@ -32,50 +32,108 @@
     <link href="assets/css/responsive.css" rel="stylesheet">
 
     <style>
-        /* Custom Styles for Job Section Buttons */
-        .btn-box {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .btn-box a {
-            flex: 1;
-            text-align: center;
-            padding: 10px 15px;
-            font-size: 14px;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-        .btn-box a:first-child {
-            background: #fff;
-            border: 1px solid #2c5234;
-            color: #2c5234;
-        }
-        .btn-box a:first-child:hover {
-            background: #2c5234;
-            color: #fff;
-        }
-        .btn-box a:last-child {
-            background: #2c5234;
-            color: #fff;
-            border: 1px solid #2c5234;
-        }
-        .btn-box a:last-child:hover {
-            background: #1d3b24;
-        }
+       /* Enhanced Button Styling for Job Listings */
+      
+/* Enhanced Button Styling for Job Listings */
+.btn-box {
+    display: flex;
+    gap: 10px; /* Reduced gap for better spacing */
+    margin-top: 10px; /* Reduced spacing above buttons */
+    flex-direction: row; /* Horizontal by default */
+    justify-content: flex-start; /* Align buttons to the left */
+}
 
-        /* Ensure buttons remain side by side on all screen sizes */
-        @media (max-width: 576px) {
-            .btn-box {
-                flex-direction: row; /* Keep buttons side by side */
-                gap: 8px;
-            }
-            .btn-box a {
-                padding: 8px 10px;
-                font-size: 13px;
-            }
-        }
+/* Base Button Styling */
+.btn-box a {
+    flex: 0 1 auto; /* Allow buttons to shrink and grow as needed */
+    text-align: center;
+    padding: 8px 20px; /* Decreased size for normal view */
+    font-size: 14px; /* Smaller font size for better fit */
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500; /* Slightly lighter font weight for better readability */
+    border-radius: 25px; /* More rounded edges to match the image */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-width: 100px; /* Reduced min-width for smaller buttons */
+}
+
+/* View Details Button */
+.btn-box a:first-child {
+    background: #ffffff;
+    border: 2px solid #7ED957;
+    color: #7ED957;
+}
+
+.btn-box a:first-child:hover {
+    background: #f8fff4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(126,217,87,0.2);
+}
+
+/* Apply Button */
+.btn-box a:last-child {
+    background: #7ED957;
+    color: #000000;
+    border: 2px solid #7ED957;
+}
+
+.btn-box a:last-child:hover {
+    background: #70c64c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(126,217,87,0.3);
+}
+
+/* Add a subtle animation on click */
+.btn-box a:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .btn-box {
+        gap: 10px; /* Slightly larger gap for better spacing */
+        flex-direction: row; /* Keep buttons side-by-side */
+        justify-content: flex-start; /* Align buttons to the left */
+    }
+    
+    .btn-box a {
+        padding: 6px 15px; /* Adjusted padding to match the image proportions */
+        font-size: 13px; /* Smaller font size for mobile */
+        min-width: 80px; /* Reduced min-width to fit smaller buttons */
+        border-radius: 20px; /* Less rounded edges to match the image */
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-box {
+        flex-direction: row; /* Side-by-side buttons on mobile, as shown in the image */
+        gap: 10px;
+        justify-content: flex-start; /* Align buttons to the left */
+    }
+    
+    .btn-box a {
+        padding: 6px 15px; /* Same padding as above for consistency */
+        font-size: 13px;
+        width: auto; /* Let the button width adjust to content */
+        min-width: 80px; /* Ensure buttons are not too small */
+        border-radius: 50px; /* Match the rectangular shape with rounded edges */
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 577px) and (max-width: 768px) {
+    .btn-box {
+        flex-direction: row; /* Side-by-side for tablets */
+        gap: 10px;
+    }
+    
+    .btn-box a {
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 <body>
@@ -110,8 +168,8 @@
                 <div class="auto-container">
                     <div class="top-inner">
                         <ul class="info">
-                            <li><img src="assets/images/icons/icon-6.png" alt="">Call: <a href="tel:8123700851">+91 8123700851</a></li>
-                            <li><img src="assets/images/icons/icon-7.png" alt="">Mail: <a href="mailto:jobinfo@example.com">abhishek@g1careers.com</a></li>
+                            <li><img src="assets/images/icons/icon-6.png" alt="">Call: <a href="tel:85558 97504">+91 85558 97504</a></li>
+                            <li><img src="assets/images/icons/icon-7.png" alt="">Mail: <a href="mailto:delivery@g1careers.com">delivery@g1careers.com</a></li>
                         </ul>
                         
                     </div>
@@ -181,8 +239,8 @@
                     <h4>Contact Info</h4>
                     <ul>
                         <li>3rd Floor, Ratnam Chambers, Phase - II, H.No.1-62/172, Plot No.172, Kavuri Hills, Madhapur, Telangana 500081</li>
-                        <li><a href="tel:+918123700851">+91 8123700851</a></li>
-                        <li><a href="mailto:abhishek@g1careers.com">abhishek@g1careers.com</a></li>
+                        <li><a href="tel:+9185558 97504">+91 85558 97504</a></li>
+                        <li><a href="mailto:delivery@g1careers.com">delivery@g1careers.com</a></li>
                     </ul>
                 </div>
             </nav>
@@ -190,13 +248,12 @@
         <!-- End Mobile Menu -->
 
         <!-- job-section -->
-        <section class="job-section pt_90 pb_90">
+        <section class="job-section pt_20 pb_20">
             <div class="auto-container">
-                <div class="sec-title centred pb_60 sec-title-animation animation-style2">
+                <div class="sec-title centred pb_20 sec-title-animation animation-style2">
                     <h2 class="title-animation">Find Your Job</h2>
                 </div>
                 <div class="inner-container" id="jobContainer">
-                    <!-- Jobs will be dynamically inserted here -->
                 </div>
                 <div id="errorDetails" style="color: red; text-align: center; margin-top: 20px;"></div>
             </div>
@@ -214,7 +271,7 @@
                                     <a href="index.html"><img src="assets/images/logos.png" alt="G1Careers Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #333;"></a>
                                     <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #ffff;">G1Careers</span>
                                 </figure>
-                                <p>Since 2024, g1careers helps you to build your team stronger and better</p>
+                                <p> Since 2023, G1Careers has Augmented Staff for 300+  Corporates in India and  US</p>
                                 <!-- <div class="download-btn">
                                     <a href="about.html" class="play-store">
                                         <img src="assets/images/icons/icon-5.png" alt="">
@@ -301,7 +358,7 @@
             const errorDiv = document.getElementById("errorDetails");
             const jobContainer = document.getElementById("jobContainer");
 
-            errorDiv.textContent = "Loading job listings...";
+            // errorDiv.textContent = "Loading job listings...";
 
             try {
                 const response = await fetch(url);
@@ -321,7 +378,7 @@
 
                 const jobs = data.values.slice(1);
                 displayJobs(jobs);
-                errorDiv.textContent = `Loaded ${jobs.length} job openings.`;
+                // errorDiv.textContent = `Loaded ${jobs.length} job openings.`;
             } catch (error) {
                 errorDiv.textContent = `Error: ${error.message}`;
             }
@@ -337,34 +394,40 @@
                 const jobBlock = document.createElement("div");
                 jobBlock.className = "job-block-one";
                 jobBlock.innerHTML = `
-                    <div class="upper-box">
-                        <ul class="job-info">
-                            <li><i class="icon-43"></i>Main Skills: <span>${mainSkills || "N/A"}</span></li>
-                            <li>Positions: <span>${numPositions || "N/A"}</span></li>
-                            <li>Time Zone: <span>${timeZone || "N/A"}</span></li>
-                        </ul>
-                    </div>
-                    <div class="inner-box">
-                        <div class="title-box">
-                            <div class="icon-box"><i class="icon-44"></i></div>
-                            <h3>${orderIdTitle || "Untitled Job"}</h3>
-                            <span>${location || "Not found"}</span>
-                        </div>
-                        <div class="salary-box">
-                            <h5>Type</h5>
-                            <span>${engagement || "N/A"}</span>
-                        </div>
-                        <div class="experience-box">
-                            <h5>Nature of Work</h5>
-                            <span>${natureOfWork || "N/A"}</span>
-                        </div>
-                        <div class="btn-box">
-                            <a href="#" class="theme-btn btn-one" onclick='viewJobDetails(${JSON.stringify(job)})'>View Details</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" target="_blank" class="theme-btn btn-one">Apply</a>
-                        </div>
-                    </div>
-                `;
-                jobContainer.appendChild(jobBlock);
+    <div class="upper-box">
+        <ul class="job-info">
+${mainSkills ? `<li><i class="fa-solid fa-tools"></i>Main Skills: <span>${mainSkills}</span></li>` : ''}
+            ${numPositions ? `<li>Positions: <span>${numPositions}</span></li>` : ''}
+            ${timeZone ? `<li>Time Zone: <span>${timeZone}</span></li>` : ''}
+        </ul>
+    </div>
+    <div class="inner-box">
+        <div class="title-box">
+            <div class="icon-box"><i class="icon-44"></i></div>
+            <h3>${orderIdTitle || "Untitled Job"}</h3>
+            ${location ? `<span>${location}</span>` : ''}
+        </div>
+        ${engagement ? `
+            <div class="salary-box">
+                <h5>Type</h5>
+                <span>${engagement}</span>
+            </div>
+        ` : ''}
+        ${natureOfWork ? `
+            <div class="experience-box">
+                <h5>Nature of Work</h5>
+                <span>${natureOfWork}</span>
+            </div>
+        ` : ''}
+        <div class="btn-box">
+            <a href="#" class="theme-btn btn-one" onclick='viewJobDetails(${JSON.stringify(job)})'>View Details</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" target="_blank" class="theme-btn btn-one">Apply</a>
+        </div>
+    </div>
+`;
+
+jobContainer.appendChild(jobBlock);
+
             });
         }
 
