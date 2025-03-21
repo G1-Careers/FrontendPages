@@ -13,8 +13,8 @@
 <link rel="icon" href="assets/images/logos.png" type="image/x-icon">
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
 <!-- Stylesheets -->
 <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -35,7 +35,6 @@
 <link href="assets/css/module-css/subscribe.css" rel="stylesheet">
 <link href="assets/css/module-css/footer.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
-
 
 <style>
     /* Enhanced Contact Section Styling */
@@ -128,17 +127,74 @@
       color: #65e17f;
       text-decoration: none;
     }
-  </style>
 
+    /* Mobile Responsive Adjustments for Contact Section */
+    @media (max-width: 991px) {
+        .info-box {
+            padding: 20px;
+        }
+        .info-box h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .single-item {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .info-box .row {
+            flex-direction: column;
+        }
+        .info-box .col-lg-4 {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .single-item {
+            text-align: center;
+        }
+        .icon-box {
+            margin: 0 auto 15px;
+        }
+        .single-item h4 {
+            font-size: 20px;
+        }
+        .single-item p, .single-item a {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .info-box {
+            padding: 15px;
+        }
+        .info-box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .icon-box {
+            height: 60px;
+            width: 60px;
+        }
+        .single-item {
+            padding: 10px;
+        }
+        .single-item h4 {
+            font-size: 18px;
+        }
+        .single-item p, .single-item a {
+            font-size: 13px;
+        }
+    }
+</style>
 
 </head>
-
 
 <!-- page wrapper -->
 <body>
 
     <div class="boxed_wrapper ltr">
-
 
         <!-- preloader -->
         <div class="loader-wrap">
@@ -158,18 +214,11 @@
                             <span data-text-preloader="r" class="letters-loading">r</span>
                             <span data-text-preloader="s" class="letters-loading">s</span>
                         </div>
-                        
                     </div>  
                 </div>
             </div>
         </div>
         <!-- preloader end -->
-
-
-        <!-- page-direction -->
-      
-        <!-- page-direction end -->
-
 
         <!-- main header -->
         <header class="main-header header-style-three">
@@ -187,7 +236,6 @@
                                 Mail: <a href="mailto:jobinfo@example.com">abhishek@g1careers.com</a>
                             </li>
                         </ul>
-                       
                     </div>
                 </div>
             </div>
@@ -212,16 +260,11 @@
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
                                         <li ><a href="index-6.html">Home</a>
-            
                                         </li> 
                                         <li><a href="about.html">About</a></li>
-
                                         <li><a href="openpositions.html">Open Positions</a></li>                                        
-
-                                        
                                         <li class="current"><a href="contact.html">Contact</a></li> 
                                         <li><a href="java+angular.html">Java+Angular</a></li> 
-
                                     </ul>
                                 </div>
                             </nav>
@@ -259,7 +302,6 @@
         </header>
         <!-- main-header end -->
 
-
         <!-- Mobile Menu  -->
         <div class="mobile-menu">
             <div class="menu-backdrop"></div>
@@ -278,11 +320,6 @@
             </nav>
         </div>
         <!-- End Mobile Menu -->
-
-
-        <!-- page-title -->
-        <!-- page-title end -->
-
 
         <!-- contact-section -->
         <section class="contact-section pt_20 pb_30">
@@ -327,7 +364,6 @@
         </section>
         <!-- contact-section end -->
 
-
         <!-- google-map -->
         <section class="google-map pt_30 pb_30">
             <div class="auto-container">
@@ -337,11 +373,6 @@
             </div>
         </section>
         <!-- google-map end -->
-
-
-        <!-- subscribe-style-two -->
-        <!-- subscribe-style-two end -->
-
 
         <!-- main-footer -->
         <footer class="main-footer light-footer">
@@ -358,13 +389,6 @@
                                     <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #ffff;">G1Careers</span>
                                 </figure>                  
                                 <p>Since 2024, g1careers helps you to build your team stronger and better</p>
-                                <!-- <div class="download-btn">
-                                    <a href="about.html" class="play-store">
-                                        <img src="assets/images/icons/icon-5.png" alt="">
-                                        <span>Get it on</span>
-                                        Google Play
-                                    </a>
-                                </div> -->
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-4 col-sm-12 footer-column">
@@ -375,8 +399,6 @@
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
                                         <li><a href="about.html">About Us</a></li>
-
-
                                     </ul>
                                 </div>
                             </div>
@@ -384,13 +406,13 @@
                         <div class="col-lg-2 col-md-4 col-sm-12 footer-column">
                             <div class="footer-widget links-widget">
                                 <div class="widget-title">
-                                    <h4>Help &amp; Support</h4>
+                                    <h4>Help & Support</h4>
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
                                         <li><a href="contact.html">Contact Us</a></li>
                                         <li><a href="faq.html">General FAQ</a></li>
-                                        <li><a href="index-6.html">Terms &amp; Conditions</a></li>
+                                        <li><a href="index-6.html">Terms & Conditions</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -401,21 +423,12 @@
             <div class="footer-bottom">
                 <div class="auto-container">
                     <div class="bottom-inner">
-                        <div class="copyright"><p>Copyright &copy; 2025 <a href="index-6.html">G1Careers</a> All rights reserved.</p></div>
-                        <!-- <ul class="social-links">
-                            <li><h5>Follow Us On:</h5></li>
-                            <li><a href="index-6.html"><i class="icon-22"></i></a></li>
-                            <li><a href="index-6.html"><i class="icon-23"></i></a></li>
-                            <li><a href="index-6.html"><i class="icon-24"></i></a></li>
-                            <li><a href="index-6.html"><i class="icon-25"></i></a></li>
-                        </ul> -->
+                        <div class="copyright"><p>Copyright © 2025 <a href="index-6.html">G1Careers</a> All rights reserved.</p></div>
                     </div>
                 </div>
             </div>
         </footer>
         <!-- main-footer end -->
-
-
 
         <!--Scroll to top-->
         <div class="scroll-to-top">
@@ -425,7 +438,6 @@
         </div>
         
     </div>
-
 
     <!-- jequery plugins -->
     <script src="assets/js/jquery.js"></script>
