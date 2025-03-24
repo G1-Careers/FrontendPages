@@ -437,7 +437,7 @@
         header.style.fontWeight = "bold";
         header.innerHTML = `
             <h4 style="margin: 0;">${skillGroup} <span class="badge bg-success">${groupJobs.length}</span></h4>
-            <span class="toggle-icon">▼</span>
+            <span class="toggle-icon"></span>
         `;
         
         // Create collapsible content
@@ -491,10 +491,10 @@
             header.addEventListener("click", function() {
                 if (content.style.display === "none") {
                     content.style.display = "block";
-                    header.querySelector(".toggle-icon").textContent = "▲";
+                    header.querySelector(".toggle-icon").textContent = "";
                 } else {
                     content.style.display = "none";
-                    header.querySelector(".toggle-icon").textContent = "▼";
+                    header.querySelector(".toggle-icon").textContent = "";
                 }
             });
             
