@@ -199,7 +199,7 @@
                                     <ul class="navigation clearfix">
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="job-3.html">Open Positions</a></li>                                        
+                                        <li><a href="openpositions.html">Open Positions</a></li>                                        
 
                                         <li><a href="contact.html">Contact</a></li>
 
@@ -354,6 +354,25 @@
 
     <!-- Custom Script for Dynamic Job Listings -->
     <script>
+
+        function groupJobsBySkills(jobs) {
+            const groups = {};
+            
+            jobs.forEach((job, index) => {
+                const mainSkills = job[0] || "Other"; // First element is mainSkills
+                // Extract primary skill (first word/phrase before any comma )
+                const primarySkill = mainSkills.split(/[,]/)[0].trim();
+                
+                if (!groups[primarySkill]) {
+                    groups[primarySkill] = [];
+                }
+                
+                groups[primarySkill].push({ job, index });
+            });
+            
+            return groups;
+        }
+
         let globalJobs = [];
         const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
         const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
@@ -395,50 +414,118 @@
         }
 
         function displayJobs(jobs) {
-    const jobContainer = document.getElementById("jobContainer");
-    jobContainer.innerHTML = "";
-
-    jobs.forEach((job, index) => {  // Add the index parameter here
-        const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-
-        const jobBlock = document.createElement("div");
-        jobBlock.className = "job-block-one";
-        jobBlock.innerHTML = `
-    <div class="upper-box">
-        <ul class="job-info">
-${mainSkills ? `<li><i class="fa-solid fa-tools"></i>Main Skills: <span>${mainSkills}</span></li>` : ''}
-            ${numPositions ? `<li>Positions: <span>${numPositions}</span></li>` : ''}
-            ${timeZone ? `<li>Time Zone: <span>${timeZone}</span></li>` : ''}
-        </ul>
-    </div>
-    <div class="inner-box">
-        <div class="title-box">
-            <div class="icon-box"><i class="icon-44"></i></div>
-            <h3>${orderIdTitle || "Untitled Job"}</h3>
-            ${location ? `<span>${location}</span>` : ''}
-        </div>
-        ${engagement ? `
-            <div class="salary-box">
-                <h5>Type</h5>
-                <span>${engagement}</span>
-            </div>
-        ` : ''}
-        ${natureOfWork ? `
-            <div class="experience-box">
-                <h5>Nature of Work</h5>
-                <span>${natureOfWork}</span>
-            </div>
-        ` : ''}
-        <div class="btn-box">
-            <a  class="theme-btn btn-one" onclick="viewJobDetails(${index})">View Details</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" target="_blank" class="theme-btn btn-one">Apply</a>
-        </div>
-    </div>
-`;
-
-jobContainer.appendChild(jobBlock);
-    });
-}
+        const jobContainer = document.getElementById("jobContainer");
+        jobContainer.innerHTML = "";
+        
+        // Group jobs by skills
+        const groupedJobs = groupJobsBySkills(jobs);
+        
+        // Create a container for all groups
+        Object.keys(groupedJobs).sort().forEach(skillGroup => {
+        const groupJobs = groupedJobs[skillGroup];
+        
+        // Create group section
+        const groupSection = document.createElement("div");
+        groupSection.className = "skill-group mb-4";
+        
+        // Create collapsible header
+        const header = document.createElement("div");
+        header.className = "skill-header p-3 bg-light rounded d-flex justify-content-between align-items-center";
+        header.style.cursor = "pointer";
+        header.style.backgroundColor = "#7ED957";
+        header.style.marginBottom = "10px";
+        header.style.fontWeight = "bold";
+        header.innerHTML = `
+            <h4 style="margin: 0;">${skillGroup} <span class="badge bg-success">${groupJobs.length}</span></h4>
+            <span class="toggle-icon">▼</span>
+        `;
+        
+        // Create collapsible content
+        const content = document.createElement("div");
+        content.className = "skill-content";
+        content.style.display = "none"; // Initially hidden
+        
+        // Add jobs to this group
+        groupJobs.forEach(({ job, index }) => {
+            const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
+            
+            const jobBlock = document.createElement("div");
+            jobBlock.className = "job-block-one";
+            jobBlock.innerHTML = `
+                <div class="upper-box">
+                    <ul class="job-info">
+                        ${mainSkills ? `<li><i class="fa-solid fa-tools"></i>Main Skills: <span>${mainSkills}</span></li>` : ''}
+                        ${numPositions ? `<li>Positions: <span>${numPositions}</span></li>` : ''}
+                        ${timeZone ? `<li>Time Zone: <span>${timeZone}</span></li>` : ''}
+                    </ul>
+                </div>
+                <div class="inner-box">
+                    <div class="title-box">
+                        <div class="icon-box"><i class="icon-44"></i></div>
+                        <h3>${orderIdTitle || "Untitled Job"}</h3>
+                        ${location ? `<span>${location}</span>` : ''}
+                    </div>
+                    ${engagement ? `
+                        <div class="salary-box">
+                            <h5>Type</h5>
+                            <span>${engagement}</span>
+                        </div>
+                    ` : ''}
+                    ${natureOfWork ? `
+                        <div class="experience-box">
+                            <h5>Nature of Work</h5>
+                            <span>${natureOfWork}</span>
+                        </div>
+                    ` : ''}
+                    <div class="btn-box">
+                        <a class="theme-btn btn-one" onclick="viewJobDetails(${index})">View Details</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" target="_blank" class="theme-btn btn-one">Apply</a>
+                    </div>
+                </div>
+            `;
+            
+            content.appendChild(jobBlock);
+        });
+        
+            // Add toggle functionality
+            header.addEventListener("click", function() {
+                if (content.style.display === "none") {
+                    content.style.display = "block";
+                    header.querySelector(".toggle-icon").textContent = "▲";
+                } else {
+                    content.style.display = "none";
+                    header.querySelector(".toggle-icon").textContent = "▼";
+                }
+            });
+            
+            // Add header and content to group section
+            groupSection.appendChild(header);
+            groupSection.appendChild(content);
+            
+            // Add group section to container
+            jobContainer.appendChild(groupSection);
+        });
+        
+        // Add some CSS for styling
+        const style = document.createElement("style");
+        style.textContent = `
+            .skill-header:hover {
+                background-color: #e9ecef !important;
+            }
+            .skill-group {
+                margin-bottom: 20px;
+            }
+            .badge {
+                background-color: #7ED957;
+                color: black;
+                margin-left: 10px;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-size: 14px;
+            }
+        `;
+        document.head.appendChild(style);
+    }
         function viewJobDetails(index) {
         const job = globalJobs[index];
         localStorage.setItem("selectedJob", JSON.stringify(job));
