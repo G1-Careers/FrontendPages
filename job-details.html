@@ -463,269 +463,81 @@
 
     <script>
         function loadJobDetails() {
-    const jobDetailsContainer = document.getElementById("job-details-container");
-    const job = JSON.parse(localStorage.getItem("selectedJob"));
+            const jobDetailsContainer = document.getElementById("job-details-container");
+            const job = JSON.parse(localStorage.getItem("selectedJob"));
 
-    // If no job data is available, show a message
-    if (!job) {
-        jobDetailsContainer.innerHTML = `
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="no-data-message">
-                    <p>No job data available. Please return to the main page and select a job.</p>
-                </div>
-            </div>
-        `;
-        return;
-    }
-
-    // Extract job data
-    const jobData = parseJobData(job);
-
-    // Update page title
-    document.querySelector(".page-title h1").textContent = jobData.title || "Job Details";
-
-    // Generate sidebar content
-    const sidebarContent = generateSidebarContent(jobData);
-    
-    // Generate main content with properly formatted lists
-    const mainContent = generateMainContent(jobData);
-
-    // Combine and set the HTML
-    jobDetailsContainer.innerHTML = sidebarContent + mainContent;
-}
-
-function parseJobData(job) {
-    // Parse the job array or use direct object if it's already structured
-    if (Array.isArray(job)) {
-        const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-        
-        // Clean the data by trimming spaces around commas
-        const cleanedMainSkills = cleanTextFormatting(mainSkills);
-        const cleanedOrderIdTitle = cleanTextFormatting(orderIdTitle);
-        const cleanedLocation = cleanTextFormatting(location);
-        const cleanedNatureOfWork = cleanTextFormatting(natureOfWork);
-        
-        // Enhanced parsing
-        const parsedJD = parseJobDescription(detailedJD);
-        
-        return {
-            title: cleanedOrderIdTitle,
-            location: cleanedLocation,
-            mainSkills: cleanedMainSkills,
-            natureOfWork: cleanedNatureOfWork,
-            timeZone: timeZone,
-            numPositions: numPositions,
-            engagement: engagement,
-            description: parsedJD.description,
-            responsibilities: parsedJD.responsibilities,
-            requirements: parsedJD.requirements,
-            niceToHave: parsedJD.niceToHave,
-            benefits: parsedJD.benefits,
-            qualifications: parsedJD.qualifications
-        };
-    }
-    return job; // If it's already an object
-}
-
-// Add this helper function to clean text formatting
-function cleanTextFormatting(text) {
-    if (!text) return text;
-    
-    // Replace spaces before commas, semicolons, and colons
-    let cleaned = text.replace(/\s+([,;:])/g, '$1');
-    
-    // Add a space after commas, semicolons, and colons if not followed by a space
-    cleaned = cleaned.replace(/([,;:])(\S)/g, '$1 $2');
-    
-    // Remove multiple spaces
-    cleaned = cleaned.replace(/\s{2,}/g, ' ');
-    
-    return cleaned.trim();
-}
-
-function parseJobDescription(detailedJD) {
-    // Initialize sections
-    const sections = {
-        description: '',
-        responsibilities: [],
-        requirements: [],
-        niceToHave: [],
-        benefits: [],
-        qualifications: []
-    };
-    
-    if (!detailedJD) return sections;
-    
-    // More robust parsing logic
-    const lines = detailedJD.split('\n');
-    let currentSection = 'description';
-    
-    // Regular expressions to detect section headers
-    const sectionPatterns = {
-        responsibilities: /responsibilities|key responsibilities|job responsibilities/i,
-        requirements: /requirements|job requirements/i,
-        niceToHave: /nice[\s-]to[\s-]have|preferred|plus/i,
-        benefits: /benefits|perks|what we offer/i,
-        qualifications: /qualifications|skills & qualifications|required skills/i
-    };
-    
-    for (const line of lines) {
-        const trimmedLine = line.trim();
-        if (!trimmedLine) continue;
-        
-        // Check if line is a section header
-        let foundSection = false;
-        for (const [section, pattern] of Object.entries(sectionPatterns)) {
-            if (pattern.test(trimmedLine)) {
-                currentSection = section;
-                foundSection = true;
-                break;
+            // If no job data is available, show a message or leave it empty
+            if (!job) {
+                jobDetailsContainer.innerHTML = `
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="no-data-message">
+                            <p>No job data available. Please return to the main page and select a job.</p>
+                        </div>
+                    </div>
+                `;
+                return;
             }
+
+            // Extract job data
+            const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
+            console.log(job);
+            // Update page title
+            document.querySelector(".page-title h1").textContent = orderIdTitle || "Job Details";
+
+            // Populate the job details dynamically
+            jobDetailsContainer.innerHTML = `
+                <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                    <div class="job-sidebar mr_40">
+                        <div class="info-widget sidebar-widget mb_30">
+                            <ul class="clearfix">
+                                ${location ? `<li><h5><i class="fa-solid fa-map-marker-alt"></i> Location</h5><p>${location}</p></li>` : ''}
+                                <li><h5><i class="fa-solid fa-globe"></i> Website</h5><p><a href="https://g1careers.com">https://g1careers.com</a></p></li>
+                                ${engagement ? `<li><h5><i class="fa-solid fa-briefcase"></i> Type</h5><p>${engagement}</p></li>` : ''}
+                                ${numPositions ? `<li><h5><i class="fa-solid fa-users"></i> Positions</h5><p>${numPositions}</p></li>` : ''}
+                                ${timeZone ? `<li><h5><i class="fa-solid fa-clock"></i> Time Zone</h5><p>${timeZone}</p></li>` : ''}
+                            </ul>
+                        </div>
+                        <div class="requirements-widget sidebar-widget">
+                            <h3>Requirements</h3>
+                            <ul class="clearfix">
+                                ${mainSkills ? `<li><span><i class="fa-solid fa-tools"></i> Main Skills:</span> ${mainSkills}</li>` : ''}
+                                ${natureOfWork ? `<li><span><i class="fa-solid fa-tasks"></i> Nature of Work:</span> ${natureOfWork}</li>` : ''}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                    <div class="job-details-content">
+                        <div class="text-box mb_60">
+                            <h3>Job Description</h3>
+                           <p>${(detailedJD || "No detailed job description available.").replace(/\n/g, "<br>")}</p>
+
+                        </div>
+                        <div class="text-box mb_55">
+                            <h3>Responsibilities</h3>
+                            <ul class="list-item">
+                                ${mainSkills ? `<li>Apply skills such as ${mainSkills} to meet job requirements.</li>` : ''}
+                                ${location ? `<li>Work in ${location} as per ${timeZone || "relevant timezone"}.</li>` : ''}
+                                ${natureOfWork ? `<li>Engage in ${natureOfWork} for project success.</li>` : ''}
+                            </ul>
+                        </div>
+                        <div class="text-box mb_65">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
+                               target="_blank" 
+                               class="theme-btn btn-one">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
-        
-        if (foundSection) continue;
-        
-        // Process content based on current section
-        if (currentSection === 'description') {
-            if (!trimmedLine.toLowerCase().startsWith('job description:')) {
-                sections.description += trimmedLine + ' ';
-            }
-        } else {
-            // Extract bullet points
-            // Match common bullet formats: •, -, o, *, number followed by period or parenthesis
-            const bulletMatch = trimmedLine.match(/^[•\-o\*]|\d+[\.\)]|^o\s/);
-            
-            if (bulletMatch) {
-                // Remove the bullet character and trim
-                const content = trimmedLine.substring(bulletMatch[0].length).trim();
-                if (content) {
-                    sections[currentSection].push(content);
-                }
-            } else if (trimmedLine) {
-                // Non-bullet content - could be continuing text or a new item
-                if (sections[currentSection].length > 0 && !trimmedLine.endsWith(':') && 
-                    trimmedLine.length < 50 && trimmedLine[0] === trimmedLine[0].toUpperCase()) {
-                    // Likely a new item without bullet
-                    sections[currentSection].push(trimmedLine);
-                } else if (sections[currentSection].length > 0) {
-                    // Continuing text from previous item
-                    const lastIndex = sections[currentSection].length - 1;
-                    sections[currentSection][lastIndex] += ' ' + trimmedLine;
-                } else {
-                    // New content in an empty section
-                    sections[currentSection].push(trimmedLine);
-                }
-            }
+
+        function copyJobUrl() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url);
+            alert("Job URL copied to clipboard!");
         }
-    }
-    
-    // Clean up description
-    sections.description = sections.description.trim();
-    
-    return sections;
-}
 
-function generateSidebarContent(jobData) {
-    return `
-        <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-            <div class="job-sidebar mr_40">
-                <div class="info-widget sidebar-widget mb_30">
-                    <ul class="clearfix">
-                        ${jobData.title ? `<li><h5><i class="fa-solid fa-briefcase"></i> Job Title</h5><p>${jobData.title}</p></li>` : ''}
-                        ${jobData.location ? `<li><h5><i class="fa-solid fa-map-marker-alt"></i> Location</h5><p>${jobData.location}</p></li>` : ''}
-                        <li><h5><i class="fa-solid fa-globe"></i> Website</h5><p><a href="https://g1careers.com">https://g1careers.com</a></p></li>
-                        ${jobData.engagement ? `<li><h5><i class="fa-solid fa-briefcase"></i> Type</h5><p>${jobData.engagement}</p></li>` : ''}
-                        ${jobData.numPositions ? `<li><h5><i class="fa-solid fa-users"></i> Positions</h5><p>${jobData.numPositions}</p></li>` : ''}
-                        ${jobData.timeZone ? `<li><h5><i class="fa-solid fa-clock"></i> Time Zone</h5><p>${jobData.timeZone}</p></li>` : ''}
-                    </ul>
-                </div>
-                <div class="requirements-widget sidebar-widget">
-                    <h3>Key Skills</h3>
-                    <ul class="clearfix">
-                        ${jobData.mainSkills ? `<li><span><i class="fa-solid fa-tools"></i> Main Skills:</span> ${jobData.mainSkills}</li>` : ''}
-                        ${jobData.natureOfWork ? `<li><span><i class="fa-solid fa-tasks"></i> Nature of Work:</span> ${jobData.natureOfWork}</li>` : ''}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-function generateMainContent(jobData) {
-    // Check if there's any content in the JD sections
-    const hasJdContent = jobData.description || 
-                        (jobData.responsibilities && jobData.responsibilities.length) ||
-                        (jobData.requirements && jobData.requirements.length) ||
-                        (jobData.qualifications && jobData.qualifications.length) ||
-                        (jobData.niceToHave && jobData.niceToHave.length) ||
-                        (jobData.benefits && jobData.benefits.length);
-    
-    if (!hasJdContent) {
-        return `
-        <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-            <div class="job-details-content">
-                <div class="text-box mb_40">
-                    <h3>Job Description</h3>
-                    <p>No job description available for this position. Please contact us for more details.</p>
-                </div>
-                <div class="text-box mb_65">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
-                       target="_blank" 
-                       class="theme-btn btn-one">Apply Now</a>
-                </div>
-            </div>
-        </div>
-        `;
-    }
-    
-    return `
-        <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-            <div class="job-details-content">
-                ${generateSection('Job Description', jobData.description, false)}
-                ${generateSection('Responsibilities', jobData.responsibilities, true)}
-                ${generateSection('Requirements', jobData.requirements, true)}
-                ${generateSection('Qualifications', jobData.qualifications, true)}
-                ${generateSection('Nice to Have', jobData.niceToHave, true)}
-                ${generateSection('Benefits', jobData.benefits, true)}
-                <div class="text-box mb_65">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
-                       target="_blank" 
-                       class="theme-btn btn-one">Apply Now</a>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-function generateSection(title, content, isList) {
-    if (!content || (Array.isArray(content) && content.length === 0)) {
-        return '';
-    }
-    
-    if (isList) {
-        const listItems = Array.isArray(content) 
-            ? content.map(item => `<li>${item}</li>`).join('')
-            : '';
-            
-        return `
-            <div class="text-box mb_40">
-                <h3>${title}</h3>
-                <ul class="list-item">
-                    ${listItems}
-                </ul>
-            </div>
-        `;
-    } else {
-        return `
-            <div class="text-box mb_40">
-                <h3>${title}</h3>
-                <p>${content}</p>
-            </div>
-        `;
-    }
-}
-
-window.onload = loadJobDetails;
+        window.onload = loadJobDetails;
     </script>
 </body>
 </html>
