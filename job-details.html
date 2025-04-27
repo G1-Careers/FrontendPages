@@ -661,7 +661,7 @@ function showNoDataMessage(message) {
         function renderJobDetails(job) {
             const jobDetailsContainer = document.getElementById("job-details-container");
             const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-            console.log("Job data:", job);
+            // console.log("Job data:", job);
     
             document.querySelector(".page-title h1").textContent = orderIdTitle || "Job Details";
     
@@ -724,10 +724,10 @@ function showNoDataMessage(message) {
         const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(currentJobId)}`;
         
         navigator.clipboard.writeText(shareUrl).then(() => {
-            alert("Job URL copied to clipboard!");
+            showNotification("Job URL copied to clipboard!", "success");
         }).catch(err => {
             console.error("Failed to copy URL:", err);
-            alert("Failed to copy URL. Please try again.");
+            showNotification("Failed to copy URL. Please try again.", "error");
         });
         return;
     }
@@ -736,7 +736,7 @@ function showNoDataMessage(message) {
     try {
         const job = JSON.parse(localStorage.getItem("selectedJob"));
         if (!job || !job[1]) {
-            alert("No job data available to share!");
+            showNotification("No job data available to share!", "error");
             return;
         }
         
@@ -748,17 +748,59 @@ function showNoDataMessage(message) {
         const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
         
         navigator.clipboard.writeText(shareUrl).then(() => {
-            alert("Job URL copied to clipboard!");
+            showNotification("Job URL copied to clipboard!", "success");
         }).catch(err => {
             console.error("Failed to copy URL:", err);
-            alert("Failed to copy URL. Please try again.");
+            showNotification("Failed to copy URL. Please try again.", "error");
         });
     } catch (e) {
         console.error("Failed to get job data for sharing:", e);
-        alert("Error preparing job URL for sharing. Please try again.");
+        showNotification("Error preparing job URL for sharing. Please try again.", "error");
     }
 }
+
+// Add this function to show notifications on the page
+function showNotification(message, type = "success") {
+    // Remove any existing notification
+    const existingNotification = document.getElementById("page-notification");
+    if (existingNotification) {
+        existingNotification.remove();
+    }
     
+    // Create notification element
+    const notification = document.createElement("div");
+    notification.id = "page-notification";
+    notification.innerHTML = message;
+    
+    // Style the notification based on type
+    notification.style.position = "fixed";
+    notification.style.bottom = "20px";
+    notification.style.left = "50%";
+    notification.style.transform = "translateX(-50%)";
+    notification.style.padding = "12px 24px";
+    notification.style.borderRadius = "4px";
+    notification.style.fontWeight = "500";
+    notification.style.zIndex = "9999";
+    notification.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+    
+    if (type === "success") {
+        notification.style.backgroundColor = "#7ED957";
+        notification.style.color = "#fff";
+    } else {
+        notification.style.backgroundColor = "#f44336";
+        notification.style.color = "#fff";
+    }
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Remove after delay
+    setTimeout(() => {
+        notification.style.opacity = "0";
+        notification.style.transition = "opacity 0.5s ease";
+        setTimeout(() => notification.remove(), 500);
+    }, 3000);
+}
         window.onload = loadJobDetails;
     </script>
 </body>
