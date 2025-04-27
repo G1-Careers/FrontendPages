@@ -12,8 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- LZ-string for Compression -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
     <link href="assets/css/flaticon.css" rel="stylesheet">
@@ -50,84 +48,73 @@
             padding: 30px;
             transition: transform 0.3s ease;
         }
-       /* Updated button styles for consistent appearance */
-.top-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 15px;
-}
-
-.top-buttons .theme-btn.btn-one,
-.top-buttons .home-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #7ED957;
-    color: #fff;
-    padding: 14px 30px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    min-width: 150px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(126, 217, 87, 0.3);
-}
-
-.top-buttons .home-btn {
-    background: #fff;
-    color: #7ED957;
-    border: 2px solid #7ED957;
-}
-
-.top-buttons .theme-btn.btn-one:hover,
-.top-buttons .home-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(126, 217, 87, 0.4);
-}
-
-.top-buttons .home-btn:hover {
-    background: #7ED957;
-    color: #fff;
-}
-
-/* Remove unneeded margin-right from original CSS */
-.page-title .content-box .theme-btn.btn-one {
-    margin-right: 0;
-}
-
-/* Responsive styling - keep buttons side by side */
-@media (max-width: 480px) {
-    .top-buttons {
-        flex-direction: row; /* Keep horizontal layout */
-        flex-wrap: nowrap; /* Prevent wrapping */
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .top-buttons .theme-btn.btn-one,
-    .top-buttons .home-btn {
-        padding: 12px 20px;
-        min-width: 130px;
-        font-size: 14px;
-    }
-}
-
-/* For very small screens - ensure buttons don't break layout */
-@media (max-width: 360px) {
-    .top-buttons .theme-btn.btn-one,
-    .top-buttons .home-btn {
-        padding: 10px 15px;
-        min-width: 110px;
-        font-size: 13px;
-    }
-}
-    .page-title .content-box .theme-btn.btn-one {
-        margin-right: 0;
-    }
+        /* Updated button styles for consistent appearance */
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        .top-buttons .theme-btn.btn-one,
+        .top-buttons .home-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #7ED957;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 150px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(126, 217, 87, 0.3);
+        }
+        .top-buttons .home-btn {
+            background: #fff;
+            color: #7ED957;
+            border: 2px solid #7ED957;
+        }
+        .top-buttons .theme-btn.btn-one:hover,
+        .top-buttons .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(126, 217, 87, 0.4);
+        }
+        .top-buttons .home-btn:hover {
+            background: #7ED957;
+            color: #fff;
+        }
+        /* Remove unneeded margin-right from original CSS */
+        .page-title .content-box .theme-btn.btn-one {
+            margin-right: 0;
+        }
+        /* Responsive styling - keep buttons side by side */
+        @media (max-width: 480px) {
+            .top-buttons {
+                flex-direction: row; /* Keep horizontal layout */
+                flex-wrap: nowrap; /* Prevent wrapping */
+                width: 100%;
+                justify-content: center;
+            }
+            .top-buttons .theme-btn.btn-one,
+            .top-buttons .home-btn {
+                padding: 12px 20px;
+                min-width: 130px;
+                font-size: 14px;
+            }
+        }
+        /* For very small screens - ensure buttons don't break layout */
+        @media (max-width: 360px) {
+            .top-buttons .theme-btn.btn-one,
+            .top-buttons .home-btn {
+                padding: 10px 15px;
+                min-width: 110px;
+                font-size: 13px;
+            }
+        }
         .job-sidebar:hover { transform: translateY(-5px); }
         .info-widget ul li {
             display: flex;
@@ -340,7 +327,10 @@
             <div class="header-lower">
                 <div class="auto-container">
                     <div class="outer-box">
-                        <figure class="logo-box"><a href="index-2.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                        <figure class="logo-box" style="display: flex; align-items: center;">
+                            <a href="index.html"><img src="assets/images/logos.png" alt="G1Careers Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #333;"></a>
+                            <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #333;">G1Careers</span>
+                        </figure>
                         <div class="menu-area">
                             <div class="mobile-nav-toggler">
                                 <i class="icon-bar"></i>
@@ -369,7 +359,10 @@
             <div class="sticky-header">
                 <div class="outer-container">
                     <div class="outer-box">
-                        <figure class="logo-box"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                        <figure class="logo-box" style="display: flex; align-items: center;">
+                            <a href="index.html"><img src="assets/images/logos.png" alt="G1Careers Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #333;"></a>
+                            <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #333;">G1Careers</span>
+                        </figure>
                         <div class="menu-area">
                             <nav class="main-menu clearfix"></nav>
                         </div>
@@ -409,7 +402,6 @@
                     <h1>Job Details</h1>
                     <div class="top-buttons">
                         <a href="index.html" class="home-btn">Home</a>
-
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
                            target="_blank" 
                            class="theme-btn btn-one">Apply Now</a>
@@ -483,7 +475,7 @@
                 <div class="auto-container">
                     <div class="bottom-inner">
                         <div class="copyright">
-                            <p>&copy; 2023 G1Careers. All rights reserved.</p>
+                            <p>© 2023 G1Careers. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -515,7 +507,6 @@
     <script src="assets/js/parallax-scroll.js"></script>
     <script src="assets/js/validate.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
 
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
@@ -530,141 +521,72 @@
                 }
             }, 1000);
         });
-    
+
         function loadJobDetails() {
-    const jobDetailsContainer = document.getElementById("job-details-container");
-    const urlParams = new URLSearchParams(window.location.search);
-    const jobId = urlParams.get('jobId');
-    
-    // If we have a jobId in the URL, we should use that and clear any old data
-    if (jobId) {
-        // Clear localStorage to prevent showing old job data
-        localStorage.removeItem("selectedJob");
-        
-        const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
-        const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
-        const sheetName = "Active Requirements: Published to Vendors";
-        const range = `${sheetName}!A2:H1000`;
+            const jobDetailsContainer = document.getElementById("job-details-container");
+            const urlParams = new URLSearchParams(window.location.search);
+            const jobId = urlParams.get('jobId');
 
-        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                const rows = data.values || [];
-                const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
-                if (jobRow) {
-                    const job = [
-                        jobRow[0] || '', // Main Skills
-                        jobRow[1] || '', // Order ID - Requirement Title
-                        jobRow[2] || '', // Detailed JD
-                        jobRow[3] || '', // Location
-                        jobRow[4] || '', // Nature of Work
-                        jobRow[5] || '', // Time Zone
-                        jobRow[6] || '', // Number of Positions
-                        jobRow[7] || ''  // Type of Engagement
-                    ];
-                    localStorage.setItem("selectedJob", JSON.stringify(job));
-                    renderJobDetails(job);
-                } else {
-                    console.error("Job not found in spreadsheet for jobId:", jobId);
-                    showNoDataMessage("Job not found. Please check the job ID or return to the Open Positions page.");
-                }
-            })
-            .catch(error => {
-                console.error("Failed to fetch from Google Sheet:", error);
-                showNoDataMessage("Error loading job data. Please try again later.");
-            });
-        return;
-    }
-    
-    // If no jobId in the URL, try to use localStorage as a fallback
-    try {
-        const storedJob = localStorage.getItem("selectedJob");
-        if (storedJob) {
-            const job = JSON.parse(storedJob);
-            renderJobDetails(job);
-            return;
+            if (!jobId) {
+                showNoDataMessage("No job ID provided. Please return to the Open Positions page to select a job.");
+                return;
+            }
+
+            const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
+            const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
+            const sheetName = "Active Requirements: Published to Vendors";
+            const range = `${sheetName}!A2:H1000`;
+
+            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const rows = data.values || [];
+                    const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
+                    if (jobRow) {
+                        const job = [
+                            jobRow[0] || '', // Main Skills
+                            jobRow[1] || '', // Order ID - Requirement Title
+                            jobRow[2] || '', // Detailed JD
+                            jobRow[3] || '', // Location
+                            jobRow[4] || '', // Nature of Work
+                            jobRow[5] || '', // Time Zone
+                            jobRow[6] || '', // Number of Positions
+                            jobRow[7] || ''  // Type of Engagement
+                        ];
+                        renderJobDetails(job);
+                    } else {
+                        showNoDataMessage("Job not found. Please check the job ID or return to the Open Positions page.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Failed to fetch from Google Sheet:", error);
+                    showNoDataMessage("Error loading job data. Please try again later.");
+                });
         }
-    } catch (e) {
-        console.error("Failed to parse selectedJob from localStorage:", e);
-        localStorage.removeItem("selectedJob"); // Clear potentially corrupted data
-    }
 
-    // If we get here, no job data is available
-    showNoDataMessage("No job data available. Please return to the main page and select a job.");
-}
-
-function showNoDataMessage(message) {
-    const jobDetailsContainer = document.getElementById("job-details-container");
-    jobDetailsContainer.innerHTML = `
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="no-data-message">
-                <p>${message}</p>
-                <p style="margin-top: 15px;"><a href="openpositions.html" class="theme-btn btn-one">View Open Positions</a></p>
-            </div>
-        </div>
-    `;
-}
-
-        function fallbackToCompressedData(compressedData) {
-    const jobDetailsContainer = document.getElementById("job-details-container");
-    if (compressedData) {
-        try {
-            // Add validation for compressed data
-            if (!compressedData || compressedData.length < 10) {
-                throw new Error("Compressed data is too short or empty");
-            }
-            
-            const decompressed = LZString.decompressFromEncodedURIComponent(compressedData);
-            if (!decompressed) {
-                throw new Error("Decompression resulted in empty data");
-            }
-            
-            const job = JSON.parse(decompressed);
-            if (!Array.isArray(job) || job.length < 8) {
-                throw new Error("Invalid job data format");
-            }
-            
-            localStorage.setItem("selectedJob", JSON.stringify(job));
-            renderJobDetails(job);
-        } catch (e) {
-            console.error("Failed to process job data:", e);
+        function showNoDataMessage(message) {
+            const jobDetailsContainer = document.getElementById("job-details-container");
             jobDetailsContainer.innerHTML = `
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="no-data-message">
-                        <p>We couldn't load the job details from the shared link. This may be because:</p>
-                        <ul style="text-align: left; margin-top: 15px;">
-                            <li>The link was truncated during sharing</li>
-                            <li>The data format has changed since the link was created</li>
-                            <li>There was an error in the data compression</li>
-                        </ul>
-                        <p style="margin-top: 15px;">Please try returning to the <a href="openpositions.html">Open Positions</a> page and selecting the job again.</p>
+                        <p>${message}</p>
+                        <p style="margin-top: 15px;"><a href="openpositions.html" class="theme-btn btn-one">View Open Positions</a></p>
                     </div>
                 </div>
             `;
         }
-    } else {
-        jobDetailsContainer.innerHTML = `
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="no-data-message">
-                    <p>No job data was found in the URL. Please return to the <a href="openpositions.html">Open Positions</a> page to browse available jobs.</p>
-                </div>
-            </div>
-        `;
-    }
-}
-    
+
         function renderJobDetails(job) {
             const jobDetailsContainer = document.getElementById("job-details-container");
             const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-            // console.log("Job data:", job);
-    
+
             document.querySelector(".page-title h1").textContent = orderIdTitle || "Job Details";
-    
+
             jobDetailsContainer.innerHTML = `
                 <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                     <div class="job-sidebar mr_40">
@@ -710,97 +632,63 @@ function showNoDataMessage(message) {
                 </div>
             `;
         }
-    
-        function generateUniqueId() {
-            return Math.random().toString(36).substr(2, 9);
-        }
-    
-        function copyJobUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentJobId = urlParams.get('jobId');
-    
-    // If we have a jobId in the current URL, use that for sharing
-    if (currentJobId) {
-        const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(currentJobId)}`;
-        
-        navigator.clipboard.writeText(shareUrl).then(() => {
-            showNotification("Job URL copied to clipboard!", "success");
-        }).catch(err => {
-            console.error("Failed to copy URL:", err);
-            showNotification("Failed to copy URL. Please try again.", "error");
-        });
-        return;
-    }
-    
-    // Fallback to localStorage if needed
-    try {
-        const job = JSON.parse(localStorage.getItem("selectedJob"));
-        if (!job || !job[1]) {
-            showNotification("No job data available to share!", "error");
-            return;
-        }
-        
-        // Extract just the job ID from the title
-        const orderIdTitle = job[1];
-        const jobId = orderIdTitle.split(" :")[0].trim();
-        
-        // Create a simple URL with just the job ID
-        const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
-        
-        navigator.clipboard.writeText(shareUrl).then(() => {
-            showNotification("Job URL copied to clipboard!", "success");
-        }).catch(err => {
-            console.error("Failed to copy URL:", err);
-            showNotification("Failed to copy URL. Please try again.", "error");
-        });
-    } catch (e) {
-        console.error("Failed to get job data for sharing:", e);
-        showNotification("Error preparing job URL for sharing. Please try again.", "error");
-    }
-}
 
-// Add this function to show notifications on the page
-function showNotification(message, type = "success") {
-    // Remove any existing notification
-    const existingNotification = document.getElementById("page-notification");
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification element
-    const notification = document.createElement("div");
-    notification.id = "page-notification";
-    notification.innerHTML = message;
-    
-    // Style the notification based on type
-    notification.style.position = "fixed";
-    notification.style.bottom = "20px";
-    notification.style.left = "50%";
-    notification.style.transform = "translateX(-50%)";
-    notification.style.padding = "12px 24px";
-    notification.style.borderRadius = "4px";
-    notification.style.fontWeight = "500";
-    notification.style.zIndex = "9999";
-    notification.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
-    
-    if (type === "success") {
-        notification.style.backgroundColor = "#7ED957";
-        notification.style.color = "#fff";
-    } else {
-        notification.style.backgroundColor = "#f44336";
-        notification.style.color = "#fff";
-    }
-    
-    // Add to page
-    document.body.appendChild(notification);
-    
-    // Remove after delay
-    setTimeout(() => {
-        notification.style.opacity = "0";
-        notification.style.transition = "opacity 0.5s ease";
-        setTimeout(() => notification.remove(), 500);
-    }, 3000);
-}
+        function copyJobUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const jobId = urlParams.get('jobId');
+            
+            if (!jobId) {
+                showNotification("No job ID available to share!", "error");
+                return;
+            }
+
+            const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
+            
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                showNotification("Job URL copied to clipboard!", "success");
+            }).catch(err => {
+                console.error("Failed to copy URL:", err);
+                showNotification("Failed to copy URL. Please try again.", "error");
+            });
+        }
+
+        function showNotification(message, type = "success") {
+            const existingNotification = document.getElementById("page-notification");
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement("div");
+            notification.id = "page-notification";
+            notification.innerHTML = message;
+            
+            notification.style.position = "fixed";
+            notification.style.bottom = "20px";
+            notification.style.left = "50%";
+            notification.style.transform = "translateX(-50%)";
+            notification.style.padding = "12px 24px";
+            notification.style.borderRadius = "4px";
+            notification.style.fontWeight = "500";
+            notification.style.zIndex = "9999";
+            notification.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+            
+            if (type === "success") {
+                notification.style.backgroundColor = "#7ED957";
+                notification.style.color = "#fff";
+            } else {
+                notification.style.backgroundColor = "#f44336";
+                notification.style.color = "#fff";
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = "0";
+                notification.style.transition = "opacity 0.5s ease";
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+
         window.onload = loadJobDetails;
     </script>
 </body>
