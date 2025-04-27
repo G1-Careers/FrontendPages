@@ -533,68 +533,69 @@
     
         function loadJobDetails() {
     const jobDetailsContainer = document.getElementById("job-details-container");
-    let job = null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get('jobId');
+    
+    // If we have a jobId in the URL, we should use that and clear any old data
+    if (jobId) {
+        // Clear localStorage to prevent showing old job data
+        localStorage.removeItem("selectedJob");
+        
+        const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
+        const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
+        const sheetName = "Active Requirements: Published to Vendors";
+        const range = `${sheetName}!A2:H1000`;
+
+        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const rows = data.values || [];
+                const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
+                if (jobRow) {
+                    const job = [
+                        jobRow[0] || '', // Main Skills
+                        jobRow[1] || '', // Order ID - Requirement Title
+                        jobRow[2] || '', // Detailed JD
+                        jobRow[3] || '', // Location
+                        jobRow[4] || '', // Nature of Work
+                        jobRow[5] || '', // Time Zone
+                        jobRow[6] || '', // Number of Positions
+                        jobRow[7] || ''  // Type of Engagement
+                    ];
+                    localStorage.setItem("selectedJob", JSON.stringify(job));
+                    renderJobDetails(job);
+                } else {
+                    console.error("Job not found in spreadsheet for jobId:", jobId);
+                    showNoDataMessage("Job not found. Please check the job ID or return to the Open Positions page.");
+                }
+            })
+            .catch(error => {
+                console.error("Failed to fetch from Google Sheet:", error);
+                showNoDataMessage("Error loading job data. Please try again later.");
+            });
+        return;
+    }
+    
+    // If no jobId in the URL, try to use localStorage as a fallback
     try {
         const storedJob = localStorage.getItem("selectedJob");
         if (storedJob) {
-            job = JSON.parse(storedJob);
+            const job = JSON.parse(storedJob);
+            renderJobDetails(job);
+            return;
         }
     } catch (e) {
         console.error("Failed to parse selectedJob from localStorage:", e);
+        localStorage.removeItem("selectedJob"); // Clear potentially corrupted data
     }
 
-    if (!job) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const jobId = urlParams.get('jobId');
-        
-        if (jobId) {
-            const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
-            const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
-            const sheetName = "Active Requirements: Published to Vendors";
-            const range = `${sheetName}!A2:H1000`;
-
-            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const rows = data.values || [];
-                    const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
-                    if (jobRow) {
-                        job = [
-                            jobRow[0] || '', // Main Skills
-                            jobRow[1] || '', // Order ID - Requirement Title
-                            jobRow[2] || '', // Detailed JD
-                            jobRow[3] || '', // Location
-                            jobRow[4] || '', // Nature of Work
-                            jobRow[5] || '', // Time Zone
-                            jobRow[6] || '', // Number of Positions
-                            jobRow[7] || ''  // Type of Engagement
-                        ];
-                        localStorage.setItem("selectedJob", JSON.stringify(job));
-                        renderJobDetails(job);
-                    } else {
-                        console.error("Job not found in spreadsheet for jobId:", jobId);
-                        showNoDataMessage("Job not found. Please check the job ID or return to the Open Positions page.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Failed to fetch from Google Sheet:", error);
-                    showNoDataMessage("Error loading job data. Please try again later.");
-                });
-            return;
-        }
-    }
-
-    if (!job) {
-        showNoDataMessage("No job data available. Please return to the main page and select a job.");
-        return;
-    }
-
-    renderJobDetails(job);
+    // If we get here, no job data is available
+    showNoDataMessage("No job data available. Please return to the main page and select a job.");
 }
 
 function showNoDataMessage(message) {
@@ -608,6 +609,7 @@ function showNoDataMessage(message) {
         </div>
     `;
 }
+
         function fallbackToCompressedData(compressedData) {
     const jobDetailsContainer = document.getElementById("job-details-container");
     if (compressedData) {
@@ -714,25 +716,47 @@ function showNoDataMessage(message) {
         }
     
         function copyJobUrl() {
-    const job = JSON.parse(localStorage.getItem("selectedJob"));
-    if (!job) {
-        alert("No job data available to share!");
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentJobId = urlParams.get('jobId');
+    
+    // If we have a jobId in the current URL, use that for sharing
+    if (currentJobId) {
+        const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(currentJobId)}`;
+        
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert("Job URL copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy URL:", err);
+            alert("Failed to copy URL. Please try again.");
+        });
         return;
     }
     
-    // Extract just the job ID from the title
-    const orderIdTitle = job[1] || '';
-    const jobId = orderIdTitle.split(" :")[0].trim();
-    
-    // Create a simple URL with just the job ID
-    const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
-    
-    navigator.clipboard.writeText(shareUrl).then(() => {
-        alert("Job URL copied to clipboard!");
-    }).catch(err => {
-        console.error("Failed to copy URL:", err);
-        alert("Failed to copy URL. Please try again.");
-    });
+    // Fallback to localStorage if needed
+    try {
+        const job = JSON.parse(localStorage.getItem("selectedJob"));
+        if (!job || !job[1]) {
+            alert("No job data available to share!");
+            return;
+        }
+        
+        // Extract just the job ID from the title
+        const orderIdTitle = job[1];
+        const jobId = orderIdTitle.split(" :")[0].trim();
+        
+        // Create a simple URL with just the job ID
+        const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
+        
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert("Job URL copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy URL:", err);
+            alert("Failed to copy URL. Please try again.");
+        });
+    } catch (e) {
+        console.error("Failed to get job data for sharing:", e);
+        alert("Error preparing job URL for sharing. Please try again.");
+    }
 }
     
         window.onload = loadJobDetails;
