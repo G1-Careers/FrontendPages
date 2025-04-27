@@ -532,115 +532,129 @@
         });
     
         function loadJobDetails() {
-            const jobDetailsContainer = document.getElementById("job-details-container");
-            let job = null;
-            try {
-                const storedJob = localStorage.getItem("selectedJob");
-                if (storedJob) {
-                    job = JSON.parse(storedJob);
-                }
-            } catch (e) {
-                console.error("Failed to parse selectedJob from localStorage:", e);
-            }
-    
-            if (!job) {
-                const urlParams = new URLSearchParams(window.location.search);
-                const jobId = urlParams.get('jobId');
-                const compressedData = urlParams.get('data');
-    
-                if (compressedData) {
-                    fallbackToCompressedData(compressedData);
-                    return;
-                } else if (jobId) {
-                    const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
-                    const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
-                    const sheetName = "Active Requirements: Published to Vendors";
-                    const range = `${sheetName}!A2:H1000`;
-    
-                    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            const rows = data.values || [];
-                            const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
-                            if (jobRow) {
-                                job = [
-                                    jobRow[0] || '', // Main Skills
-                                    jobRow[1] || '', // Order ID - Requirement Title
-                                    jobRow[2] || '', // Detailed JD
-                                    jobRow[3] || '', // Location
-                                    jobRow[4] || '', // Nature of Work
-                                    jobRow[5] || '', // Time Zone
-                                    jobRow[6] || '', // Number of Positions
-                                    jobRow[7] || ''  // Type of Engagement
-                                ];
-                                localStorage.setItem("selectedJob", JSON.stringify(job));
-                                renderJobDetails(job);
-                            } else {
-                                console.error("Job not found in spreadsheet for jobId:", jobId);
-                                fallbackToCompressedData(compressedData);
-                            }
-                        })
-                        .catch(error => {
-                            console.error("Failed to fetch from Google Sheet:", error);
-                            fallbackToCompressedData(compressedData);
-                        });
-                    return;
-                }
-            }
-    
-            if (!job) {
-                jobDetailsContainer.innerHTML = `
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="no-data-message">
-                            <p>No job data available. Please return to the main page and select a job.</p>
-                        </div>
-                    </div>
-                `;
-                return;
-            }
-    
-            renderJobDetails(job);
+    const jobDetailsContainer = document.getElementById("job-details-container");
+    let job = null;
+    try {
+        const storedJob = localStorage.getItem("selectedJob");
+        if (storedJob) {
+            job = JSON.parse(storedJob);
         }
-    
+    } catch (e) {
+        console.error("Failed to parse selectedJob from localStorage:", e);
+    }
+
+    if (!job) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('jobId');
+        
+        if (jobId) {
+            const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
+            const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
+            const sheetName = "Active Requirements: Published to Vendors";
+            const range = `${sheetName}!A2:H1000`;
+
+            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const rows = data.values || [];
+                    const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
+                    if (jobRow) {
+                        job = [
+                            jobRow[0] || '', // Main Skills
+                            jobRow[1] || '', // Order ID - Requirement Title
+                            jobRow[2] || '', // Detailed JD
+                            jobRow[3] || '', // Location
+                            jobRow[4] || '', // Nature of Work
+                            jobRow[5] || '', // Time Zone
+                            jobRow[6] || '', // Number of Positions
+                            jobRow[7] || ''  // Type of Engagement
+                        ];
+                        localStorage.setItem("selectedJob", JSON.stringify(job));
+                        renderJobDetails(job);
+                    } else {
+                        console.error("Job not found in spreadsheet for jobId:", jobId);
+                        showNoDataMessage("Job not found. Please check the job ID or return to the Open Positions page.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Failed to fetch from Google Sheet:", error);
+                    showNoDataMessage("Error loading job data. Please try again later.");
+                });
+            return;
+        }
+    }
+
+    if (!job) {
+        showNoDataMessage("No job data available. Please return to the main page and select a job.");
+        return;
+    }
+
+    renderJobDetails(job);
+}
+
+function showNoDataMessage(message) {
+    const jobDetailsContainer = document.getElementById("job-details-container");
+    jobDetailsContainer.innerHTML = `
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="no-data-message">
+                <p>${message}</p>
+                <p style="margin-top: 15px;"><a href="openpositions.html" class="theme-btn btn-one">View Open Positions</a></p>
+            </div>
+        </div>
+    `;
+}
         function fallbackToCompressedData(compressedData) {
-            const jobDetailsContainer = document.getElementById("job-details-container");
-            if (compressedData) {
-                try {
-                    const decompressed = LZString.decompressFromEncodedURIComponent(compressedData);
-                    if (!decompressed) {
-                        throw new Error("Decompressed data is empty");
-                    }
-                    const job = JSON.parse(decompressed);
-                    if (!Array.isArray(job) || job.length < 8) {
-                        throw new Error("Invalid job data format");
-                    }
-                    localStorage.setItem("selectedJob", JSON.stringify(job));
-                    renderJobDetails(job);
-                } catch (e) {
-                    console.error("Failed to decompress or parse data:", e);
-                    jobDetailsContainer.innerHTML = `
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="no-data-message">
-                                <p>Invalid or corrupted job data. Please try again.</p>
-                            </div>
-                        </div>
-                    `;
-                }
-            } else {
-                jobDetailsContainer.innerHTML = `
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="no-data-message">
-                            <p>No job data available. Please return to the main page and select a job.</p>
-                        </div>
-                    </div>
-                `;
+    const jobDetailsContainer = document.getElementById("job-details-container");
+    if (compressedData) {
+        try {
+            // Add validation for compressed data
+            if (!compressedData || compressedData.length < 10) {
+                throw new Error("Compressed data is too short or empty");
             }
+            
+            const decompressed = LZString.decompressFromEncodedURIComponent(compressedData);
+            if (!decompressed) {
+                throw new Error("Decompression resulted in empty data");
+            }
+            
+            const job = JSON.parse(decompressed);
+            if (!Array.isArray(job) || job.length < 8) {
+                throw new Error("Invalid job data format");
+            }
+            
+            localStorage.setItem("selectedJob", JSON.stringify(job));
+            renderJobDetails(job);
+        } catch (e) {
+            console.error("Failed to process job data:", e);
+            jobDetailsContainer.innerHTML = `
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="no-data-message">
+                        <p>We couldn't load the job details from the shared link. This may be because:</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>The link was truncated during sharing</li>
+                            <li>The data format has changed since the link was created</li>
+                            <li>There was an error in the data compression</li>
+                        </ul>
+                        <p style="margin-top: 15px;">Please try returning to the <a href="openpositions.html">Open Positions</a> page and selecting the job again.</p>
+                    </div>
+                </div>
+            `;
         }
+    } else {
+        jobDetailsContainer.innerHTML = `
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="no-data-message">
+                    <p>No job data was found in the URL. Please return to the <a href="openpositions.html">Open Positions</a> page to browse available jobs.</p>
+                </div>
+            </div>
+        `;
+    }
+}
     
         function renderJobDetails(job) {
             const jobDetailsContainer = document.getElementById("job-details-container");
@@ -700,35 +714,26 @@
         }
     
         function copyJobUrl() {
-            const job = JSON.parse(localStorage.getItem("selectedJob"));
-            if (!job) {
-                alert("No job data available to share!");
-                console.error("No job data in localStorage");
-                return;
-            }
+    const job = JSON.parse(localStorage.getItem("selectedJob"));
+    if (!job) {
+        alert("No job data available to share!");
+        return;
+    }
     
-            const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-            const jobId = orderIdTitle.split(" :")[0].trim();
+    // Extract just the job ID from the title
+    const orderIdTitle = job[1] || '';
+    const jobId = orderIdTitle.split(" :")[0].trim();
     
-            const jobData = JSON.stringify(job);
-            const compressedData = LZString.compressToEncodedURIComponent(jobData);
+    // Create a simple URL with just the job ID
+    const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
     
-            const params = new URLSearchParams();
-            params.set('jobId', jobId);
-            params.set('data', compressedData);
-    
-            // Use your hosted URL
-            const shareUrl = `https://g1careers.com/job-details.html?${params.toString()}`;
-            console.log("Share URL:", shareUrl);
-            console.log("URL length:", shareUrl.length);
-    
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                alert("Job URL copied to clipboard!");
-            }).catch(err => {
-                console.error("Failed to copy URL:", err);
-                alert("Failed to copy URL. Please try again.");
-            });
-        }
+    navigator.clipboard.writeText(shareUrl).then(() => {
+        alert("Job URL copied to clipboard!");
+    }).catch(err => {
+        console.error("Failed to copy URL:", err);
+        alert("Failed to copy URL. Please try again.");
+    });
+}
     
         window.onload = loadJobDetails;
     </script>
