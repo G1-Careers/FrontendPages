@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- LZ-string for Compression -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
     <link href="assets/css/flaticon.css" rel="stylesheet">
@@ -39,16 +41,8 @@
             background-color: #f5f7fa;
             color: #333;
         }
-
-        .job-details {
-            padding: 60px 0;
-        }
-
-        .auto-container {
-            max-width: 1200px;
-        }
-
-        /* Sidebar Styling */
+        .job-details { padding: 60px 0; }
+        .auto-container { max-width: 1200px; }
         .job-sidebar {
             background: #fff;
             border-radius: 12px;
@@ -56,11 +50,85 @@
             padding: 30px;
             transition: transform 0.3s ease;
         }
+       /* Updated button styles for consistent appearance */
+.top-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
 
-        .job-sidebar:hover {
-            transform: translateY(-5px);
-        }
+.top-buttons .theme-btn.btn-one,
+.top-buttons .home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #7ED957;
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(126, 217, 87, 0.3);
+}
 
+.top-buttons .home-btn {
+    background: #fff;
+    color: #7ED957;
+    border: 2px solid #7ED957;
+}
+
+.top-buttons .theme-btn.btn-one:hover,
+.top-buttons .home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(126, 217, 87, 0.4);
+}
+
+.top-buttons .home-btn:hover {
+    background: #7ED957;
+    color: #fff;
+}
+
+/* Remove unneeded margin-right from original CSS */
+.page-title .content-box .theme-btn.btn-one {
+    margin-right: 0;
+}
+
+/* Responsive styling - keep buttons side by side */
+@media (max-width: 480px) {
+    .top-buttons {
+        flex-direction: row; /* Keep horizontal layout */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .top-buttons .theme-btn.btn-one,
+    .top-buttons .home-btn {
+        padding: 12px 20px;
+        min-width: 130px;
+        font-size: 14px;
+    }
+}
+
+/* For very small screens - ensure buttons don't break layout */
+@media (max-width: 360px) {
+    .top-buttons .theme-btn.btn-one,
+    .top-buttons .home-btn {
+        padding: 10px 15px;
+        min-width: 110px;
+        font-size: 13px;
+    }
+}
+    .page-title .content-box .theme-btn.btn-one {
+        margin-right: 0;
+    }
+        .job-sidebar:hover { transform: translateY(-5px); }
         .info-widget ul li {
             display: flex;
             justify-content: space-between;
@@ -68,44 +136,30 @@
             padding: 15px 0;
             border-bottom: 1px solid #eee;
         }
-
-        .info-widget ul li:last-child {
-            border-bottom: none;
-        }
-
+        .info-widget ul li:last-child { border-bottom: none; }
         .info-widget h5 {
             font-size: 16px;
             font-weight: 600;
             color: #7ED957;
             margin: 0;
         }
-
         .info-widget p {
             font-size: 15px;
             color: #666;
             margin: 0;
         }
-
         .info-widget p a {
             color: #7ED957;
             text-decoration: none;
         }
-
-        .info-widget p a:hover {
-            text-decoration: underline;
-        }
-
-        .requirements-widget {
-            margin-top: 30px;
-        }
-
+        .info-widget p a:hover { text-decoration: underline; }
+        .requirements-widget { margin-top: 30px; }
         .requirements-widget h3 {
             font-size: 20px;
             font-weight: 700;
             color: #333;
             margin-bottom: 20px;
         }
-
         .requirements-widget ul li {
             font-size: 15px;
             color: #666;
@@ -113,20 +167,16 @@
             display: flex;
             justify-content: space-between;
         }
-
         .requirements-widget ul li span {
             font-weight: 600;
             color: #333;
         }
-
-        /* Content Side Styling */
         .job-details-content {
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             padding: 40px;
         }
-
         .text-box h3 {
             font-size: 24px;
             font-weight: 700;
@@ -135,7 +185,6 @@
             position: relative;
             padding-left: 30px;
         }
-
         .text-box h3::before {
             content: '\f0b1';
             font-family: 'Font Awesome 6 Free';
@@ -145,14 +194,12 @@
             color: #7ED957;
             font-size: 20px;
         }
-
         .text-box p {
             font-size: 16px;
             line-height: 1.8;
             color: #555;
             margin-bottom: 20px;
         }
-
         .list-item li {
             font-size: 16px;
             color: #555;
@@ -160,7 +207,6 @@
             position: relative;
             padding-left: 25px;
         }
-
         .list-item li::before {
             content: '\f058';
             font-family: 'Font Awesome 6 Free';
@@ -170,8 +216,6 @@
             color: #7ED957;
             font-size: 16px;
         }
-
-        /* Apply Now Button */
         .theme-btn.btn-one {
             display: inline-block;
             background: #7ED957;
@@ -183,15 +227,49 @@
             text-transform: uppercase;
             text-decoration: none;
             transition: all 0.3s ease;
+            margin-right: 10px;
         }
-
         .theme-btn.btn-one:hover {
             background: #7ED957;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(26, 232, 60, 0.3);
         }
-
-        /* No Data Message */
+        .theme-btn.btn-two {
+            display: inline-block;
+            background: #fff;
+            color: #7ED957;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #7ED957;
+        }
+        .theme-btn.btn-two:hover {
+            background: #7ED957;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 232, 60, 0.3);
+        }
+        .home-btn {
+            display: inline-block;
+            background: #7ED957;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+        }
+        .home-btn:hover {
+            background: #7ED957;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 232, 60, 0.3);
+        }
         .no-data-message {
             text-align: center;
             padding: 40px;
@@ -201,49 +279,23 @@
             margin: 0 auto;
             max-width: 600px;
         }
-
         .no-data-message p {
             font-size: 18px;
             color: #666;
             margin: 0;
         }
-
-        /* Responsive Design */
         @media (max-width: 991px) {
-            .job-sidebar {
-                margin-bottom: 40px;
-            }
-
-            .job-details-content {
-                padding: 30px;
-            }
+            .job-sidebar { margin-bottom: 40px; }
+            .job-details-content { padding: 30px; }
         }
-
         @media (max-width: 767px) {
-            .job-details-content {
-                padding: 20px;
-            }
-
-            .text-box h3 {
-                font-size: 20px;
-            }
-
-            .text-box p, .list-item li {
-                font-size: 14px;
-            }
-
-            .theme-btn.btn-one {
-                padding: 12px 25px;
-                font-size: 14px;
-            }
-
-            .no-data-message {
-                padding: 30px;
-            }
-
-            .no-data-message p {
-                font-size: 16px;
-            }
+            .job-details-content { padding: 20px; }
+            .text-box h3 { font-size: 20px; }
+            .text-box p, .list-item li { font-size: 14px; }
+            .theme-btn.btn-one, .theme-btn.btn-two { padding: 12px 25px; font-size: 14px; }
+            .home-btn { padding: 8px 15px; font-size: 12px; }
+            .no-data-message { padding: 30px; }
+            .no-data-message p { font-size: 16px; }
         }
     </style>
 </head>
@@ -343,20 +395,25 @@
                     <ul>
                         <li>3rd Floor, Ratnam Chambers, Phase - II, H.No.1-62/172, Plot No.172, Kavuri Hills, Madhapur, Telangana 500081</li>
                         <li><a href="tel:+9185558 97504">+91 85558 97504</a></li>
-                        <li><a href="mailto:delivery@g1careers.com">delivery@g1careers.com</a></li>
+                        <li><a href="mailto:delivery@g1careers.com">delivery@g1careers.com"></a></li>
                     </ul>
                 </div>
             </nav>
         </div>
+        <!-- Mobile Menu End -->
+
+        <!-- page-title -->
         <section class="page-title centred pt_110">
             <div class="auto-container">
                 <div class="content-box">
                     <h1>Job Details</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li>-</li>
-                        <li>Job Details</li>
-                    </ul>
+                    <div class="top-buttons">
+                        <a href="index.html" class="home-btn">Home</a>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
+                           target="_blank" 
+                           class="theme-btn btn-one">Apply Now</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -385,43 +442,49 @@
                                             style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #333;">
                                     </a>
                                     <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #ffff;">G1Careers</span>
-                                </figure>                                
-                                <p>Since 2023, G1Careers has Augmented Staff for 300+ Corporates in India and US</p>
+                                </figure>
+                                <div class="text">
+                                    <p>G1Careers is a leading platform connecting talented professionals with exciting career opportunities in various industries.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-12 footer-column">
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                             <div class="footer-widget links-widget">
                                 <div class="widget-title">
-                                    <h4>Company</h4>
+                                    <h3>Quick Links</h3>
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
+                                        <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About Us</a></li>
+                                        <li><a href="openpositions.html">Open Positions</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="training.html">Java+Angular Training</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-12 footer-column">
-                            <div class="footer-widget links-widget">
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
                                 <div class="widget-title">
-                                    <h4>Help & Support</h4>
+                                    <h3>Contact Us</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <ul class="links-list clearfix">
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="faq.html">General FAQ</a></li>
-                                        <li><a href="index.html">Terms & Conditions</a></li>
-                                    </ul>
+                                    <p>3rd Floor, Ratnam Chambers, Phase - II, H.No.1-62/172, Plot No.172, Kavuri Hills, Madhapur, Telangana 500081</p>
+                                    <p>Email: <a href="mailto:delivery@g1careers.com">delivery@g1careers.com</a></p>
+                                    <p>Phone: <a href="tel:+9185558 97504">+91 85558 97504</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom p_relative">
                 <div class="auto-container">
                     <div class="bottom-inner">
-                        <div class="copyright"><p>Copyright © 2025 <a href="index.html">G1Careers</a> All rights reserved.</p></div>
+                        <div class="copyright">
+                            <p>&copy; 2023 G1Careers. All rights reserved.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -430,43 +493,106 @@
 
         <!--Scroll to top-->
         <div class="scroll-to-top">
-            <svg class="scroll-top-inner" viewBox="-1 -1 102 102">
-                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-            </svg>
+            <div>
+                <div class="scroll-top-inner">
+                    <i class="icon-25"></i>
+                </div>
+            </div>
         </div>
+        <!-- Scroll to top end -->
     </div>
 
-    <!-- jQuery plugins -->
+    <!-- jequery plugins -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.js"></script>
     <script src="assets/js/wow.js"></script>
-    <script src="assets/js/validation.js"></script>
     <script src="assets/js/jquery.fancybox.js"></script>
     <script src="assets/js/appear.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/parallax-scroll.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/scrolltop.min.js"></script>
-    <script src="assets/js/gsap.js"></script>
-    <script src="assets/js/ScrollTrigger.js"></script>
-    <script src="assets/js/SplitText.js"></script>
-    <script src="assets/js/language.js"></script>
-    <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/lenis.min.js"></script>
-    <script src="assets/js/odometer.js"></script>
-    <script src="assets/js/jquery.lettering.min.js"></script>
-    <script src="assets/js/jquery.circleType.js"></script>
+    <script src="assets/js/validate.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
 
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
 
     <script>
+        // Force hide preloader after 1 second
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.querySelector('.loader-wrap');
+                if (loader) {
+                    loader.style.display = 'none';
+                }
+            }, 1000);
+        });
+    
         function loadJobDetails() {
             const jobDetailsContainer = document.getElementById("job-details-container");
-            const job = JSON.parse(localStorage.getItem("selectedJob"));
-
-            // If no job data is available, show a message or leave it empty
+            let job = null;
+            try {
+                const storedJob = localStorage.getItem("selectedJob");
+                if (storedJob) {
+                    job = JSON.parse(storedJob);
+                }
+            } catch (e) {
+                console.error("Failed to parse selectedJob from localStorage:", e);
+            }
+    
+            if (!job) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const jobId = urlParams.get('jobId');
+                const compressedData = urlParams.get('data');
+    
+                if (compressedData) {
+                    fallbackToCompressedData(compressedData);
+                    return;
+                } else if (jobId) {
+                    const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
+                    const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
+                    const sheetName = "Active Requirements: Published to Vendors";
+                    const range = `${sheetName}!A2:H1000`;
+    
+                    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            const rows = data.values || [];
+                            const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
+                            if (jobRow) {
+                                job = [
+                                    jobRow[0] || '', // Main Skills
+                                    jobRow[1] || '', // Order ID - Requirement Title
+                                    jobRow[2] || '', // Detailed JD
+                                    jobRow[3] || '', // Location
+                                    jobRow[4] || '', // Nature of Work
+                                    jobRow[5] || '', // Time Zone
+                                    jobRow[6] || '', // Number of Positions
+                                    jobRow[7] || ''  // Type of Engagement
+                                ];
+                                localStorage.setItem("selectedJob", JSON.stringify(job));
+                                renderJobDetails(job);
+                            } else {
+                                console.error("Job not found in spreadsheet for jobId:", jobId);
+                                fallbackToCompressedData(compressedData);
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Failed to fetch from Google Sheet:", error);
+                            fallbackToCompressedData(compressedData);
+                        });
+                    return;
+                }
+            }
+    
             if (!job) {
                 jobDetailsContainer.innerHTML = `
                     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -477,14 +603,52 @@
                 `;
                 return;
             }
-
-            // Extract job data
+    
+            renderJobDetails(job);
+        }
+    
+        function fallbackToCompressedData(compressedData) {
+            const jobDetailsContainer = document.getElementById("job-details-container");
+            if (compressedData) {
+                try {
+                    const decompressed = LZString.decompressFromEncodedURIComponent(compressedData);
+                    if (!decompressed) {
+                        throw new Error("Decompressed data is empty");
+                    }
+                    const job = JSON.parse(decompressed);
+                    if (!Array.isArray(job) || job.length < 8) {
+                        throw new Error("Invalid job data format");
+                    }
+                    localStorage.setItem("selectedJob", JSON.stringify(job));
+                    renderJobDetails(job);
+                } catch (e) {
+                    console.error("Failed to decompress or parse data:", e);
+                    jobDetailsContainer.innerHTML = `
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="no-data-message">
+                                <p>Invalid or corrupted job data. Please try again.</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                jobDetailsContainer.innerHTML = `
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="no-data-message">
+                            <p>No job data available. Please return to the main page and select a job.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    
+        function renderJobDetails(job) {
+            const jobDetailsContainer = document.getElementById("job-details-container");
             const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-            console.log(job);
-            // Update page title
+            console.log("Job data:", job);
+    
             document.querySelector(".page-title h1").textContent = orderIdTitle || "Job Details";
-
-            // Populate the job details dynamically
+    
             jobDetailsContainer.innerHTML = `
                 <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                     <div class="job-sidebar mr_40">
@@ -510,8 +674,7 @@
                     <div class="job-details-content">
                         <div class="text-box mb_60">
                             <h3>Job Description</h3>
-                           <p>${(detailedJD || "No detailed job description available.").replace(/\n/g, "<br>")}</p>
-
+                            <p>${(detailedJD || "No detailed job description available.").replace(/\n/g, "<br>")}</p>
                         </div>
                         <div class="text-box mb_55">
                             <h3>Responsibilities</h3>
@@ -525,18 +688,48 @@
                             <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
                                target="_blank" 
                                class="theme-btn btn-one">Apply Now</a>
+                            <a href="#" onclick="copyJobUrl()" class="theme-btn btn-two">Share</a>
                         </div>
                     </div>
                 </div>
             `;
         }
-
-        function copyJobUrl() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url);
-            alert("Job URL copied to clipboard!");
+    
+        function generateUniqueId() {
+            return Math.random().toString(36).substr(2, 9);
         }
-
+    
+        function copyJobUrl() {
+            const job = JSON.parse(localStorage.getItem("selectedJob"));
+            if (!job) {
+                alert("No job data available to share!");
+                console.error("No job data in localStorage");
+                return;
+            }
+    
+            const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
+            const jobId = orderIdTitle.split(" :")[0].trim();
+    
+            const jobData = JSON.stringify(job);
+            const compressedData = LZString.compressToEncodedURIComponent(jobData);
+    
+            const params = new URLSearchParams();
+            params.set('jobId', jobId);
+            params.set('data', compressedData);
+    
+            // Use your hosted URL
+            const shareUrl = `https://g1careers.com/job-details.html?${params.toString()}`;
+            console.log("Share URL:", shareUrl);
+            console.log("URL length:", shareUrl.length);
+    
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert("Job URL copied to clipboard!");
+            }).catch(err => {
+                console.error("Failed to copy URL:", err);
+                alert("Failed to copy URL. Please try again.");
+            });
+        }
+    
         window.onload = loadJobDetails;
     </script>
 </body>
