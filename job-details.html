@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Job Details</title>
+
+    <link id="canonical-link" rel="canonical" href="" />
+    <meta id="meta-description" name="description" content="View details of job opportunities at G1Careers.">
+
     <!-- Fav Icon -->
     <link rel="icon" href="assets/images/logos.png" type="image/x-icon">
     <!-- Google Fonts -->
@@ -516,6 +520,17 @@
     <script src="assets/js/script.js"></script>
 
     <script>
+
+function setCanonicalUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get('jobId');
+    const canonicalLink = document.getElementById('canonical-link');
+    if (jobId) {
+        canonicalLink.setAttribute('href', `https://g1careers.com/job-details?jobId=${encodeURIComponent(jobId)}`);
+    } else {
+        canonicalLink.setAttribute('href', 'https://g1careers.com/job-details');
+    }
+}
         // Force hide preloader after 1 second
         window.addEventListener('load', function() {
             setTimeout(function() {

@@ -1,0 +1,5 @@
+RewriteEngine On
+# Redirect /open-positions/ (with or without trailing slash) to /openpositions
+RewriteRule ^open-positions/?$ openpositions [R=301,L]
+# Redirect /open-positions.html to /openpositions
+RewriteRule ^open-positions\.html$ openpositions [R=301,L]
