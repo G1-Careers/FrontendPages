@@ -3,3 +3,6 @@ RewriteEngine On
 RewriteRule ^open-positions/?$ openpositions [R=301,L]
 # Redirect /open-positions.html to /openpositions
 RewriteRule ^open-positions\.html$ openpositions [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/openpositions/$
+RewriteRule ^(.*)/$ https://g1careers.com/$1 [R=301,L]
