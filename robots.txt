@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /job-details?jobId=
 Disallow: /job-details$
+Disallow: /bench/
+Disallow: /open-positions/--
+Disallow: /open-positions/
+Allow: /openpositions/
 Sitemap: https://g1careers.com/sitemap.xml
