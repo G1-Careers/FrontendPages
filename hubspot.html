@@ -374,7 +374,7 @@
         .apply-button:hover {
             background: linear-gradient(135deg, #4CAF50, #28A745);
             color: white;
-            text-decoration: none;
+            text-decoration precautionary: none;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(40, 167, 69, 0.4);
         }
@@ -394,6 +394,68 @@
             background-color: #28A745;
             color: white;
             box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+        }
+
+        /* Trainer Section Styling */
+        .trainer-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            margin: 25px 0;
+            border: 1px solid #f0f0f0;
+        }
+
+        .trainer-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: rgba(40, 167, 69, 0.3);
+        }
+
+        .trainer-image {
+            flex: 0 0 auto;
+            margin-right: 20px;
+        }
+
+        .trainer-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #28A745;
+        }
+
+        .trainer-details h4 {
+            color: #111;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .trainer-details p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .trainer-details .skills-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .trainer-details .skills-list li {
+            background-color: #e6f4e6;
+            color: #28A745;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* Footer Enhancements */
@@ -536,6 +598,29 @@
                 padding: 12px 20px;
             }
 
+            .trainer-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .trainer-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .trainer-image img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .trainer-details h4 {
+                font-size: 20px;
+            }
+
+            .trainer-details .skills-list li {
+                font-size: 0.85rem;
+            }
+
             .footer-column {
                 margin-bottom: 20px;
             }
@@ -580,6 +665,24 @@
 
             .logo-box span {
                 font-size: 14px;
+            }
+
+            .trainer-image img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .trainer-details h4 {
+                font-size: 18px;
+            }
+
+            .trainer-details p {
+                font-size: 0.9rem;
+            }
+
+            .trainer-details .skills-list li {
+                font-size: 0.8rem;
+                padding: 4px 8px;
             }
         }
     </style>
@@ -693,11 +796,11 @@
                     <div class="highlight-box">
                         <p><strong>Program Details:</strong></p>
                     </div>
-                    <div class="date-box"><i class="fa fa-rupee"></i> <strong>Eligibility&nbsp;:&nbsp; </strong>  Any Degree</div>
-                    <div class="date-box"><i class="fa fa-calendar"></i> <strong>Duration&nbsp;:&nbsp;</strong>  45 Days</div>
-                    <div class="date-box"><i class="fa fa-rupee"></i> <strong>Course Fees&nbsp;:&nbsp; </strong>  ₹25,000</div>
-                    <div class="date-box"><i class="fa fa-check-circle"></i> <strong>Placement Assistance&nbsp;:&nbsp; </strong>  Support for securing roles with 20+ HubSpot-hiring clients</div>
-                    <div class="date-box"><i class="fa fa-globe"></i> <strong>Mode of Training&nbsp;: &nbsp;</strong>  Online, 2 Hrs / Day</div>
+                    <div class="date-box"><i class="fa fa-rupee"></i> <strong>Eligibility :  </strong>  Any Degree</div>
+                    <div class="date-box"><i class="fa fa-calendar"></i> <strong>Duration : </strong>  45 Days</div>
+                    <div class="date-box"><i class="fa fa-rupee"></i> <strong>Course Fees :  </strong>  ₹25,000</div>
+                    <div class="date-box"><i class="fa fa-check-circle"></i> <strong>Placement Assistance :  </strong>  Support for securing roles with 20+ HubSpot-hiring clients</div>
+                    <div class="date-box"><i class="fa fa-globe"></i> <strong>Mode of Training :  </strong>  Online, 2 Hrs / Day</div>
 
                     <div class="highlight-box">
                         <p><strong>Requirements:</strong></p>
@@ -735,8 +838,56 @@
                         <p><strong>Training Curriculum</strong></p>
                     </div>
                     <p>Our HubSpot training covers marketing automation, CRM, sales tools, and more. </p>
-                     <p><strong>Bonus</strong> ZoomInfo training is included as an add-on for data enrichment expertise.</p>
+                    <p><strong>Bonus</strong> ZoomInfo training is included as an add-on for data enrichment expertise.</p>
                     <p>The <b>syllabus</b> will be shared as per your request. Contact us to explore the curriculum in detail.</p>
+
+                    <div class="highlight-box">
+                        <p><strong>Meet Your Trainer</strong></p>
+                    </div>
+                    <div class="trainer-box">
+                        <div class="trainer-image">
+                            <img src="assets/images/team/trainer.webp" alt="Trainer Photo">
+                        </div>
+                        <div class="trainer-details">
+                            <h4>Expert Trainer</h4>
+                            <p>With 7 years of experience in Digital Marketing and CRM, our trainer brings extensive expertise in leveraging HubSpot for business growth. Based in the Bad Area, they specialize in creating efficient workflows and driving results through advanced marketing and sales strategies.</p>
+                            <p><strong>Skills:</strong></p>
+                            <ul class="skills-list">
+                                <li>Workflow Automation</li>
+                                <li>HubSpot</li>
+                                <li>Lead Nurturing</li>
+                                <li>Google Sheets</li>
+                                <li>Software as a Service (SaaS)</li>
+                                <li>Marketing Operations</li>
+                                <li>Analytical Skills</li>
+                                <li>Sales Operations</li>
+                                <li>HubSpot Sales Hub</li>
+                                <li>English</li>
+                                <li>Sales Processes</li>
+                                <li>Lead Management</li>
+                                <li>Digital Marketing</li>
+                                <li>Microsoft Excel</li>
+                                <li>Canva</li>
+                                <li>Reporting & Analysis</li>
+                                <li>Datasets</li>
+                                <li>Customer Relationship Management (CRM)</li>
+                                <li>Business-to-Business (B2B)</li>
+                                <li>Sales Enablement</li>
+                                <li>HubSpot Marketing Hub</li>
+                                <li>Marketing Campaign Management</li>
+                                <li>Marketing Automation</li>
+                                <li>Marketing Analytics</li>
+                                <li>MailChimp</li>
+                                <li>Dashboard Building</li>
+                                <li>CTAs</li>
+                                <li>Sales Management</li>
+                                <li>Email Marketing</li>
+                                <li>Operations Management</li>
+                                <li>Social Media Marketing</li>
+                                <li>Custom Objects</li>
+                            </ul>
+                        </div>
+                    </div>
 
                     <div class="row row-spaced" style="justify-content: center;">
                         <div class="col-lg-12 text-center">
@@ -759,7 +910,6 @@
                 <div class="contact-info">
                     <h4>Contact Info</h4>
                     <ul>
-                       
                         <li><a href="tel:+9190321 26087">+91 90321 26087</a></li>
                         <li><a href="mailto:delivery@g1careers.com">delivery@g1careers.com</a></li>
                     </ul>
