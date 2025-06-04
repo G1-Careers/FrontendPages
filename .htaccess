@@ -1,8 +1,18 @@
 RewriteEngine On
-# Redirect /open-positions/ (with or without trailing slash) to /openpositions
-RewriteRule ^open-positions/?$ openpositions [R=301,L]
-# Redirect /open-positions.html to /openpositions
-RewriteRule ^open-positions\.html$ openpositions [R=301,L]
 
+# --- Redirects ---
+RewriteRule ^open-positions/?$ openpositions [R=301,L]
+RewriteRule ^open-positions\.html$ openpositions [R=301,L]
 RewriteCond %{REQUEST_URI} ^/openpositions/$
 RewriteRule ^(.*)/$ https://g1careers.com/$1 [R=301,L]
+
+# --- Redirect /java+angular to /java-angular ---
+RewriteRule ^java\+angular/?$ /java-angular [R=301,L]
+
+# --- Angular SPA support (if you're using Angular frontend) ---
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.html [L]
+
+# --- Custom 404 (optional) ---
+ErrorDocument 404 /404.html
