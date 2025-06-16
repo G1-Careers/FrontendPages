@@ -49,6 +49,82 @@
 <link href="assets/css/responsive.css" rel="stylesheet">
 
 <style>
+    /* Flash News Banner Styles */
+    .flash-news-banner {
+        background: linear-gradient(45deg, #1e5212, #24c731, #076e04);
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+        color: white;
+        padding: 8px 0;
+        font-weight: 600;
+        font-size: 14px;
+        overflow: hidden;
+        position: relative;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .flash-news-content {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        animation: scrollLeft 25s linear infinite;
+        padding-left: 100%;
+    }
+
+    @keyframes scrollLeft {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    .flash-news-content:hover {
+        animation-play-state: paused;
+    }
+
+    .flash-label {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-right: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .flash-text {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        letter-spacing: 0.5px;
+    }
+
+    .flash-highlight {
+        color: #ffff00;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #ffff00; }
+        to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #ffff00, 0 0 30px #ffff00; }
+    }
+
     /* Custom Styles to Ensure Same Height for .inner-box in Chooseus Section */
     .chooseus-style-three {
         background: #f5f7f6; /* Match the background color from the image */
@@ -185,6 +261,17 @@
         .chooseus-style-three .chooseus-block-one .inner-box .link a {
             font-size: 12px;
         }
+
+        .flash-news-banner {
+            font-size: 12px;
+            padding: 6px 0;
+        }
+        
+        .flash-label {
+            font-size: 10px;
+            padding: 3px 8px;
+            margin-right: 10px;
+        }
     }
 
     @media (max-width: 576px) {
@@ -207,6 +294,10 @@
         }
         .chooseus-style-three .chooseus-block-one .inner-box .link a {
             font-size: 11px;
+        }
+
+        .flash-news-content {
+            animation: scrollLeft 20s linear infinite;
         }
     }
 
@@ -298,112 +389,95 @@
         </div>
         <!-- preloader end -->
 
-        <!-- main header -->
-        <!-- main header -->
-<header class="main-header header-style-five">
-    <!-- header-top -->
-    <div class="header-top">
-        <div class="outer-container">
-            <div class="top-inner">
-                <ul class="info">
-                    <li>
-                        <img src="assets/images/icons/icon-6.png" alt="">
-                        Call: <a href="tel:8123700851">+91 8123700851</a>
-                    </li>
-                    <li>
-                        <img src="assets/images/icons/icon-7.png" alt="">
-                        Mail: <a href="mailto:jobinfo@example.com">abhishek@g1careers.com</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- header-lower -->
-    <div class="header-lower">
-        <div class="outer-container">
-            <div class="outer-box">
-                <figure class="logo-box" style="display: flex; align-items: center;">
-                    <a href="index.html">
-                        <img src="assets/images/logos.png" alt="G1Careers Logo" 
-                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #333;">
-                    </a>
-                    <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #333;">G1Careers</span>
-                </figure>
-                <div class="menu-area">
-                    <!--Mobile Navigation Toggler-->
-                    <div class="mobile-nav-toggler">
-                        <i class="icon-bar"></i>
-                        <i class="icon-bar"></i>
-                        <i class="icon-bar"></i>
-                    </div>
-                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
-                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                            <ul class="navigation clearfix">
-                                <li class="current"><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="openpositions.html">Open Positions</a></li>                                        
-                                <li><a href="contact.html">Contact</a></li>
-                                <li class="dropdown">
-                                    <a href="#">Training Programs</a>
-                                    <ul>
-                                        <li><a href="java-angular.html">Java+Angular</a></li>
-                                        <li><a href="hubspot.html">Hubspot</a></li>
-                                        <li><a href="playwright.html">Playwright</a></li>
-                                                                                <li><a href="corejava.html">Core Java</a></li>
+        <!-- Flash News Banner -->
+        <div class="flash-news-banner">
+            <div class="flash-news-content">
+                <!-- <span class="flash-label">🔥 BREAKING</span> -->
+                <span class="flash-text">
+  <span class="flash-highlight">Free HubSpot Webinar</span>
+  Turn a 90-minute session into a high-impact career move •
+  <span class="flash-highlight">
+    &nbsp;For registration, 
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSei3lOdbnNkdP8Zht45pdHZHyTrbpMlojmkOZiYqWB48ODH4A/viewform" 
+       target="_blank" 
+       style="text-decoration: underline; color: #FFCE00; font-weight: bold;">
+      click here
+    </a>!
+  </span>
+</span>
 
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div class="menu-right-content">
-                    <div class="link-box mr_20"><a href="https://app.g1careers.com/" target="_blank">Log In</a></div>
-                    <div class="btn-box"><a href="https://app.g1careers.com/" target="_blank" class="theme-btn btn-one">Sign up</a></div>
-                </div>
+
+
+
+
             </div>
         </div>
-    </div>
-    
-    <!--sticky Header-->
-    <!-- <div class="sticky-header">
-        <div class="outer-container">
-            <div class="outer-box">
-                <figure class="logo-box" style="display: flex; align-items: center;">
-                    <a href="index.html">
-                        <img src="assets/images/logos.png" alt="G1Careers Logo" 
-                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #333;">
-                    </a>
-                    <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #333;">G1Careers</span>
-                </figure>
-                <div class="menu-area">
-                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
-                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                            <ul class="navigation clearfix">
-                                <li class="current"><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="openpositions.html">Open Positions</a></li>                                        
-                                <li><a href="contact.html">Contact</a></li>
-                                <li class="dropdown">
-                                    <a href="#">Training</a>
-                                    <ul>
-                                        <li><a href="java-angular.html">Java+Angular</a></li>
-                                        <li><a href="hubspot.html">Hubspot</a></li>
-                                        <li><a href="playwright.html">Playwright</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div class="menu-right-content">
-                    <div class="link-box mr_20"><a href="https://app.g1careers.com/" target="_blank">Log In</a></div>
+
+        <!-- main header -->
+        <header class="main-header header-style-five">
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="outer-container">
+                    <div class="top-inner">
+                        <ul class="info">
+                            <li>
+                                <img src="assets/images/icons/icon-6.png" alt="">
+                                Call: <a href="tel:8123700851">+91 8123700851</a>
+                            </li>
+                            <li>
+                                <img src="assets/images/icons/icon-7.png" alt="">
+                                Mail: <a href="mailto:jobinfo@example.com">abhishek@g1careers.com</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div> -->
-</header>
-<!-- main-header end -->
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="outer-container">
+                    <div class="outer-box">
+                        <figure class="logo-box" style="display: flex; align-items: center;">
+                            <a href="index.html">
+                                <img src="assets/images/logos.png" alt="G1Careers Logo" 
+                                    style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #333;">
+                            </a>
+                            <span style="margin-left: 10px; font-size: 18px; font-weight: bold; color: #333;">G1Careers</span>
+                        </figure>
+                        <div class="menu-area">
+                            <!--Mobile Navigation Toggler-->
+                            <div class="mobile-nav-toggler">
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                            </div>
+                            <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li class="current"><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="openpositions.html">Open Positions</a></li>                                        
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li class="dropdown">
+                                            <a href="#">Training Programs</a>
+                                            <ul>
+                                                <li><a href="java-angular.html">Java+Angular</a></li>
+                                                <li><a href="hubspot.html">Hubspot</a></li>
+                                                <li><a href="playwright.html">Playwright</a></li>
+                                                <li><a href="corejava.html">Core Java</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="menu-right-content">
+                            <div class="link-box mr_20"><a href="https://app.g1careers.com/" target="_blank">Log In</a></div>
+                            <div class="btn-box"><a href="https://app.g1careers.com/" target="_blank" class="theme-btn btn-one">Sign up</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
         <!-- main-header end -->
 
         <!-- Mobile Menu  -->
@@ -431,7 +505,7 @@
                 <div class="left-column">
                     <div class="bg-layer" style="background-image: url(assets/images/banner/banner-3.jpg);"></div>
                     <div class="content-box">
-                        <h2>I’m Looking for a <span>Job</span></h2>
+                        <h2>I'm Looking for a <span>Job</span></h2>
                         <p>Searching for a job can be both exciting and daunting, filled with anticipation and uncertainty.</p>
                         <a href="openpositions.html" class="theme-btn banner-btn">Find a Job</a>
                     </div>
@@ -572,6 +646,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- For Business -->
+                        
                         <!-- For Business -->
                         <div class="tab" id="tab-2">
                             <div class="row clearfix">
