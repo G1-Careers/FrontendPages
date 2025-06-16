@@ -49,15 +49,12 @@
 <link href="assets/css/responsive.css" rel="stylesheet">
 
 <style>
-    /* Flash News Banner Styles */
-    .flash-news-banner {
+    /* Enhanced Header Top Styles */
+    .header-top {
         background: linear-gradient(45deg, #1e5212, #24c731, #076e04);
         background-size: 200% 200%;
         animation: gradientShift 3s ease infinite;
-        color: white;
         padding: 8px 0;
-        font-weight: 600;
-        font-size: 14px;
         overflow: hidden;
         position: relative;
         border-bottom: 2px solid rgba(255, 255, 255, 0.3);
@@ -70,10 +67,56 @@
         100% { background-position: 0% 50%; }
     }
 
-    .flash-news-content {
+    .header-top .top-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .header-top .info {
         display: flex;
         align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .header-top .info li {
+        display: flex;
+        align-items: center;
+        margin-right: 30px;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .header-top .info li img {
+        margin-right: 8px;
+        filter: brightness(0) invert(1);
+    }
+
+    .header-top .info li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .header-top .info li a:hover {
+        color: #ffff00;
+    }
+
+    /* Flash News in Header Top */
+    .flash-news-content {
+        flex: 1;
         white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+        margin-left: 30px;
+    }
+
+    .flash-news-scroll {
+        display: inline-block;
         animation: scrollLeft 25s linear infinite;
         padding-left: 100%;
     }
@@ -83,7 +126,7 @@
         100% { transform: translateX(-100%); }
     }
 
-    .flash-news-content:hover {
+    .flash-news-scroll:hover {
         animation-play-state: paused;
     }
 
@@ -99,6 +142,7 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         animation: pulse 2s ease-in-out infinite;
+        color: white;
     }
 
     @keyframes pulse {
@@ -111,6 +155,7 @@
         font-weight: 600;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         letter-spacing: 0.5px;
+        color: white;
     }
 
     .flash-highlight {
@@ -123,6 +168,16 @@
     @keyframes glow {
         from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #ffff00; }
         to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #ffff00, 0 0 30px #ffff00; }
+    }
+
+    .flash-highlight a {
+        text-decoration: underline;
+        color: #FFCE00;
+        font-weight: bold;
+    }
+
+    .flash-highlight a:hover {
+        color: #fff;
     }
 
     /* Custom Styles to Ensure Same Height for .inner-box in Chooseus Section */
@@ -223,8 +278,73 @@
         display: none !important; /* Hide the navigation arrows */
     }
 
+    /* Dropdown Menu Styling */
+    .main-menu .navigation > li.dropdown {
+        position: relative;
+    }
+
+    .main-menu .navigation > li.dropdown > ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        min-width: 200px;
+        padding: 10px 0;
+        display: none;
+        z-index: 100;
+    }
+
+    .main-menu .navigation > li.dropdown:hover > ul {
+        display: block;
+    }
+
+    .main-menu .navigation > li.dropdown > ul > li {
+        display: block;
+    }
+
+    .main-menu .navigation > li.dropdown > ul > li > a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .main-menu .navigation > li.dropdown > ul > li > a:hover {
+        background: #65e17f;
+        color: #fff;
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 991px) {
+        .header-top .top-inner {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .header-top .info {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .header-top .info li {
+            margin-right: 20px;
+            font-size: 12px;
+        }
+
+        .flash-news-content {
+            margin-left: 0;
+            width: 100%;
+        }
+
+        .flash-news-scroll {
+            animation: scrollLeft 20s linear infinite;
+        }
+
         .chooseus-style-three .chooseus-block-one .inner-box {
             height: 200px; /* Slightly reduce height for medium screens */
             padding: 20px;
@@ -238,9 +358,35 @@
         .chooseus-style-three .chooseus-block-one .inner-box .link a {
             font-size: 13px;
         }
+
+        .main-menu .navigation > li.dropdown > ul {
+            position: static;
+            width: 100%;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+        }
+        .main-menu .navigation > li.dropdown > ul > li > a {
+            padding: 10px 30px;
+        }
     }
 
     @media (max-width: 767px) {
+        .header-top .info li {
+            margin-right: 15px;
+            font-size: 11px;
+        }
+
+        .flash-label {
+            font-size: 10px;
+            padding: 3px 8px;
+            margin-right: 10px;
+        }
+
+        .flash-text {
+            font-size: 12px;
+        }
+
         .chooseus-style-three .chooseus-block-one .inner-box {
             height: 180px; /* Further reduce height for smaller screens */
             padding: 15px;
@@ -261,20 +407,23 @@
         .chooseus-style-three .chooseus-block-one .inner-box .link a {
             font-size: 12px;
         }
-
-        .flash-news-banner {
-            font-size: 12px;
-            padding: 6px 0;
-        }
-        
-        .flash-label {
-            font-size: 10px;
-            padding: 3px 8px;
-            margin-right: 10px;
-        }
     }
 
     @media (max-width: 576px) {
+        .header-top .info {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .header-top .info li {
+            margin-right: 0;
+            font-size: 10px;
+        }
+
+        .flash-news-scroll {
+            animation: scrollLeft 15s linear infinite;
+        }
+
         .chooseus-style-three .chooseus-block-one .inner-box {
             height: 160px; /* Adjust height for very small screens */
             padding: 10px;
@@ -295,68 +444,9 @@
         .chooseus-style-three .chooseus-block-one .inner-box .link a {
             font-size: 11px;
         }
-
-        .flash-news-content {
-            animation: scrollLeft 20s linear infinite;
-        }
     }
-
-    /* Dropdown Menu Styling */
-.main-menu .navigation > li.dropdown {
-    position: relative;
-}
-
-.main-menu .navigation > li.dropdown > ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    min-width: 200px;
-    padding: 10px 0;
-    display: none;
-    z-index: 100;
-}
-
-.main-menu .navigation > li.dropdown:hover > ul {
-    display: block;
-}
-
-.main-menu .navigation > li.dropdown > ul > li {
-    display: block;
-}
-
-.main-menu .navigation > li.dropdown > ul > li > a {
-    display: block;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    color: #333;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.main-menu .navigation > li.dropdown > ul > li > a:hover {
-    background: #65e17f;
-    color: #fff;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 991px) {
-    .main-menu .navigation > li.dropdown > ul {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-    }
-    .main-menu .navigation > li.dropdown > ul > li > a {
-        padding: 10px 30px;
-    }
-}
-
 </style>
+
 
 </head>
 
@@ -389,22 +479,7 @@
         </div>
         <!-- preloader end -->
 
-        <!-- Flash News Banner -->
-        <div class="flash-news-banner">
-            <div class="flash-news-content">
-                <!-- <span class="flash-label">🔥 BREAKING</span> -->
-                <span class="flash-text">
-  <span class="flash-highlight">Free HubSpot Webinar</span>
-  Turn a 90-minute session into a high-impact career move •
-  <span class="flash-highlight">
-    &nbsp;For registration, 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSei3lOdbnNkdP8Zht45pdHZHyTrbpMlojmkOZiYqWB48ODH4A/viewform" 
-       target="_blank" 
-       style="text-decoration: underline; color: #FFCE00; font-weight: bold;">
-      click here
-    </a>!
-  </span>
-</span>
+      
 
 
 
@@ -429,9 +504,25 @@
                                 Mail: <a href="mailto:jobinfo@example.com">abhishek@g1careers.com</a>
                             </li>
                         </ul>
+                        <div class="flash-news-content">
+                            <div class="flash-news-scroll">
+                                <span class="flash-text">
+                                    <span class="flash-highlight">Free HubSpot Webinar</span>
+                                    Turn a 90-minute session into a high-impact career move •
+                                    <span class="flash-highlight">
+                                        &nbsp;For registration, 
+                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSei3lOdbnNkdP8Zht45pdHZHyTrbpMlojmkOZiYqWB48ODH4A/viewform" 
+                                           target="_blank">
+                                          click here
+                                        </a>!
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- header-lower -->
             <div class="header-lower">
                 <div class="outer-container">
