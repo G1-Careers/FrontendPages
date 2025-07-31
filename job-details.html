@@ -488,196 +488,175 @@
     <script src="assets/js/script.js"></script>
 
     <script>
+    // Set your backend API URL:
+    const API_BASE_URL = 'http://localhost:5000'; // Change this to your backend!
 
-        function setCanonicalUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const jobId = urlParams.get('jobId');
-            const canonicalLink = document.getElementById('canonical-link');
-            if (jobId) {
-                canonicalLink.setAttribute('href', `https://g1careers.com/job-details?jobId=${encodeURIComponent(jobId)}`);
-            } else {
-                canonicalLink.setAttribute('href', 'https://g1careers.com/job-details');
-            }
+    function setCanonicalUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('jobId');
+        const canonicalLink = document.getElementById('canonical-link');
+        if (jobId) {
+            canonicalLink.setAttribute('href', `https://g1careers.com/job-details?jobId=${encodeURIComponent(jobId)}`);
+        } else {
+            canonicalLink.setAttribute('href', 'https://g1careers.com/job-details');
         }
-        // Force hide preloader after 1 second
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                const loader = document.querySelector('.loader-wrap');
-                if (loader) {
-                    loader.style.display = 'none';
+    }
+
+    window.addEventListener('load', function () {
+        setCanonicalUrl();
+        setTimeout(function () {
+            const loader = document.querySelector('.loader-wrap');
+            if (loader) {
+                loader.style.display = 'none';
+            }
+        }, 1000);
+        loadJobDetails();
+    });
+
+    function loadJobDetails() {
+        const jobDetailsContainer = document.getElementById("job-details-container");
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('jobId');
+
+        if (!jobId) {
+            showNoDataMessage("No job ID provided. Please return to the Open Positions page to select a job.");
+            return;
+        }
+
+        // 1. Fetch all jobs from server API
+        fetch(`${API_BASE_URL}/api/staffing-orders/all-orders`)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                const jobsData = Array.isArray(data) ? data : (data.data || []);
+                // 2. Find the job by jobId
+                const job = jobsData.find(j => (j.jobId && (j.jobId.toString() === jobId)));
+                if (job) {
+                    renderJobDetails(job);
+                } else {
+                    showNoDataMessage("Job not found. Please check the job ID or return to the Open Positions page.");
                 }
-            }, 1000);
-        });
-
-        function loadJobDetails() {
-            const jobDetailsContainer = document.getElementById("job-details-container");
-            const urlParams = new URLSearchParams(window.location.search);
-            const jobId = urlParams.get('jobId');
-
-            if (!jobId) {
-                showNoDataMessage("No job ID provided. Please return to the Open Positions page to select a job.");
-                return;
-            }
-
-            const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
-            const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
-            const sheetName = "Active Requirements: Published to Vendors";
-            const range = `${sheetName}!A2:H1000`;
-
-            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const rows = data.values || [];
-                    const jobRow = rows.find(row => row[1] && row[1].startsWith(jobId + " :"));
-                    if (jobRow) {
-                        const job = [
-                            jobRow[0] || '', // Main Skills
-                            jobRow[1] || '', // Order ID - Requirement Title
-                            jobRow[2] || '', // Detailed JD
-                            jobRow[3] || '', // Location
-                            jobRow[4] || '', // Nature of Work
-                            jobRow[5] || '', // Time Zone
-                            jobRow[6] || '', // Number of Positions
-                            jobRow[7] || ''  // Type of Engagement
-                        ];
-                        renderJobDetails(job);
-                    } else {
-                        showNoDataMessage("Job not found. Please check the job ID or return to the Open Positions page.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Failed to fetch from Google Sheet:", error);
-                    showNoDataMessage("Error loading job data. Please try again later.");
-                });
-        }
-
-        function showNoDataMessage(message) {
-            const jobDetailsContainer = document.getElementById("job-details-container");
-            jobDetailsContainer.innerHTML = `
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="no-data-message">
-                        <p>${message}</p>
-                        <p style="margin-top: 15px;"><a href="openpositions.html" class="theme-btn btn-one">View Open Positions</a></p>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderJobDetails(job) {
-            const jobDetailsContainer = document.getElementById("job-details-container");
-            const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-
-            document.querySelector(".page-title h1").textContent = orderIdTitle || "Job Details";
-
-            jobDetailsContainer.innerHTML = `
-                <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-                    <div class="job-sidebar mr_40">
-                        <div class="info-widget sidebar-widget mb_30">
-                            <ul class="clearfix">
-                                ${location ? `<li><h5><i class="fa-solid fa-map-marker-alt"></i> Location</h5><p>${location}</p></li>` : ''}
-                                <li><h5><i class="fa-solid fa-globe"></i> Website</h5><p><a href="https://g1careers.com">https://g1careers.com</a></p></li>
-                                ${engagement ? `<li><h5><i class="fa-solid fa-briefcase"></i> Type</h5><p>${engagement}</p></li>` : ''}
-                                ${numPositions ? `<li><h5><i class="fa-solid fa-users"></i> Positions</h5><p>${numPositions}</p></li>` : ''}
-                                ${timeZone ? `<li><h5><i class="fa-solid fa-clock"></i> Time Zone</h5><p>${timeZone}</p></li>` : ''}
-                            </ul>
-                        </div>
-                        <div class="requirements-widget sidebar-widget">
-                            <h3>Requirements</h3>
-                            <ul class="clearfix">
-                                ${mainSkills ? `<li><span><i class="fa-solid fa-tools"></i> Main Skills:</span> ${mainSkills}</li>` : ''}
-                                ${natureOfWork ? `<li><span><i class="fa-solid fa-tasks"></i> Nature of Work:</span> ${natureOfWork}</li>` : ''}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-                    <div class="job-details-content">
-                        <div class="text-box mb_60">
-                            <h3>Job Description</h3>
-                            <p>${(detailedJD || "No detailed job description available.").replace(/\n/g, "<br>")}</p>
-                        </div>
-                        <div class="text-box mb_55">
-                            <h3>Responsibilities</h3>
-                            <ul class="list-item">
-                                ${mainSkills ? `<li>Apply skills such as ${mainSkills} to meet job requirements.</li>` : ''}
-                                ${location ? `<li>Work in ${location} as per ${timeZone || "relevant timezone"}.</li>` : ''}
-                                ${natureOfWork ? `<li>Engage in ${natureOfWork} for project success.</li>` : ''}
-                            </ul>
-                        </div>
-                        <div class="text-box mb_65">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
-                               target="_blank" 
-                               class="theme-btn btn-one">Apply Now</a>
-                            <a href="#" onclick="copyJobUrl()" class="theme-btn btn-two">Share</a>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function copyJobUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const jobId = urlParams.get('jobId');
-
-            if (!jobId) {
-                showNotification("No job ID available to share!", "error");
-                return;
-            }
-
-            const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
-
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                showNotification("Job URL copied to clipboard!", "success");
-            }).catch(err => {
-                console.error("Failed to copy URL:", err);
-                showNotification("Failed to copy URL. Please try again.", "error");
+            })
+            .catch(error => {
+                showNoDataMessage("Error loading job data. Please try again later.");
             });
+    }
+
+    function showNoDataMessage(message) {
+        const jobDetailsContainer = document.getElementById("job-details-container");
+        jobDetailsContainer.innerHTML = `
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="no-data-message">
+                    <p>${message}</p>
+                    <p style="margin-top: 15px;"><a href="openpositions.html" class="theme-btn btn-one">View Open Positions</a></p>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderJobDetails(job) {
+        const jobDetailsContainer = document.getElementById("job-details-container");
+
+        // Set title in page
+        document.querySelector(".page-title h1").textContent = job.requirementTitle || "Job Details";
+
+        jobDetailsContainer.innerHTML = `
+            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                <div class="job-sidebar mr_40">
+                    <div class="info-widget sidebar-widget mb_30">
+                        <ul class="clearfix">
+                            ${job.clientLocation ? `<li><h5><i class="fa-solid fa-map-marker-alt"></i> Location</h5><p>${job.clientLocation}</p></li>` : ''}
+                            <li><h5><i class="fa-solid fa-globe"></i> Website</h5><p><a href="https://g1careers.com">https://g1careers.com</a></p></li>
+                            ${job.typeOfEngagement ? `<li><h5><i class="fa-solid fa-briefcase"></i> Type</h5><p>${job.typeOfEngagement}</p></li>` : ''}
+                            ${job.numberOfPositions ? `<li><h5><i class="fa-solid fa-users"></i> Positions</h5><p>${job.numberOfPositions}</p></li>` : ''}
+                            ${job.natureOfWork ? `<li><h5><i class="fa-solid fa-tasks"></i> Nature of Work</h5><p>${job.natureOfWork}</p></li>` : ''}
+                        </ul>
+                    </div>
+                    <div class="requirements-widget sidebar-widget">
+                        <h3>Requirements</h3>
+                        <ul class="clearfix">
+                            ${job.mainSkill ? `<li><span><i class="fa-solid fa-tools"></i> Main Skills:</span> ${job.mainSkill}</li>` : ''}
+                            ${job.requiredDocuments && job.requiredDocuments.length > 0 
+                                ? `<li><span><i class="fa-solid fa-file"></i> Required Documents:</span> ${job.requiredDocuments.join(", ").toUpperCase()}</li>` : ""}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                <div class="job-details-content">
+                    <div class="text-box mb_60">
+                        <h3>Job Description</h3>
+                        <p>${(job.detailedJD || "No detailed job description available.").replace(/\n/g, "<br>")}</p>
+                    </div>
+                    <div class="text-box mb_55">
+                        <h3>Responsibilities</h3>
+                        <ul class="list-item">
+                            ${job.mainSkill ? `<li>Apply skills such as ${job.mainSkill} to meet job requirements.</li>` : ''}
+                            ${job.clientLocation ? `<li>Work in ${job.clientLocation}.</li>` : ''}
+                            ${job.natureOfWork ? `<li>Engage in ${job.natureOfWork} for project success.</li>` : ''}
+                        </ul>
+                    </div>
+                    <div class="text-box mb_65">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSckcYGNcdqcuFT6x9aSjuqb9x6OcmzppmRHKFzH5IS8ohPQpg/viewform" 
+                           target="_blank" 
+                           class="theme-btn btn-one">Apply Now</a>
+                        <a href="#" onclick="copyJobUrl()" class="theme-btn btn-one">Share</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function copyJobUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('jobId');
+        if (!jobId) {
+            showNotification("No job ID available to share!", "error");
+            return;
         }
+        const shareUrl = `https://g1careers.com/job-details.html?jobId=${encodeURIComponent(jobId)}`;
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            showNotification("Job URL copied to clipboard!", "success");
+        }).catch(err => {
+            showNotification("Failed to copy URL. Please try again.", "error");
+        });
+    }
 
-        function showNotification(message, type = "success") {
-            const existingNotification = document.getElementById("page-notification");
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-
-            const notification = document.createElement("div");
-            notification.id = "page-notification";
-            notification.innerHTML = message;
-
-            notification.style.position = "fixed";
-            notification.style.bottom = "20px";
-            notification.style.left = "50%";
-            notification.style.transform = "translateX(-50%)";
-            notification.style.padding = "12px 24px";
-            notification.style.borderRadius = "4px";
-            notification.style.fontWeight = "500";
-            notification.style.zIndex = "9999";
-            notification.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
-
-            if (type === "success") {
-                notification.style.backgroundColor = "#7ED957";
-                notification.style.color = "#fff";
-            } else {
-                notification.style.backgroundColor = "#f44336";
-                notification.style.color = "#fff";
-            }
-
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.style.opacity = "0";
-                notification.style.transition = "opacity 0.5s ease";
-                setTimeout(() => notification.remove(), 500);
-            }, 3000);
+    function showNotification(message, type = "success") {
+        const existingNotification = document.getElementById("page-notification");
+        if (existingNotification) {
+            existingNotification.remove();
         }
+        const notification = document.createElement("div");
+        notification.id = "page-notification";
+        notification.innerHTML = message;
+        notification.style.position = "fixed";
+        notification.style.bottom = "20px";
+        notification.style.left = "50%";
+        notification.style.transform = "translateX(-50%)";
+        notification.style.padding = "12px 24px";
+        notification.style.borderRadius = "4px";
+        notification.style.fontWeight = "500";
+        notification.style.zIndex = "9999";
+        notification.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+        if (type === "success") {
+            notification.style.backgroundColor = "#7ED957";
+            notification.style.color = "#fff";
+        } else {
+            notification.style.backgroundColor = "#f44336";
+            notification.style.color = "#fff";
+        }
+        document.body.appendChild(notification);
+        setTimeout(() => {
+            notification.style.opacity = "0";
+            notification.style.transition = "opacity 0.5s ease";
+            setTimeout(() => notification.remove(), 500);
+        }, 3000);
+    }
+</script>
 
-        window.onload = loadJobDetails;
-    </script>
 </body>
 
 </html>
