@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,15 @@
     <title>Open Positions</title>
 
     <link rel="canonical" href="https://g1careers.com/openpositions" />
-    <meta name="description" content="Explore open job positions at G1Careers. Find opportunities in various industries and apply today!">
+    <meta name="description"
+        content="Explore open job positions at G1Careers. Find opportunities in various industries and apply today!">
 
     <!-- Fav Icon -->
     <link rel="icon" href="assets/images/logos.png" type="image/x-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
     <link href="assets/css/flaticon.css" rel="stylesheet">
@@ -36,118 +39,145 @@
     <link href="assets/css/responsive.css" rel="stylesheet">
 
     <style>
-       /* Enhanced Button Styling for Job Listings */
-      
-/* Enhanced Button Styling for Job Listings */
-.btn-box {
-    display: flex;
-    gap: 10px; /* Reduced gap for better spacing */
-    margin-top: 10px; /* Reduced spacing above buttons */
-    flex-direction: row; /* Horizontal by default */
-    justify-content: flex-start; /* Align buttons to the left */
-}
-.title-box h3 {
-    max-width: 300px; /* Adjust this value based on your design */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-}
+        /* Enhanced Button Styling for Job Listings */
 
-/* Base Button Styling */
-.btn-box a {
-    flex: 0 1 auto; /* Allow buttons to shrink and grow as needed */
-    text-align: center;
-    padding: 8px 20px; /* Decreased size for normal view */
-    font-size: 14px; /* Smaller font size for better fit */
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500; /* Slightly lighter font weight for better readability */
-    border-radius: 25px; /* More rounded edges to match the image */
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    min-width: 100px; /* Reduced min-width for smaller buttons */
-}
+        /* Enhanced Button Styling for Job Listings */
+        .btn-box {
+            display: flex;
+            gap: 10px;
+            /* Reduced gap for better spacing */
+            margin-top: 10px;
+            /* Reduced spacing above buttons */
+            flex-direction: row;
+            /* Horizontal by default */
+            justify-content: flex-start;
+            /* Align buttons to the left */
+        }
 
-/* View Details Button */
-.btn-box a:first-child {
-    background: #ffffff;
-    border: 2px solid #7ED957;
-    color: #7ED957;
-}
+        .title-box h3 {
+            max-width: 300px;
+            /* Adjust this value based on your design */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
 
-.btn-box a:first-child:hover {
-    background: #f8fff4;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(126,217,87,0.2);
-}
+        /* Base Button Styling */
+        .btn-box a {
+            flex: 0 1 auto;
+            /* Allow buttons to shrink and grow as needed */
+            text-align: center;
+            padding: 8px 20px;
+            /* Decreased size for normal view */
+            font-size: 14px;
+            /* Smaller font size for better fit */
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            /* Slightly lighter font weight for better readability */
+            border-radius: 25px;
+            /* More rounded edges to match the image */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-width: 100px;
+            /* Reduced min-width for smaller buttons */
+        }
 
-/* Apply Button */
-.btn-box a:last-child {
-    background: #7ED957;
-    color: #000000;
-    border: 2px solid #7ED957;
-}
+        /* View Details Button */
+        .btn-box a:first-child {
+            background: #ffffff;
+            border: 2px solid #7ED957;
+            color: #7ED957;
+        }
 
-.btn-box a:last-child:hover {
-    background: #70c64c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(126,217,87,0.3);
-}
+        .btn-box a:first-child:hover {
+            background: #f8fff4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(126, 217, 87, 0.2);
+        }
 
-/* Add a subtle animation on click */
-.btn-box a:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
+        /* Apply Button */
+        .btn-box a:last-child {
+            background: #7ED957;
+            color: #000000;
+            border: 2px solid #7ED957;
+        }
 
-@media (max-width: 768px) {
-    .btn-box {
-        gap: 10px; /* Slightly larger gap for better spacing */
-        flex-direction: row; /* Keep buttons side-by-side */
-        justify-content: flex-start; /* Align buttons to the left */
-    }
-    
-    .btn-box a {
-        padding: 6px 15px; /* Adjusted padding to match the image proportions */
-        font-size: 13px; /* Smaller font size for mobile */
-        min-width: 80px; /* Reduced min-width to fit smaller buttons */
-        border-radius: 20px; /* Less rounded edges to match the image */
-    }
-}
+        .btn-box a:last-child:hover {
+            background: #70c64c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(126, 217, 87, 0.3);
+        }
 
-@media (max-width: 576px) {
-    .btn-box {
-        flex-direction: row; /* Side-by-side buttons on mobile, as shown in the image */
-        gap: 10px;
-        justify-content: flex-start; /* Align buttons to the left */
-    }
-    
-    .btn-box a {
-        padding: 6px 15px; /* Same padding as above for consistency */
-        font-size: 13px;
-        width: auto; /* Let the button width adjust to content */
-        min-width: 80px; /* Ensure buttons are not too small */
-        border-radius: 50px; /* Match the rectangular shape with rounded edges */
-    }
-    
-}
+        /* Add a subtle animation on click */
+        .btn-box a:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
 
-/* Tablet adjustments */
-@media (min-width: 577px) and (max-width: 768px) {
-    .btn-box {
-        flex-direction: row; /* Side-by-side for tablets */
-        gap: 10px;
-    }
-    
-    .btn-box a {
-        padding: 6px 15px;
-        font-size: 13px;
-    }
-}
+        @media (max-width: 768px) {
+            .btn-box {
+                gap: 10px;
+                /* Slightly larger gap for better spacing */
+                flex-direction: row;
+                /* Keep buttons side-by-side */
+                justify-content: flex-start;
+                /* Align buttons to the left */
+            }
+
+            .btn-box a {
+                padding: 6px 15px;
+                /* Adjusted padding to match the image proportions */
+                font-size: 13px;
+                /* Smaller font size for mobile */
+                min-width: 80px;
+                /* Reduced min-width to fit smaller buttons */
+                border-radius: 20px;
+                /* Less rounded edges to match the image */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn-box {
+                flex-direction: row;
+                /* Side-by-side buttons on mobile, as shown in the image */
+                gap: 10px;
+                justify-content: flex-start;
+                /* Align buttons to the left */
+            }
+
+            .btn-box a {
+                padding: 6px 15px;
+                /* Same padding as above for consistency */
+                font-size: 13px;
+                width: auto;
+                /* Let the button width adjust to content */
+                min-width: 80px;
+                /* Ensure buttons are not too small */
+                border-radius: 50px;
+                /* Match the rectangular shape with rounded edges */
+            }
+
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .btn-box {
+                flex-direction: row;
+                /* Side-by-side for tablets */
+                gap: 10px;
+            }
+
+            .btn-box a {
+                padding: 6px 15px;
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="boxed_wrapper ltr">
         <!-- preloader -->
@@ -168,7 +198,7 @@
                             <span data-text-preloader="r" class="letters-loading">r</span>
                             <span data-text-preloader="s" class="letters-loading">s</span>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -189,7 +219,7 @@
                     <h4>Contact Info</h4>
                     <ul>
                         <li>3rd Floor, Ratnam Chambers, Phase - II, H.No.1-62/172, Plot No.172, Kavuri Hills, Madhapur, Telangana 500081</li>
-                        <li><a href="tel:+91 81237 00851">+91 81237 00851</a></li>
+                        <li><a href="tel:+918123700851">+91 8123700851</a></li>
                         <li><a href="mailto:delivery@g1careers.com">delivery@g1careers.com</a></li>
                     </ul>
                 </div>
@@ -251,51 +281,51 @@
     <script>
         function groupJobsBySkills(jobs) {
             const groups = {};
-            
+
             jobs.forEach((job, index) => {
                 const mainSkills = job[0] || "Other"; // First element is mainSkills
                 // Extract primary skill (first word/phrase before any comma )
                 const primarySkill = mainSkills.split(/[,]/)[0].trim();
-                
+
                 if (!groups[primarySkill]) {
                     groups[primarySkill] = [];
                 }
-                
+
                 groups[primarySkill].push({ job, index });
             });
-            
+
             return groups;
         }
-    
+
         let globalJobs = [];
         const sheetID = "1zGbFmscDeEDXBqyDCLk66dgJqlSgTYixjwB83TS9Waw";
         const apiKey = "AIzaSyAyGVBws0phyRV4sqNLCVDHNILaM17cHso";
         const sheetName = "Active Requirements: Published to Vendors";
         const range = `${sheetName}!A2:H1000`;
-    
+
         window.onload = fetchSheetData;
-    
+
         async function fetchSheetData() {
             const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${encodeURIComponent(range)}?key=${apiKey}`;
             const errorDiv = document.getElementById("errorDetails");
             const jobContainer = document.getElementById("jobContainer");
-    
+
             try {
                 const response = await fetch(url);
                 const responseText = await response.text();
-    
+
                 if (!response.ok) {
                     errorDiv.textContent = `Error: ${response.status} - ${responseText}`;
                     return;
                 }
-    
+
                 const data = JSON.parse(responseText);
-    
+
                 if (!data.values || data.values.length <= 1) {
                     errorDiv.textContent = "No job listings found.";
                     return;
                 }
-    
+
                 const jobs = data.values.slice(1);
                 globalJobs = jobs;
                 displayJobs(jobs);
@@ -303,22 +333,22 @@
                 errorDiv.textContent = `Error: ${error.message}`;
             }
         }
-    
+
         function displayJobs(jobs) {
             const jobContainer = document.getElementById("jobContainer");
             jobContainer.innerHTML = "";
-            
+
             // Group jobs by skills
             const groupedJobs = groupJobsBySkills(jobs);
-            
+
             // Create a container for all groups
             Object.keys(groupedJobs).sort().forEach(skillGroup => {
                 const groupJobs = groupedJobs[skillGroup];
-                
+
                 // Create group section
                 const groupSection = document.createElement("div");
                 groupSection.className = "skill-group mb-4";
-                
+
                 // Create collapsible header
                 const header = document.createElement("div");
                 header.className = "skill-header p-3 bg-light rounded d-flex justify-content-between align-items-center";
@@ -330,16 +360,16 @@
                     <h4 style="margin: 0;">${skillGroup} <span class="badge bg-success">${groupJobs.length}</span></h4>
                     <span class="toggle-icon"></span>
                 `;
-                
+
                 // Create collapsible content
                 const content = document.createElement("div");
                 content.className = "skill-content";
                 content.style.display = "none"; // Initially hidden
-                
+
                 // Add jobs to this group
                 groupJobs.forEach(({ job, index }) => {
                     const [mainSkills, orderIdTitle, detailedJD, location, natureOfWork, timeZone, numPositions, engagement] = job;
-                    
+
                     const jobBlock = document.createElement("div");
                     jobBlock.className = "job-block-one";
                     jobBlock.innerHTML = `
@@ -374,12 +404,12 @@
                             </div>
                         </div>
                     `;
-                    
+
                     content.appendChild(jobBlock);
                 });
-                
+
                 // Add toggle functionality
-                header.addEventListener("click", function() {
+                header.addEventListener("click", function () {
                     if (content.style.display === "none") {
                         content.style.display = "block";
                         header.querySelector(".toggle-icon").textContent = "";
@@ -388,15 +418,15 @@
                         header.querySelector(".toggle-icon").textContent = "";
                     }
                 });
-                
+
                 // Add header and content to group section
                 groupSection.appendChild(header);
                 groupSection.appendChild(content);
-                
+
                 // Add group section to container
                 jobContainer.appendChild(groupSection);
             });
-            
+
             // Add some CSS for styling
             const style = document.createElement("style");
             style.textContent = `
@@ -417,7 +447,7 @@
             `;
             document.head.appendChild(style);
         }
-    
+
         function viewJobDetails(index) {
             const job = globalJobs[index];
             const orderIdTitle = job[1]; // Second column: Order ID - Requirement Title
@@ -430,4 +460,5 @@
         }
     </script>
 </body>
+
 </html>
