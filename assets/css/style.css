@@ -415,7 +415,13 @@ html.lenis {
 }
 
 .theme-btn.btn-two{
-  background: #111;
+  background: var(--theme-color-2);
+  color: #fff !important;
+}
+
+.theme-btn.btn-two:hover{
+  background: var(--theme-color);
+  color: var(--title-color) !important;
 }
 
 .theme-btn:before{
