@@ -8,66 +8,46 @@
 <!-- Homepage -->
 <url>
   <loc>https://g1careers.com/</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 
 <!-- Core Pages -->
 <url>
   <loc>https://g1careers.com/about.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://g1careers.com/contact.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://g1careers.com/openpositions.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   <priority>0.90</priority>
 </url>
 <url>
   <loc>https://g1careers.com/faq.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   <priority>0.70</priority>
 </url>
 <url>
   <loc>https://g1careers.com/deletepolicy.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://g1careers.com/privacypolicy.html</loc>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 
 <!-- Training Programs -->
 <url>
-  <loc>https://g1careers.com/flutter.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://g1careers.com/java-angular.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://g1careers.com/hubspot.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://g1careers.com/playwright.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://g1careers.com/corejava.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://g1careers.com/datascience_machinelearning.html</loc>
-  <lastmod>2026-02-25T10:00:00+00:00</lastmod>
+  <loc>https://g1careers.com/training-programs.html</loc>
+  <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

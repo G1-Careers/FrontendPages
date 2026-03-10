@@ -1,8 +1,14 @@
 User-agent: *
+<<<<<<< HEAD
 Allow: /job-details?jobId=
 Disallow: /job-details$
 Disallow: /bench/
 Disallow: /open-positions/--
 Disallow: /open-positions/
 Allow: /openpositions/
+=======
+Allow: /
+Disallow: /shared/
+
+>>>>>>> d888e557a9e1d9aaed1816278ee45b37bbf90677
 Sitemap: https://g1careers.com/sitemap.xml
